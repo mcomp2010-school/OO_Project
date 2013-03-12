@@ -1,4 +1,4 @@
-package org.Iterators;
+package org.iterators;
 
 // TODO: Auto-generated Javadoc
 /**

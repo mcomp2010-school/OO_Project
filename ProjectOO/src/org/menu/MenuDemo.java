@@ -1,10 +1,10 @@
 package org.menu;
 
-import org.Iterators.CompleteMenuIterator;
-import org.Iterators.HeartHealthyMenuIterator;
-import org.Iterators.IngredientMenuIterator;
-import org.Iterators.MenuIterator;
-import org.Iterators.PriceMenuIterator;
+import org.iterators.CompleteMenuIterator;
+import org.iterators.HeartHealthyMenuIterator;
+import org.iterators.IngredientMenuIterator;
+import org.iterators.MenuIterator;
+import org.iterators.PriceMenuIterator;
 
 /**
  * The Class Client.

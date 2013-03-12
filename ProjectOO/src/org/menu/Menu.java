@@ -3,7 +3,7 @@ package org.menu;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import org.Iterators.MenuIterator;
+import org.iterators.MenuIterator;
 
 /**
  * The Class Menu.
