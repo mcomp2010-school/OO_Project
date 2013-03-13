@@ -26,10 +26,20 @@ public class TableDemo {
 		System.out.println("Tables");
 		System.out.println(Tables);
 		
+		//Make Table Not Available
 		Tables.makeTableNotAvailable(5);
 		System.out.println("-------");
 		System.out.println("Tables");
 		System.out.println(Tables);
+		
+		//Delete Table 4,Modify Size of Table, Make Table Available
+		Tables.deleteTable(3);
+		Tables.modifyTableSize(2, 5);
+		Tables.makeTableAvailable(5);
+		System.out.println("-------");
+		System.out.println("Tables");
+		System.out.println(Tables);
+		
 		
 	}
 

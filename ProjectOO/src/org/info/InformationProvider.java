@@ -7,6 +7,7 @@ import org.info.menu.iterators.HeartHealthyMenuIterator;
 import org.info.menu.iterators.IngredientMenuIterator;
 import org.info.menu.iterators.MenuIterator;
 import org.info.menu.iterators.PriceMenuIterator;
+import org.info.table.TableManager;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -15,7 +16,10 @@ import org.info.menu.iterators.PriceMenuIterator;
 public class InformationProvider {
 	
 	/** The Menu obj. */
-	private static Menu MenuObj= new Menu();
+	private Menu MenuObj= new Menu();
+	
+	/** The Tables. */
+	private TableManager Tables=new TableManager();
 	
 	/** The singleton object. */
 	private static InformationProvider singletonObject;
@@ -38,6 +42,14 @@ public class InformationProvider {
 		MenuObj.addItem("Chocolate Chip Cookie Sundae", 3.20, "Ice Cream",false);
 		MenuObj.addItem("Maple Butter Blondie", 3.99, "Ice Cream",false);
 		
+		//Adding Tables
+		Tables.add(1, 4);
+		Tables.add(2, 4);
+		Tables.add(3, 5);
+		Tables.add(4, 6);
+		Tables.add(5, 6);
+		Tables.add(6, 2);
+		Tables.add(7, 2);
 		
 	}
 	
