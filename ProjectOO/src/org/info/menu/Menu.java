@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 import org.apache.commons.io.FileUtils;
 import org.info.menu.iterators.MenuIterator;
@@ -180,12 +181,54 @@ public class Menu {
 		return true;
 	}
 
+	public void loadXML(String FileName){
+		this.MenuList.clear();
+		
+		File file = new File(FileName);
+		List<String> lines = null;
+		try {
+			lines = FileUtils.readLines(file);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		StringBuilder tempbuffer=new StringBuilder();
+		
+		boolean onRecord=false;
+		
+		for (int i = 0; i < lines.size(); i++) {
+			String currentlineString=lines.get(i);
+			
+			if(currentlineString.contains("<MenuItem>")){
+				onRecord=true;
+			}
+			
+			if(onRecord==true){
+				tempbuffer.append(currentlineString);
+			}
+			
+			if(currentlineString.contains("</MenuItem>")){
+				onRecord=false;
+				//System.out.println(tempbuffer.toString());
+				
+				XStream xstream = new XStream();
+				xstream.alias("MenuItem", MenuItem.class);
+				MenuItem tempMenuItem=(MenuItem)xstream.fromXML(tempbuffer.toString());
+				
+				//System.out.println(tempMenuItem);
+				MenuList.add( tempMenuItem);
+				tempbuffer.setLength(0);
+			}
+		} 
+	}
+	
 	public String getXML(){
 		StringBuilder Output=new StringBuilder();
 		Output.append("<?xml version=\"1.0\"?>\n");
 		Output.append("<root>\n");
 		
-		XStream xstream = new XStream(new DomDriver()); // does not require XPP3 library
+		XStream xstream = new XStream(); 
 		xstream.alias("MenuItem", MenuItem.class);
 		
 		for (int i = 0; i < MenuList.size(); i++) {
