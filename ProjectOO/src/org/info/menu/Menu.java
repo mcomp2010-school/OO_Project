@@ -6,9 +6,16 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
+
 import org.apache.commons.io.FileUtils;
 import org.info.menu.iterators.MenuIterator;
 import org.info.table.Table;
+import org.shared.performance.Timing;
 
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
@@ -18,6 +25,9 @@ import com.thoughtworks.xstream.io.xml.DomDriver;
  * The Class Menu.
  */
 public class Menu {
+	
+	private boolean StopWatchPerformance=true;
+	private Timing Clock1=new Timing();
 	
 	/** The Menu list. */
 	private ArrayList<MenuItem> MenuList= new ArrayList<MenuItem>();
@@ -188,11 +198,15 @@ public class Menu {
 	 * @param FileName the file name
 	 */
 	public void loadXML(String FileName){
+		Clock1.start();
 		XStream xstream = new XStream();
 		xstream.alias("MenuItem", MenuItem.class);  
+		if(StopWatchPerformance)System.err.println(this.getClass().getName()+".loadXML() > xStream :"+Clock1.stop_SecDouble());
+		
 		
 		this.MenuList.clear();
 		
+		Clock1.start();
 		File file = new File(FileName);
 		String lines = null;
 		try {
@@ -201,9 +215,12 @@ public class Menu {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		if(StopWatchPerformance)System.err.println(this.getClass().getName()+".loadXML() > loading file :"+Clock1.stop_SecDouble());
 		
-
+		Clock1.start();
 		ArrayList<MenuItem> tempTable=(ArrayList<MenuItem>)xstream.fromXML(lines.toString());
+		if(StopWatchPerformance)System.err.println(this.getClass().getName()+".loadXML() > xml serialization :"+Clock1.stop_SecDouble());
+		
 		this.MenuList=tempTable;
 	}
 	
@@ -223,6 +240,23 @@ public class Menu {
 		return Output.toString();
 	}
 	
+	
+	public String getXML_JAXB(){
+		try {
+		JAXBContext context = JAXBContext.newInstance(MenuItem.class);
+	    Marshaller m = context.createMarshaller();
+	    m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+
+	    // Write to System.out
+	  
+			m.marshal(this.MenuList, System.out);
+		} catch (JAXBException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	    
+	    return "";
+	}
 	/**
 	 * Save xml.
 	 *

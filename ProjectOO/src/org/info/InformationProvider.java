@@ -16,6 +16,9 @@ import org.shared.performance.Timing;
  */
 public class InformationProvider {
 	
+	private boolean StopWatchPerformance=true;
+	private Timing Clock1=new Timing();
+	
 	/** The Menu obj. */
 	private Menu MenuObj= new Menu();
 	
@@ -24,9 +27,6 @@ public class InformationProvider {
 	
 	/** The singleton object. */
 	private static InformationProvider singletonObject;
-	
-	/** The Clock1. */
-	Timing Clock1=new Timing();
 	
 	/**
 	 * Instantiates a new information provider.
@@ -43,7 +43,7 @@ public class InformationProvider {
 		//Adding Tables
 		Tables.loadXML("data\\Table.xml");
 		
-		System.out.println(this.getClass().getName()+".InformationProvider():"+Clock1.stop_SecDouble());
+		if(StopWatchPerformance)System.err.println(this.getClass().getName()+".InformationProvider():"+Clock1.stop_SecDouble());
 	}
 	
 	/**

@@ -8,6 +8,7 @@ import java.util.List;
 
 import org.apache.commons.io.FileUtils;
 import org.info.menu.MenuItem;
+import org.shared.performance.Timing;
 
 import com.thoughtworks.xstream.XStream;
 
@@ -16,6 +17,10 @@ import com.thoughtworks.xstream.XStream;
  * The Class TableManager.
  */
 public class TableManager {
+	
+	private boolean StopWatchPerformance=false;
+	private Timing Clock1=new Timing();
+	
 	/** The Tables. */
 	private ArrayList<Table> Tables=new ArrayList<Table>();
 	
