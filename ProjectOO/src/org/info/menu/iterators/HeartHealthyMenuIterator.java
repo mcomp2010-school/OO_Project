@@ -1,14 +1,12 @@
-package org.iterators;
+package org.info.menu.iterators;
 
-import org.menu.Menu;
-import org.menu.MenuItem;
+import org.info.menu.Menu;
+import org.info.menu.MenuItem;
 
-
-// TODO: Auto-generated Javadoc
 /**
- * The Class PriceMenuIterator.
+ * The Class HeartHealthyMenuIterator.
  */
-public class PriceMenuIterator implements MenuIterator {
+public class HeartHealthyMenuIterator implements MenuIterator {
 
 	/** The base. */
 	private Menu base;
@@ -21,7 +19,7 @@ public class PriceMenuIterator implements MenuIterator {
 	 *
 	 * @param menuObj the menu obj
 	 */
-	public PriceMenuIterator(Menu menuObj) {
+	public HeartHealthyMenuIterator(Menu menuObj) {
 		// TODO Auto-generated constructor stub
 		this.base=menuObj;
 		findItem();
@@ -35,7 +33,7 @@ public class PriceMenuIterator implements MenuIterator {
 		while(hasNext()){
 			//System.out.println("loop");
 			MenuItem aniObj = base.get(position);
-			if(aniObj.getPrice()<=4.99){
+			if(aniObj.isHeartHealthy()==true){
 				//position++;
 				//System.out.println(aniObj+"<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
 				break;
@@ -51,7 +49,7 @@ public class PriceMenuIterator implements MenuIterator {
 	 */
 	@Override
 	public boolean hasNext() {
-		//System.out.println("hasNext="+position+"<<<<<<<<<<<<<"+base.size()+"\t"+(position < base.size()));
+		//System.out.println("hasNext="+position+"<<<<<<<<<<<<<"+base.size());
 		if (position < base.size()){
 			return true;
 		}
@@ -85,4 +83,5 @@ public class PriceMenuIterator implements MenuIterator {
 		// TODO Auto-generated method stub
 
 	}
+
 }

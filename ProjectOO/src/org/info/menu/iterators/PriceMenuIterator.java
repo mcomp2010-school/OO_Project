@@ -1,14 +1,14 @@
-package org.iterators;
+package org.info.menu.iterators;
 
-import org.menu.Menu;
-import org.menu.MenuItem;
+import org.info.menu.Menu;
+import org.info.menu.MenuItem;
 
 
 // TODO: Auto-generated Javadoc
 /**
- * The Class IngredientMenuIterator.
+ * The Class PriceMenuIterator.
  */
-public class IngredientMenuIterator implements MenuIterator  {
+public class PriceMenuIterator implements MenuIterator {
 
 	/** The base. */
 	private Menu base;
@@ -21,11 +21,12 @@ public class IngredientMenuIterator implements MenuIterator  {
 	 *
 	 * @param menuObj the menu obj
 	 */
-	public IngredientMenuIterator(Menu menuObj) {
+	public PriceMenuIterator(Menu menuObj) {
 		// TODO Auto-generated constructor stub
 		this.base=menuObj;
 		findItem();
 	}
+
 
 	/**
 	 * Find item.
@@ -34,7 +35,7 @@ public class IngredientMenuIterator implements MenuIterator  {
 		while(hasNext()){
 			//System.out.println("loop");
 			MenuItem aniObj = base.get(position);
-			if(aniObj.getMainIngredient().equals("Chicken")){
+			if(aniObj.getPrice()<=4.99){
 				//position++;
 				//System.out.println(aniObj+"<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
 				break;
@@ -84,5 +85,4 @@ public class IngredientMenuIterator implements MenuIterator  {
 		// TODO Auto-generated method stub
 
 	}
-
 }

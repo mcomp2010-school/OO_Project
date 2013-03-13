@@ -1,4 +1,4 @@
-package org.menu;
+package org.info.menu;
 
 // TODO: Auto-generated Javadoc
 /**

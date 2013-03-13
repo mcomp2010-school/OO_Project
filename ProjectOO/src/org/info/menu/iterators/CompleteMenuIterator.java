@@ -1,9 +1,9 @@
-package org.iterators;
+package org.info.menu.iterators;
 
 import java.util.ArrayList;
 
-import org.menu.Menu;
-import org.menu.MenuItem;
+import org.info.menu.Menu;
+import org.info.menu.MenuItem;
 
 
 // TODO: Auto-generated Javadoc

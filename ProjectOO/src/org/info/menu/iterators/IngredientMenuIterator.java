@@ -1,12 +1,14 @@
-package org.iterators;
+package org.info.menu.iterators;
 
-import org.menu.Menu;
-import org.menu.MenuItem;
+import org.info.menu.Menu;
+import org.info.menu.MenuItem;
 
+
+// TODO: Auto-generated Javadoc
 /**
- * The Class HeartHealthyMenuIterator.
+ * The Class IngredientMenuIterator.
  */
-public class HeartHealthyMenuIterator implements MenuIterator {
+public class IngredientMenuIterator implements MenuIterator  {
 
 	/** The base. */
 	private Menu base;
@@ -19,12 +21,11 @@ public class HeartHealthyMenuIterator implements MenuIterator {
 	 *
 	 * @param menuObj the menu obj
 	 */
-	public HeartHealthyMenuIterator(Menu menuObj) {
+	public IngredientMenuIterator(Menu menuObj) {
 		// TODO Auto-generated constructor stub
 		this.base=menuObj;
 		findItem();
 	}
-
 
 	/**
 	 * Find item.
@@ -33,7 +34,7 @@ public class HeartHealthyMenuIterator implements MenuIterator {
 		while(hasNext()){
 			//System.out.println("loop");
 			MenuItem aniObj = base.get(position);
-			if(aniObj.isHeartHealthy()==true){
+			if(aniObj.getMainIngredient().equals("Chicken")){
 				//position++;
 				//System.out.println(aniObj+"<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
 				break;
@@ -49,7 +50,7 @@ public class HeartHealthyMenuIterator implements MenuIterator {
 	 */
 	@Override
 	public boolean hasNext() {
-		//System.out.println("hasNext="+position+"<<<<<<<<<<<<<"+base.size());
+		//System.out.println("hasNext="+position+"<<<<<<<<<<<<<"+base.size()+"\t"+(position < base.size()));
 		if (position < base.size()){
 			return true;
 		}

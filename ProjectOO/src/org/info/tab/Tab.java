@@ -1,4 +1,4 @@
-package org.tab;
+package org.info.tab;
 
 public class Tab {
 

@@ -1,9 +1,9 @@
-package org.menu;
+package org.info.menu;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import org.iterators.MenuIterator;
+import org.info.menu.iterators.MenuIterator;
 
 /**
  * The Class Menu.
