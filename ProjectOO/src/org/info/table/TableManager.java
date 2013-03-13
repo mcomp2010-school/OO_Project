@@ -34,6 +34,7 @@ public class TableManager {
 	 *
 	 * @param tableID the table id
 	 * @param size the size
+	 * @return true, if successful
 	 */
 	public boolean add(Integer tableID, Integer size){
 		if(this.checkIfExist(tableID)){
@@ -49,6 +50,7 @@ public class TableManager {
 	 * Make table available.
 	 *
 	 * @param tableID the table id
+	 * @return true, if successful
 	 */
 	public boolean makeTableAvailable(Integer tableID){
 		Table tempTable=this.getTable(tableID);
@@ -65,6 +67,7 @@ public class TableManager {
 	 * Make table not available.
 	 *
 	 * @param tableID the table id
+	 * @return true, if successful
 	 */
 	public boolean makeTableNotAvailable(Integer tableID){
 		Table tempTable=this.getTable(tableID);

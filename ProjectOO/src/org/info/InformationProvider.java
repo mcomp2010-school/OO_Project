@@ -128,6 +128,45 @@ public class InformationProvider {
 		
 		return tempMenu;
 	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((MenuObj == null) ? 0 : MenuObj.hashCode());
+		result = prime * result + ((Tables == null) ? 0 : Tables.hashCode());
+		return result;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		InformationProvider other = (InformationProvider) obj;
+		if (MenuObj == null) {
+			if (other.MenuObj != null)
+				return false;
+		} else if (!MenuObj.equals(other.MenuObj))
+			return false;
+		if (Tables == null) {
+			if (other.Tables != null)
+				return false;
+		} else if (!Tables.equals(other.Tables))
+			return false;
+		return true;
+	}
+	
+	
 	
 	
 }
