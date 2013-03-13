@@ -18,12 +18,8 @@ public class MenuItem {
 	/** The is heart healthy. */
 	private boolean isHeartHealthy;
 	
-	/** This is how long it takes to cook**/
+	/** This is how long it takes to cook*. */
 	private int timeSec;
-	
-	
-	
-
 
 
 	/**
@@ -61,11 +57,21 @@ public class MenuItem {
 
 
 	
+	/**
+	 * Gets the time sec.
+	 *
+	 * @return the time sec
+	 */
 	public int getTimeSec() {
 		return timeSec;
 	}
 
 
+	/**
+	 * Sets the time sec.
+	 *
+	 * @param timeSec the new time sec
+	 */
 	public void setTimeSec(int timeSec) {
 		this.timeSec = timeSec;
 	}

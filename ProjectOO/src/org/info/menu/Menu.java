@@ -5,6 +5,7 @@ import java.util.Iterator;
 
 import org.info.menu.iterators.MenuIterator;
 
+// TODO: Auto-generated Javadoc
 /**
  * The Class Menu.
  */
@@ -172,7 +173,5 @@ public class Menu {
 			return false;
 		return true;
 	}
-
-	
 
 }

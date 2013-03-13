@@ -6,6 +6,8 @@ import org.info.menu.iterators.IngredientMenuIterator;
 import org.info.menu.iterators.MenuIterator;
 import org.info.menu.iterators.PriceMenuIterator;
 
+
+// TODO: Auto-generated Javadoc
 /**
  * The Class Client.
  */
@@ -38,6 +40,7 @@ public class MenuDemo {
 		PriceMenu(MenuObj);
 		System.out.println("=====================");
 		IngredientMenu(MenuObj);
+		
 	}
 	
 	/**
