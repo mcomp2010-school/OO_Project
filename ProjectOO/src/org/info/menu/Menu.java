@@ -39,6 +39,16 @@ public class Menu {
 	
 	
 	/**
+	 * Adds the item.
+	 *
+	 * @param next the next
+	 */
+	public void addItem(MenuItem next) {
+		MenuList.add(next);
+	}
+	
+	
+	/**
 	 * Contains.
 	 *
 	 * @param o the o
@@ -162,6 +172,7 @@ public class Menu {
 			return false;
 		return true;
 	}
+
 	
 
 }
