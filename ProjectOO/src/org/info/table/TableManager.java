@@ -124,7 +124,7 @@ public class TableManager {
 	 * @param tableID the table id
 	 * @return the table
 	 */
-	private Table getTable(Integer tableID){
+	public Table getTable(Integer tableID){
 		Table tempTable=null;
 		
 		for (int i = 0; i < Tables.size(); i++) {
@@ -146,6 +146,20 @@ public class TableManager {
 		
 		return df.format((SeatsAvailable/SeatsTotal)*100)+"%";
 	}
+	
+	public ArrayList<Integer> getIDsofAvailableTables(){
+		ArrayList<Integer> tempIDs=new ArrayList<Integer>();
+		
+		for (int i = 0; i < Tables.size(); i++) {
+			Table CurrentTable=Tables.get(i);
+			if(CurrentTable.isAvailable()){
+				tempIDs.add(CurrentTable.getTableID());	
+			}	
+		}	
+		
+		return tempIDs;
+	}
+	
 	
 	public int getTotalSeatsAvailable(){
 		int sum=0;
