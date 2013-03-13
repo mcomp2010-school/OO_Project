@@ -8,6 +8,7 @@ import org.info.menu.iterators.IngredientMenuIterator;
 import org.info.menu.iterators.MenuIterator;
 import org.info.menu.iterators.PriceMenuIterator;
 import org.info.table.TableManager;
+import org.shared.performance.Timing;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -28,6 +29,10 @@ public class InformationProvider {
 	 * Instantiates a new information provider.
 	 */
 	private InformationProvider() {
+		
+		Timing Clock1=new Timing();
+		Clock1.start();
+		
 		//Loading Persistent Data
 		
 		//Adding MenuItems
@@ -36,6 +41,7 @@ public class InformationProvider {
 		//Adding Tables
 		Tables.loadXML("data\\Table.xml");
 		
+		System.out.println(Clock1.stop_SecDouble());
 	}
 	
 	/**
