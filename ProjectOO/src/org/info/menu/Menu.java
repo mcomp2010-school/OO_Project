@@ -1,9 +1,15 @@
 package org.info.menu;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import org.apache.commons.io.FileUtils;
 import org.info.menu.iterators.MenuIterator;
+
+import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.io.xml.DomDriver;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -174,4 +180,33 @@ public class Menu {
 		return true;
 	}
 
+	public String getXML(){
+		StringBuilder Output=new StringBuilder();
+		Output.append("<?xml version=\"1.0\"?>\n");
+		Output.append("<root>\n");
+		
+		XStream xstream = new XStream(new DomDriver()); // does not require XPP3 library
+		xstream.alias("MenuItem", MenuItem.class);
+		
+		for (int i = 0; i < MenuList.size(); i++) {
+			String xml = xstream.toXML(this.MenuList.get(i));
+			//System.out.println(xml);
+			Output.append(xml+"\n");
+		}
+		
+		Output.append("</root>");
+		
+		return Output.toString();
+	}
+	
+	public void saveXML(String FileName){
+		File file = new File(FileName);
+		try {
+			FileUtils.writeStringToFile(file, this.getXML());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 }

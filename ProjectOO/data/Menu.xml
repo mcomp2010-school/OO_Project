@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<root>
+<MenuItem>
+  <itemName>Spagatti with Meat Sauce</itemName>
+  <Price>4.99</Price>
+  <MainIngredient>Beef</MainIngredient>
+  <isHeartHealthy>true</isHeartHealthy>
+  <timeSec>0</timeSec>
+</MenuItem>
+<MenuItem>
+  <itemName>Spagatti with Red Sauce</itemName>
+  <Price>4.5</Price>
+  <MainIngredient>Pasta</MainIngredient>
+  <isHeartHealthy>true</isHeartHealthy>
+  <timeSec>0</timeSec>
+</MenuItem>
+<MenuItem>
+  <itemName>Chicken and Rice</itemName>
+  <Price>3.59</Price>
+  <MainIngredient>Chicken</MainIngredient>
+  <isHeartHealthy>false</isHeartHealthy>
+  <timeSec>0</timeSec>
+</MenuItem>
+<MenuItem>
+  <itemName>Chicken Tenders with Fries</itemName>
+  <Price>3.49</Price>
+  <MainIngredient>Chicken</MainIngredient>
+  <isHeartHealthy>true</isHeartHealthy>
+  <timeSec>0</timeSec>
+</MenuItem>
+<MenuItem>
+  <itemName>Grilled Chicken Sandwitch with Fries</itemName>
+  <Price>3.99</Price>
+  <MainIngredient>Chicken</MainIngredient>
+  <isHeartHealthy>false</isHeartHealthy>
+  <timeSec>0</timeSec>
+</MenuItem>
+<MenuItem>
+  <itemName>1/2 Pound Humburger with Fries</itemName>
+  <Price>5.99</Price>
+  <MainIngredient>Beef</MainIngredient>
+  <isHeartHealthy>true</isHeartHealthy>
+  <timeSec>0</timeSec>
+</MenuItem>
+<MenuItem>
+  <itemName>Chicken Tenders with Chips</itemName>
+  <Price>3.39</Price>
+  <MainIngredient>Chicken</MainIngredient>
+  <isHeartHealthy>true</isHeartHealthy>
+  <timeSec>0</timeSec>
+</MenuItem>
+<MenuItem>
+  <itemName>Chipotle Lime Chicken</itemName>
+  <Price>6.99</Price>
+  <MainIngredient>Chicken</MainIngredient>
+  <isHeartHealthy>true</isHeartHealthy>
+  <timeSec>0</timeSec>
+</MenuItem>
+<MenuItem>
+  <itemName>Chocolate Chip Cookie Sundae</itemName>
+  <Price>3.2</Price>
+  <MainIngredient>Ice Cream</MainIngredient>
+  <isHeartHealthy>false</isHeartHealthy>
+  <timeSec>0</timeSec>
+</MenuItem>
+<MenuItem>
+  <itemName>Maple Butter Blondie</itemName>
+  <Price>3.99</Price>
+  <MainIngredient>Ice Cream</MainIngredient>
+  <isHeartHealthy>false</isHeartHealthy>
+  <timeSec>0</timeSec>
+</MenuItem>
+</root>

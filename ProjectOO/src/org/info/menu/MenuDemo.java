@@ -41,6 +41,9 @@ public class MenuDemo {
 		System.out.println("=====================");
 		IngredientMenu(MenuObj);
 		
+		//System.out.println(MenuObj.getXML());
+		MenuObj.saveXML("data\\Menu.xml");
+		
 	}
 	
 	/**
