@@ -182,6 +182,9 @@ public class Menu {
 	}
 
 	public void loadXML(String FileName){
+		XStream xstream = new XStream();
+		xstream.alias("MenuItem", MenuItem.class);
+		
 		this.MenuList.clear();
 		
 		File file = new File(FileName);
@@ -212,8 +215,7 @@ public class Menu {
 				onRecord=false;
 				//System.out.println(tempbuffer.toString());
 				
-				XStream xstream = new XStream();
-				xstream.alias("MenuItem", MenuItem.class);
+			
 				MenuItem tempMenuItem=(MenuItem)xstream.fromXML(tempbuffer.toString());
 				
 				//System.out.println(tempMenuItem);

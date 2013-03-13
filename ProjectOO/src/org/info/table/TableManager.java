@@ -232,6 +232,9 @@ public class TableManager {
 	
 	
 	public void loadXML(String FileName){
+		XStream xstream = new XStream();
+		xstream.alias("Table", Table.class);  
+		
 		this.Tables.clear();
 		
 		File file = new File(FileName);
@@ -262,8 +265,7 @@ public class TableManager {
 				onRecord=false;
 				//System.out.println(tempbuffer.toString());
 				
-				XStream xstream = new XStream();
-				xstream.alias("Table", Table.class);
+				
 				Table tempTable=(Table)xstream.fromXML(tempbuffer.toString());
 				
 				//System.out.println(tempMenuItem);

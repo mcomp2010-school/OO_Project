@@ -3,7 +3,7 @@ package org.shared.performance;
 import java.text.DecimalFormat;
 
 public class Timing {
-	DecimalFormat decim = new DecimalFormat("#.####");
+	DecimalFormat decim = new DecimalFormat("#.0###");
 	// starting and ending time measured in milliseconds
 	private double startTime, stopTime;
 
