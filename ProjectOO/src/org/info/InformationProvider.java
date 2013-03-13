@@ -28,19 +28,13 @@ public class InformationProvider {
 	 * Instantiates a new information provider.
 	 */
 	private InformationProvider() {
-		//Persistent Data
+		//Loading Persistent Data
 		
 		//Adding MenuItems
 		MenuObj.loadXML("data\\Menu.xml");
 		
 		//Adding Tables
-		Tables.add(1, 4);
-		Tables.add(2, 4);
-		Tables.add(3, 5);
-		Tables.add(4, 6);
-		Tables.add(5, 6);
-		Tables.add(6, 2);
-		Tables.add(7, 2);
+		Tables.loadXML("data\\Table.xml");
 		
 	}
 	

@@ -1,7 +1,15 @@
 package org.info.table;
 
+import java.io.File;
+import java.io.IOException;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.List;
+
+import org.apache.commons.io.FileUtils;
+import org.info.menu.MenuItem;
+
+import com.thoughtworks.xstream.XStream;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -221,6 +229,80 @@ public class TableManager {
 		
 		return sum;
 	}
+	
+	
+	public void loadXML(String FileName){
+		this.Tables.clear();
+		
+		File file = new File(FileName);
+		List<String> lines = null;
+		try {
+			lines = FileUtils.readLines(file);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		StringBuilder tempbuffer=new StringBuilder();
+		
+		boolean onRecord=false;
+		
+		for (int i = 0; i < lines.size(); i++) {
+			String currentlineString=lines.get(i);
+			
+			if(currentlineString.contains("<Table>")){
+				onRecord=true;
+			}
+			
+			if(onRecord==true){
+				tempbuffer.append(currentlineString);
+			}
+			
+			if(currentlineString.contains("</Table>")){
+				onRecord=false;
+				//System.out.println(tempbuffer.toString());
+				
+				XStream xstream = new XStream();
+				xstream.alias("Table", Table.class);
+				Table tempTable=(Table)xstream.fromXML(tempbuffer.toString());
+				
+				//System.out.println(tempMenuItem);
+				this.Tables.add(tempTable);
+				tempbuffer.setLength(0);
+			}
+		} 
+	}
+	
+	public String getXML(){
+		StringBuilder Output=new StringBuilder();
+		Output.append("<?xml version=\"1.0\"?>\n");
+		Output.append("<root>\n");
+		
+		XStream xstream = new XStream(); 
+		xstream.alias("Table", Table.class);
+		
+		for (int i = 0; i < this.Tables.size(); i++) {
+			String xml = xstream.toXML(this.Tables.get(i));
+			//System.out.println(xml);
+			Output.append(xml+"\n");
+		}
+		
+		Output.append("</root>");
+		
+		return Output.toString();
+	}
+	
+	public void saveXML(String FileName){
+		File file = new File(FileName);
+		try {
+			FileUtils.writeStringToFile(file, this.getXML());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	
 	
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()

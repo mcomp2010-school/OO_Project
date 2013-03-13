@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<root>
+<Table>
+  <tableID>1</tableID>
+  <size>4</size>
+  <isAvailable>true</isAvailable>
+</Table>
+<Table>
+  <tableID>2</tableID>
+  <size>4</size>
+  <isAvailable>true</isAvailable>
+</Table>
+<Table>
+  <tableID>3</tableID>
+  <size>5</size>
+  <isAvailable>true</isAvailable>
+</Table>
+<Table>
+  <tableID>4</tableID>
+  <size>6</size>
+  <isAvailable>true</isAvailable>
+</Table>
+<Table>
+  <tableID>5</tableID>
+  <size>6</size>
+  <isAvailable>true</isAvailable>
+</Table>
+</root>
