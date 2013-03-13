@@ -182,6 +182,11 @@ public class Menu {
 		return true;
 	}
 
+	/**
+	 * Load xml.
+	 *
+	 * @param FileName the file name
+	 */
 	public void loadXML(String FileName){
 		XStream xstream = new XStream();
 		xstream.alias("MenuItem", MenuItem.class);  
@@ -202,6 +207,11 @@ public class Menu {
 		this.MenuList=tempTable;
 	}
 	
+	/**
+	 * Gets the xml.
+	 *
+	 * @return the xml
+	 */
 	public String getXML(){
 		StringBuilder Output=new StringBuilder();
 		
@@ -213,6 +223,11 @@ public class Menu {
 		return Output.toString();
 	}
 	
+	/**
+	 * Save xml.
+	 *
+	 * @param FileName the file name
+	 */
 	public void saveXML(String FileName){
 		File file = new File(FileName);
 		try {

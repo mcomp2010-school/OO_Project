@@ -25,12 +25,14 @@ public class InformationProvider {
 	/** The singleton object. */
 	private static InformationProvider singletonObject;
 	
+	/** The Clock1. */
+	Timing Clock1=new Timing();
+	
 	/**
 	 * Instantiates a new information provider.
 	 */
 	private InformationProvider() {
 		
-		Timing Clock1=new Timing();
 		Clock1.start();
 		
 		//Loading Persistent Data
@@ -41,7 +43,7 @@ public class InformationProvider {
 		//Adding Tables
 		Tables.loadXML("data\\Table.xml");
 		
-		System.out.println(Clock1.stop_SecDouble());
+		System.out.println(this.getClass().getName()+".InformationProvider():"+Clock1.stop_SecDouble());
 	}
 	
 	/**
