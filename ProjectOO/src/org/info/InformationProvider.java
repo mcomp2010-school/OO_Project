@@ -25,6 +25,8 @@ public class InformationProvider {
 	 */
 	private InformationProvider() {
 		//Persistent Data
+		
+		//Adding MenuItems
 		MenuObj.addItem("Spagatti with Meat Sauce", 4.99, "Beef",true);
 		MenuObj.addItem("Spagatti with Red Sauce", 4.50, "Pasta",true);
 		MenuObj.addItem("Chicken and Rice", 3.59, "Chicken",false);
@@ -35,6 +37,8 @@ public class InformationProvider {
 		MenuObj.addItem("Chipotle Lime Chicken", 6.99, "Chicken",true);
 		MenuObj.addItem("Chocolate Chip Cookie Sundae", 3.20, "Ice Cream",false);
 		MenuObj.addItem("Maple Butter Blondie", 3.99, "Ice Cream",false);
+		
+		
 	}
 	
 	/**
