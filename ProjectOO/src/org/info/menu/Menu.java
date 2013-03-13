@@ -3,22 +3,12 @@ package org.info.menu;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.Marshaller;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementWrapper;
 
 import org.apache.commons.io.FileUtils;
-import org.info.menu.iterators.MenuIterator;
-import org.info.table.Table;
 import org.shared.performance.Timing;
 
 import com.thoughtworks.xstream.XStream;
-import com.thoughtworks.xstream.io.xml.DomDriver;
+
 
 // TODO: Auto-generated Javadoc
 /**
@@ -26,7 +16,10 @@ import com.thoughtworks.xstream.io.xml.DomDriver;
  */
 public class Menu {
 	
+	/** The Stop watch performance. */
 	private boolean StopWatchPerformance=true;
+	
+	/** The Clock1. */
 	private Timing Clock1=new Timing();
 	
 	/** The Menu list. */
@@ -240,23 +233,6 @@ public class Menu {
 		return Output.toString();
 	}
 	
-	
-	public String getXML_JAXB(){
-		try {
-		JAXBContext context = JAXBContext.newInstance(MenuItem.class);
-	    Marshaller m = context.createMarshaller();
-	    m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
-
-	    // Write to System.out
-	  
-			m.marshal(this.MenuList, System.out);
-		} catch (JAXBException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	    
-	    return "";
-	}
 	/**
 	 * Save xml.
 	 *

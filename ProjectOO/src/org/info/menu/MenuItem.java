@@ -1,16 +1,9 @@
 package org.info.menu;
 
-import java.lang.reflect.Field;
-
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-
 // TODO: Auto-generated Javadoc
 /**
  * The Class MenuItem.
  */
-@XmlRootElement
 public class MenuItem {
 
 	/** The item name. */

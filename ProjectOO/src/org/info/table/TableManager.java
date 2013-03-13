@@ -18,7 +18,10 @@ import com.thoughtworks.xstream.XStream;
  */
 public class TableManager {
 	
+	/** The Stop watch performance. */
 	private boolean StopWatchPerformance=false;
+	
+	/** The Clock1. */
 	private Timing Clock1=new Timing();
 	
 	/** The Tables. */
