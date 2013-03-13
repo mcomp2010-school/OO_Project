@@ -8,6 +8,7 @@ import java.util.List;
 
 import org.apache.commons.io.FileUtils;
 import org.info.menu.iterators.MenuIterator;
+import org.info.table.Table;
 
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
@@ -183,63 +184,31 @@ public class Menu {
 
 	public void loadXML(String FileName){
 		XStream xstream = new XStream();
-		xstream.alias("MenuItem", MenuItem.class);
+		xstream.alias("MenuItem", MenuItem.class);  
 		
 		this.MenuList.clear();
 		
 		File file = new File(FileName);
-		List<String> lines = null;
+		String lines = null;
 		try {
-			lines = FileUtils.readLines(file);
+			lines = FileUtils.readFileToString(file);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		StringBuilder tempbuffer=new StringBuilder();
-		
-		boolean onRecord=false;
-		
-		for (int i = 0; i < lines.size(); i++) {
-			String currentlineString=lines.get(i);
-			
-			if(currentlineString.contains("<MenuItem>")){
-				onRecord=true;
-			}
-			
-			if(onRecord==true){
-				tempbuffer.append(currentlineString);
-			}
-			
-			if(currentlineString.contains("</MenuItem>")){
-				onRecord=false;
-				//System.out.println(tempbuffer.toString());
-				
-			
-				MenuItem tempMenuItem=(MenuItem)xstream.fromXML(tempbuffer.toString());
-				
-				//System.out.println(tempMenuItem);
-				MenuList.add( tempMenuItem);
-				tempbuffer.setLength(0);
-			}
-		} 
+
+		ArrayList<MenuItem> tempTable=(ArrayList<MenuItem>)xstream.fromXML(lines.toString());
+		this.MenuList=tempTable;
 	}
 	
 	public String getXML(){
 		StringBuilder Output=new StringBuilder();
-		Output.append("<?xml version=\"1.0\"?>\n");
-		Output.append("<root>\n");
 		
 		XStream xstream = new XStream(); 
 		xstream.alias("MenuItem", MenuItem.class);
-		
-		for (int i = 0; i < MenuList.size(); i++) {
-			String xml = xstream.toXML(this.MenuList.get(i));
-			//System.out.println(xml);
-			Output.append(xml+"\n");
-		}
-		
-		Output.append("</root>");
+		String xml = xstream.toXML(this.MenuList);
+		Output.append(xml);
 		
 		return Output.toString();
 	}

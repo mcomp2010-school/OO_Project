@@ -42,7 +42,7 @@ public class MenuDemo {
 		IngredientMenu(MenuObj);
 		
 		//System.out.println(MenuObj.getXML());
-		//MenuObj.saveXML("data\\Menu.xml");
+		MenuObj.saveXML("data\\Menu.xml");
 		MenuObj.loadXML("data\\Menu.xml");
 	}
 	

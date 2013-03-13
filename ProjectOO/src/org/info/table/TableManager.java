@@ -238,58 +238,26 @@ public class TableManager {
 		this.Tables.clear();
 		
 		File file = new File(FileName);
-		List<String> lines = null;
+		String lines = null;
 		try {
-			lines = FileUtils.readLines(file);
+			lines = FileUtils.readFileToString(file);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		StringBuilder tempbuffer=new StringBuilder();
-		
-		boolean onRecord=false;
-		
-		for (int i = 0; i < lines.size(); i++) {
-			String currentlineString=lines.get(i);
-			
-			if(currentlineString.contains("<Table>")){
-				onRecord=true;
-			}
-			
-			if(onRecord==true){
-				tempbuffer.append(currentlineString);
-			}
-			
-			if(currentlineString.contains("</Table>")){
-				onRecord=false;
-				//System.out.println(tempbuffer.toString());
-				
-				
-				Table tempTable=(Table)xstream.fromXML(tempbuffer.toString());
-				
-				//System.out.println(tempMenuItem);
-				this.Tables.add(tempTable);
-				tempbuffer.setLength(0);
-			}
-		} 
+
+		ArrayList<Table> tempTable=(ArrayList<Table>)xstream.fromXML(lines.toString());
+		this.Tables=tempTable;
 	}
 	
 	public String getXML(){
 		StringBuilder Output=new StringBuilder();
-		Output.append("<?xml version=\"1.0\"?>\n");
-		Output.append("<root>\n");
 		
 		XStream xstream = new XStream(); 
 		xstream.alias("Table", Table.class);
-		
-		for (int i = 0; i < this.Tables.size(); i++) {
-			String xml = xstream.toXML(this.Tables.get(i));
-			//System.out.println(xml);
-			Output.append(xml+"\n");
-		}
-		
-		Output.append("</root>");
+		String xml = xstream.toXML(this.Tables);
+		Output.append(xml);
 		
 		return Output.toString();
 	}
