@@ -45,10 +45,25 @@ public class TableDemo {
 		System.out.println("Total Seats Taken:"+Tables.getTotalSeatsTaken());
 		System.out.println("List of Avaiable Tables:"+Tables.getIDsofAvailableTables());
 		
+		//Make Table Not Available
+		Tables.makeTableNotAvailable(1);
+		Tables.makeTableNotAvailable(2);
+		System.out.println("================");
+		System.out.println("Tables");
+		System.out.println(Tables);
+		System.out.println("-------");
+		System.out.println("Percent Avaiable:"+Tables.getTotalSeatsAvailablePercent());
+		System.out.println("Total Seats:"+Tables.getTotalSeats());
+		System.out.println("Total Seats Available:"+Tables.getTotalSeatsAvailable());
+		System.out.println("Total Seats Taken:"+Tables.getTotalSeatsTaken());
+		System.out.println("List of Avaiable Tables:"+Tables.getIDsofAvailableTables());
+		
+		
 		//Delete Table 4,Modify Size of Table, Make Table Available
 		Tables.deleteTable(3);
 		Tables.modifyTableSize(2, 5);
 		Tables.makeTableAvailable(5);
+		Tables.makeTableAvailable(1);
 		System.out.println("================");
 		System.out.println("Tables");
 		System.out.println(Tables);

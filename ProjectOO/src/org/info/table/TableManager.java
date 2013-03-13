@@ -142,7 +142,7 @@ public class TableManager {
 		double SeatsAvailable= this.getTotalSeatsAvailable();
 		double SeatsTotal= this.getTotalSeats();
 		
-		DecimalFormat df = new DecimalFormat("#.0");
+		DecimalFormat df = new DecimalFormat("#.00");
 		
 		return df.format((SeatsAvailable/SeatsTotal)*100)+"%";
 	}
