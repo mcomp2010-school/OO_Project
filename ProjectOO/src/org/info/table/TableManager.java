@@ -3,6 +3,7 @@ package org.info.table;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
+// TODO: Auto-generated Javadoc
 /**
  * The Class TableManager.
  */
@@ -138,6 +139,11 @@ public class TableManager {
 		return tempTable;
 	}
 	
+	/**
+	 * Gets the total seats available percent.
+	 *
+	 * @return the total seats available percent
+	 */
 	public String getTotalSeatsAvailablePercent(){
 		double SeatsAvailable= this.getTotalSeatsAvailable();
 		double SeatsTotal= this.getTotalSeats();
@@ -147,6 +153,11 @@ public class TableManager {
 		return df.format((SeatsAvailable/SeatsTotal)*100)+"%";
 	}
 	
+	/**
+	 * Gets the i dsof available tables.
+	 *
+	 * @return the i dsof available tables
+	 */
 	public ArrayList<Integer> getIDsofAvailableTables(){
 		ArrayList<Integer> tempIDs=new ArrayList<Integer>();
 		
@@ -161,6 +172,11 @@ public class TableManager {
 	}
 	
 	
+	/**
+	 * Gets the total seats available.
+	 *
+	 * @return the total seats available
+	 */
 	public int getTotalSeatsAvailable(){
 		int sum=0;
 		
@@ -173,6 +189,11 @@ public class TableManager {
 		return sum;
 	}
 
+	/**
+	 * Gets the total seats taken.
+	 *
+	 * @return the total seats taken
+	 */
 	public int getTotalSeatsTaken(){
 		int sum=0;
 		
@@ -185,6 +206,11 @@ public class TableManager {
 		return sum;
 	}
 	
+	/**
+	 * Gets the total seats.
+	 *
+	 * @return the total seats
+	 */
 	public int getTotalSeats(){
 		int sum=0;
 		
