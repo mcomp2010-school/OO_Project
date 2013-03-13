@@ -1,17 +1,14 @@
 package org.info.table;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class TableManager.
  */
 public class TableManager {
-	
-	
 	/** The Tables. */
 	private ArrayList<Table> Tables=new ArrayList<Table>();
-	
 	
 	/**
 	 * Check if exist.
@@ -138,8 +135,51 @@ public class TableManager {
 				break;
 			}
 		}	
-		
 		return tempTable;
+	}
+	
+	public String getTotalSeatsAvailablePercent(){
+		double SeatsAvailable= this.getTotalSeatsAvailable();
+		double SeatsTotal= this.getTotalSeats();
+		
+		DecimalFormat df = new DecimalFormat("#.0");
+		
+		return df.format((SeatsAvailable/SeatsTotal)*100)+"%";
+	}
+	
+	public int getTotalSeatsAvailable(){
+		int sum=0;
+		
+		for (int i = 0; i < Tables.size(); i++) {
+			Table CurrentTable=Tables.get(i);
+			if(CurrentTable.isAvailable()){
+				sum+=CurrentTable.getSize();	
+			}	
+		}	
+		return sum;
+	}
+
+	public int getTotalSeatsTaken(){
+		int sum=0;
+		
+		for (int i = 0; i < Tables.size(); i++) {
+			Table CurrentTable=Tables.get(i);
+			if(!CurrentTable.isAvailable()){
+				sum+=CurrentTable.getSize();	
+			}	
+		}	
+		return sum;
+	}
+	
+	public int getTotalSeats(){
+		int sum=0;
+		
+		for (int i = 0; i < Tables.size(); i++) {
+			Table CurrentTable=Tables.get(i);
+			sum+=CurrentTable.getSize();
+		}	
+		
+		return sum;
 	}
 	
 	/* (non-Javadoc)

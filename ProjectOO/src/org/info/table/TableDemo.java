@@ -23,11 +23,22 @@ public class TableDemo {
 		Tables.add(5, 6);
 		Tables.add(5, 4);//This should do nothing
 		
+		System.out.println("================");
+		System.out.println("Percent Avaiable:"+Tables.getTotalSeatsAvailablePercent());
+		System.out.println("Total Seats:"+Tables.getTotalSeats());
+		System.out.println("Total Seats Available:"+Tables.getTotalSeatsAvailable());
+		System.out.println("Total Seats Taken:"+Tables.getTotalSeatsTaken());
+		System.out.println("-------");
 		System.out.println("Tables");
 		System.out.println(Tables);
 		
 		//Make Table Not Available
+		System.out.println("================");
 		Tables.makeTableNotAvailable(5);
+		System.out.println("Percent Avaiable:"+Tables.getTotalSeatsAvailablePercent());
+		System.out.println("Total Seats:"+Tables.getTotalSeats());
+		System.out.println("Total Seats Available:"+Tables.getTotalSeatsAvailable());
+		System.out.println("Total Seats Taken:"+Tables.getTotalSeatsTaken());
 		System.out.println("-------");
 		System.out.println("Tables");
 		System.out.println(Tables);
@@ -36,10 +47,14 @@ public class TableDemo {
 		Tables.deleteTable(3);
 		Tables.modifyTableSize(2, 5);
 		Tables.makeTableAvailable(5);
+		System.out.println("================");
+		System.out.println("Percent Avaiable:"+Tables.getTotalSeatsAvailablePercent());
+		System.out.println("Total Seats:"+Tables.getTotalSeats());
+		System.out.println("Total Seats Available:"+Tables.getTotalSeatsAvailable());
+		System.out.println("Total Seats Taken:"+Tables.getTotalSeatsTaken());
 		System.out.println("-------");
 		System.out.println("Tables");
 		System.out.println(Tables);
-		
 		
 	}
 

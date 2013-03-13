@@ -15,9 +15,6 @@ public class Table {
 	/** The is available. */
 	private boolean isAvailable; 
 	
-
-
-
 	/**
 	 * Instantiates a new table.
 	 *
