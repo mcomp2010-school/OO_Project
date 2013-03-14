@@ -1,11 +1,19 @@
 package org.info.menu;
 
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+import com.thoughtworks.xstream.annotations.XStreamAsAttribute;
+
 // TODO: Auto-generated Javadoc
 /**
  * The Class MenuItem.
  */
+@XStreamAlias("MenuItem")
 public class MenuItem {
 
+	/** The Item id. */
+	@XStreamAsAttribute
+	private Integer ItemID;
+	
 	/** The item name. */
 	private String itemName;
 	
@@ -21,16 +29,41 @@ public class MenuItem {
 	/** This is how long it takes to cook*. */
 	private int timeSec;
 
+	
 
 	/**
 	 * Instantiates a new menu item.
 	 *
+	 * @param itemID the item id
+	 * @param itemName the item name
+	 * @param price the price
+	 * @param mainIngredient the main ingredient
+	 * @param isHeartHealthy the is heart healthy
+	 * @param timeSec the time sec
+	 */
+	public MenuItem(Integer itemID, String itemName, Double price,
+			String mainIngredient, boolean isHeartHealthy, int timeSec) {
+		super();
+		ItemID = itemID;
+		this.itemName = itemName;
+		Price = price;
+		MainIngredient = mainIngredient;
+		this.isHeartHealthy = isHeartHealthy;
+		this.timeSec = timeSec;
+	}
+
+
+	/**
+	 * Instantiates a new menu item.
+	 *
+	 * @param itemID the item id
 	 * @param itemName the item name
 	 * @param price the price
 	 * @param mainIngredient the main ingredient
 	 */
-	public MenuItem(String itemName, Double price, String mainIngredient) {
+	public MenuItem(Integer itemID,String itemName, Double price, String mainIngredient) {
 		super();
+		ItemID = itemID;
 		this.itemName = itemName;
 		Price = price;
 		MainIngredient = mainIngredient;
@@ -41,14 +74,16 @@ public class MenuItem {
 	/**
 	 * Instantiates a new menu item.
 	 *
+	 * @param itemID the item id
 	 * @param itemName the item name
 	 * @param price the price
 	 * @param mainIngredient the main ingredient
 	 * @param isHeartHealthy the is heart healthy
 	 */
-	public MenuItem(String itemName, Double price, String mainIngredient,
+	public MenuItem(Integer itemID,String itemName, Double price, String mainIngredient,
 			boolean isHeartHealthy) {
 		super();
+		ItemID = itemID;
 		this.itemName = itemName;
 		Price = price;
 		MainIngredient = mainIngredient;
@@ -57,6 +92,17 @@ public class MenuItem {
 
 
 	
+	
+	/**
+	 * Gets the item id.
+	 *
+	 * @return the item id
+	 */
+	public Integer getItemID() {
+		return ItemID;
+	}
+
+
 	/**
 	 * Gets the time sec.
 	 *
@@ -151,6 +197,8 @@ public class MenuItem {
 		MainIngredient = mainIngredient;
 	}
 	
+
+
 	/* (non-Javadoc)
 	 * @see java.lang.Object#hashCode()
 	 */
@@ -158,14 +206,18 @@ public class MenuItem {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + ((ItemID == null) ? 0 : ItemID.hashCode());
 		result = prime * result
 				+ ((MainIngredient == null) ? 0 : MainIngredient.hashCode());
 		result = prime * result + ((Price == null) ? 0 : Price.hashCode());
+		result = prime * result + (isHeartHealthy ? 1231 : 1237);
 		result = prime * result
 				+ ((itemName == null) ? 0 : itemName.hashCode());
+		result = prime * result + timeSec;
 		return result;
 	}
-	
+
+
 	/* (non-Javadoc)
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
@@ -178,6 +230,11 @@ public class MenuItem {
 		if (getClass() != obj.getClass())
 			return false;
 		MenuItem other = (MenuItem) obj;
+		if (ItemID == null) {
+			if (other.ItemID != null)
+				return false;
+		} else if (!ItemID.equals(other.ItemID))
+			return false;
 		if (MainIngredient == null) {
 			if (other.MainIngredient != null)
 				return false;
@@ -188,13 +245,18 @@ public class MenuItem {
 				return false;
 		} else if (!Price.equals(other.Price))
 			return false;
+		if (isHeartHealthy != other.isHeartHealthy)
+			return false;
 		if (itemName == null) {
 			if (other.itemName != null)
 				return false;
 		} else if (!itemName.equals(other.itemName))
 			return false;
+		if (timeSec != other.timeSec)
+			return false;
 		return true;
 	}
+
 
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()

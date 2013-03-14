@@ -11,6 +11,8 @@ import org.info.menu.MenuItem;
 import org.shared.performance.Timing;
 
 import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+import com.thoughtworks.xstream.annotations.XStreamImplicit;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -246,7 +248,8 @@ public class TableManager {
 	 */
 	public void loadXML(String FileName){
 		XStream xstream = new XStream();
-		xstream.alias("Table", Table.class);  
+		xstream.alias("Table", Table.class); 
+		xstream.autodetectAnnotations(true);
 		
 		this.Tables.clear();
 		
@@ -269,15 +272,14 @@ public class TableManager {
 	 *
 	 * @return the xml
 	 */
-	public String getXML(){
-		StringBuilder Output=new StringBuilder();
-		
+	public String getXML(){		
 		XStream xstream = new XStream(); 
 		xstream.alias("Table", Table.class);
-		String xml = xstream.toXML(this.Tables);
-		Output.append(xml);
+		xstream.autodetectAnnotations(true);
 		
-		return Output.toString();
+		String xml = xstream.toXML(this.Tables);
+		
+		return xml;
 	}
 	
 	/**

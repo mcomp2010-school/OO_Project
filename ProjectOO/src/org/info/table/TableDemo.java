@@ -16,15 +16,34 @@ public class TableDemo {
 
 		TableManager Tables=new TableManager();
 		
-		//Tables.add(1, 4);
-		//Tables.add(2, 4);
-		//Tables.add(3, 5);
-		//Tables.add(4, 6);
-		//Tables.add(5, 6);
-		//Tables.add(5, 4);//This should do nothing
+		boolean useFile=false;
 		
-		//Tables.saveXML("data\\Table.xml");
-		Tables.loadXML("data\\Table.xml");
+		if(useFile){
+			Tables.loadXML("data\\Table.xml");
+		}else{
+			Tables.add(1, 4);
+			Tables.add(2, 4);
+			Tables.add(3, 5);
+			Tables.add(4, 6);
+			Tables.add(5, 6);
+			Tables.add(5, 4);//This should do nothing
+			Tables.add(6, 2);
+			Tables.add(7, 2);
+			Tables.add(8, 2);
+			Tables.add(9, 8);
+			Tables.add(10, 8);
+			Tables.add(11, 12);
+			Tables.add(12, 6);
+			Tables.add(13, 6);
+			Tables.add(14, 4);
+			Tables.add(15, 4);
+			
+			Tables.saveXML("data\\Table.xml");
+			
+		}
+	
+	
+		
 		
 		
 		System.out.println("================");

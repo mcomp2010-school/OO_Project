@@ -1,12 +1,17 @@
 package org.info.table;
 
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+import com.thoughtworks.xstream.annotations.XStreamAsAttribute;
+
 // TODO: Auto-generated Javadoc
 /**
  * The Class Table.
  */
+@XStreamAlias("Table")
 public class Table {
 	
 	/** The table id. */
+	@XStreamAsAttribute
 	private Integer tableID;
 	
 	/** The size. */

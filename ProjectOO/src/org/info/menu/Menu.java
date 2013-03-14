@@ -8,6 +8,7 @@ import org.apache.commons.io.FileUtils;
 import org.shared.performance.Timing;
 
 import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 
 // TODO: Auto-generated Javadoc
@@ -17,13 +18,17 @@ import com.thoughtworks.xstream.XStream;
 public class Menu {
 	
 	/** The Stop watch performance. */
-	private boolean StopWatchPerformance=true;
+	private boolean StopWatchPerformance=false;
 	
 	/** The Clock1. */
 	private Timing Clock1=new Timing();
 	
 	/** The Menu list. */
+	@XStreamAlias("MenuList")
 	private ArrayList<MenuItem> MenuList= new ArrayList<MenuItem>();
+	
+	/** The Item id. */
+	private Integer ItemID=0;
 	
 	/**
 	 * Adds the item.
@@ -33,9 +38,9 @@ public class Menu {
 	 * @param mainIngredient the main ingredient
 	 */
 	public void addItem(String itemName, Double price, String mainIngredient){
-		MenuList.add(new MenuItem(itemName, price, mainIngredient));
+		MenuList.add(new MenuItem(ItemID,itemName, price, mainIngredient));
+		ItemID++;
 	}
-	
 	
 	/**
 	 * Adds the item.
@@ -46,7 +51,8 @@ public class Menu {
 	 * @param isHeartHealthy the is heart healthy
 	 */
 	public void addItem(String itemName, Double price, String mainIngredient,boolean isHeartHealthy){
-		MenuList.add(new MenuItem(itemName, price, mainIngredient,isHeartHealthy));
+		MenuList.add(new MenuItem(ItemID,itemName, price, mainIngredient,isHeartHealthy));
+		ItemID++;
 	}
 	
 	
@@ -57,6 +63,7 @@ public class Menu {
 	 */
 	public void addItem(MenuItem next) {
 		MenuList.add(next);
+		ItemID++;
 	}
 	
 	
@@ -193,7 +200,9 @@ public class Menu {
 	public void loadXML(String FileName){
 		Clock1.start();
 		XStream xstream = new XStream();
-		xstream.alias("MenuItem", MenuItem.class);  
+		xstream.alias("MenuItem", MenuItem.class);
+		xstream.autodetectAnnotations(true);
+		
 		if(StopWatchPerformance)System.err.println(this.getClass().getName()+".loadXML() > xStream :"+Clock1.stop_SecDouble());
 		
 		
@@ -222,15 +231,14 @@ public class Menu {
 	 *
 	 * @return the xml
 	 */
-	public String getXML(){
-		StringBuilder Output=new StringBuilder();
-		
+	public String getXML(){		
 		XStream xstream = new XStream(); 
 		xstream.alias("MenuItem", MenuItem.class);
-		String xml = xstream.toXML(this.MenuList);
-		Output.append(xml);
+		xstream.autodetectAnnotations(true);
 		
-		return Output.toString();
+		String xml = xstream.toXML(this.MenuList);
+		
+		return xml;
 	}
 	
 	/**
