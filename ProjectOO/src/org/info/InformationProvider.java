@@ -17,7 +17,7 @@ import org.shared.performance.Timing;
 public class InformationProvider {
 	
 	/** The Stop watch performance. */
-	private boolean StopWatchPerformance=false;
+	private boolean StopWatchPerformance=true;
 	
 	/** The Clock1. */
 	private Timing Clock1=new Timing();
