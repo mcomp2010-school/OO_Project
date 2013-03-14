@@ -1,5 +1,7 @@
 package org.info.menu;
 
+import java.text.DecimalFormat;
+
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamAsAttribute;
 
@@ -263,7 +265,8 @@ public class MenuItem {
 	 */
 	@Override
 	public String toString() {
-		return "" + itemName + ", " + Price+ ", " + MainIngredient + "";
+		DecimalFormat df= new DecimalFormat("#.00");
+		return "" + itemName + ", " + df.format(Price)+ ", " + MainIngredient + "";
 	}
 
 }
