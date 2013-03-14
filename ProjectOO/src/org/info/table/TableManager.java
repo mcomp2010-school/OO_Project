@@ -21,10 +21,10 @@ import com.thoughtworks.xstream.annotations.XStreamImplicit;
 public class TableManager {
 	
 	/** The Stop watch performance. */
-	private boolean StopWatchPerformance=false;
+	private static boolean StopWatchPerformance=false;
 	
 	/** The Clock1. */
-	private Timing Clock1=new Timing();
+	private static Timing Clock1=new Timing();
 	
 	/** The Tables. */
 	private ArrayList<Table> Tables=new ArrayList<Table>();

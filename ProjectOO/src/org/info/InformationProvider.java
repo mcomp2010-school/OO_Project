@@ -17,10 +17,10 @@ import org.shared.performance.Timing;
 public class InformationProvider {
 	
 	/** The Stop watch performance. */
-	private boolean StopWatchPerformance=true;
+	private static boolean StopWatchPerformance=true;
 	
 	/** The Clock1. */
-	private Timing Clock1=new Timing();
+	private static Timing Clock1=new Timing();
 	
 	/** The Menu obj. */
 	private Menu MenuObj= new Menu();
