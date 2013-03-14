@@ -16,7 +16,7 @@ public class TableDemo {
 
 		TableManager Tables=new TableManager();
 		
-		boolean useFile=false;
+		boolean useFile=true;
 		
 		if(useFile){
 			Tables.loadXML("data\\Table.xml");
