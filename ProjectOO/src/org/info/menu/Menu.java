@@ -234,6 +234,7 @@ public class Menu {
 	public String getXML(){		
 		XStream xstream = new XStream(); 
 		xstream.alias("MenuItem", MenuItem.class);
+		
 		xstream.autodetectAnnotations(true);
 		
 		String xml = xstream.toXML(this.MenuList);
