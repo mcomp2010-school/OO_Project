@@ -16,6 +16,8 @@ public class PriceMenuIterator implements MenuIterator {
 	/** The position. */
 	private int position=0;
 
+	private double price=4.99;
+	
 	/**
 	 * Instantiates a new heart healthy menu iterator.
 	 *
@@ -27,6 +29,12 @@ public class PriceMenuIterator implements MenuIterator {
 		findItem();
 	}
 
+	public PriceMenuIterator(Menu menuObj,double price) {
+		// TODO Auto-generated constructor stub
+		this.base=menuObj;
+		this.price=price;
+		findItem();
+	}
 
 	/**
 	 * Find item.
@@ -35,7 +43,7 @@ public class PriceMenuIterator implements MenuIterator {
 		while(hasNext()){
 			//System.out.println("loop");
 			MenuItem aniObj = base.get(position);
-			if(aniObj.getPrice()<=4.99){
+			if(aniObj.getPrice()<=price){
 				//position++;
 				//System.out.println(aniObj+"<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
 				break;

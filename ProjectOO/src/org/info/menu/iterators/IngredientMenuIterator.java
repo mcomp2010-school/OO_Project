@@ -16,6 +16,7 @@ public class IngredientMenuIterator implements MenuIterator  {
 	/** The position. */
 	private int position=0;
 
+	private String ingredient="Chicken";
 	/**
 	 * Instantiates a new heart healthy menu iterator.
 	 *
@@ -27,6 +28,13 @@ public class IngredientMenuIterator implements MenuIterator  {
 		findItem();
 	}
 
+	public IngredientMenuIterator(Menu menuObj,String ingredient ) {
+		// TODO Auto-generated constructor stub
+		this.base=menuObj;
+		this.ingredient=ingredient;
+		findItem();
+	}
+	
 	/**
 	 * Find item.
 	 */
@@ -34,7 +42,7 @@ public class IngredientMenuIterator implements MenuIterator  {
 		while(hasNext()){
 			//System.out.println("loop");
 			MenuItem aniObj = base.get(position);
-			if(aniObj.getMainIngredient().equals("Chicken")){
+			if(aniObj.getMainIngredient().equals(this.ingredient)){
 				//position++;
 				//System.out.println(aniObj+"<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
 				break;
