@@ -20,16 +20,25 @@ public class MenuDemo {
 	 */
 	public static void main(String[] args) {
 		Menu MenuObj= new Menu();
-		MenuObj.addItem("Spagatti with Meat Sauce", 4.99, "Beef",true);
-		MenuObj.addItem("Spagatti with Red Sauce", 4.50, "Pasta",true);
-		MenuObj.addItem("Chicken and Rice", 3.59, "Chicken",false);
-		MenuObj.addItem("Chicken Tenders with Fries", 3.49, "Chicken",true);
-		MenuObj.addItem("Grilled Chicken Sandwitch with Fries", 3.99, "Chicken",false);
-		MenuObj.addItem("1/2 Pound Humburger with Fries", 5.99, "Beef",true);
-		MenuObj.addItem("Chicken Tenders with Chips", 3.39, "Chicken",true);
-		MenuObj.addItem("Chipotle Lime Chicken", 6.99, "Chicken",true);
-		MenuObj.addItem("Chocolate Chip Cookie Sundae", 3.20, "Ice Cream",false);
-		MenuObj.addItem("Maple Butter Blondie", 3.99, "Ice Cream",false);
+		
+		boolean useFile=true;
+		
+		if(useFile){
+			MenuObj.loadXML("data\\Menu.xml");
+		}else{
+			MenuObj.addItem("Spagatti with Meat Sauce", 4.99, "Beef",true);
+			MenuObj.addItem("Spagatti with Red Sauce", 4.50, "Pasta",true);
+			MenuObj.addItem("Chicken and Rice", 3.59, "Chicken",false);
+			MenuObj.addItem("Chicken Tenders with Fries", 3.49, "Chicken",true);
+			MenuObj.addItem("Grilled Chicken Sandwitch with Fries", 3.99, "Chicken",false);
+			MenuObj.addItem("1/2 Pound Humburger with Fries", 5.99, "Beef",true);
+			MenuObj.addItem("Chicken Tenders with Chips", 3.39, "Chicken",true);
+			MenuObj.addItem("Chipotle Lime Chicken", 6.99, "Chicken",true);
+			MenuObj.addItem("Chocolate Chip Cookie Sundae", 3.20, "Ice Cream",false);
+			MenuObj.addItem("Maple Butter Blondie", 3.99, "Ice Cream",false);
+			MenuObj.saveXML("data\\Menu.xml");
+		}
+	
 		
 		
 		//System.out.println(MenuObj);
@@ -42,8 +51,7 @@ public class MenuDemo {
 		IngredientMenu(MenuObj);
 		
 		//System.out.println(MenuObj.getXML());
-		MenuObj.saveXML("data\\Menu.xml");
-		MenuObj.loadXML("data\\Menu.xml");
+	
 		
 	}
 	
