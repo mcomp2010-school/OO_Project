@@ -103,6 +103,6 @@ public class Comment {
 			
 		}
 		
-		return outputBuilder.toString();
+		return outputBuilder.toString().trim();
 	}
 }
