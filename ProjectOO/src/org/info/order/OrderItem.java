@@ -12,7 +12,6 @@ public class OrderItem {
 	
 	/** The order id. */
 	private Integer orderID;
-	
 	/** The Menu items. */
 	private ArrayList<MenuItem> MenuItems;
 	
