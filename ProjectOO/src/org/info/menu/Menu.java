@@ -198,6 +198,7 @@ public class Menu implements XStreamXML {
 	 *
 	 * @param FileName the file name
 	 */
+	@Override
 	public void loadXML(String FileName){
 		Clock1.start();
 		XStream xstream = new XStream();
@@ -232,6 +233,7 @@ public class Menu implements XStreamXML {
 	 *
 	 * @return the xml
 	 */
+	@Override
 	public String getXML(){		
 		XStream xstream = new XStream(); 
 		xstream.alias("MenuItem", MenuItem.class);
@@ -248,6 +250,7 @@ public class Menu implements XStreamXML {
 	 *
 	 * @param FileName the file name
 	 */
+	@Override
 	public void saveXML(String FileName){
 		File file = new File(FileName);
 		try {

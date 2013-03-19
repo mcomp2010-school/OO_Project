@@ -14,4 +14,5 @@ public enum CommentCategory {
  COMPLAINT, 
  /** The prices. */
  PRICES
+
 }

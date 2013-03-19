@@ -131,6 +131,52 @@ public class CommentItem {
 				+ timePlaced + ", description=" + description + ", category="
 				+ category + "]";
 	}
+
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result
+				+ ((category == null) ? 0 : category.hashCode());
+		result = prime * result
+				+ ((commentItemID == null) ? 0 : commentItemID.hashCode());
+		result = prime * result
+				+ ((description == null) ? 0 : description.hashCode());
+		result = prime * result
+				+ ((timePlaced == null) ? 0 : timePlaced.hashCode());
+		return result;
+	}
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		CommentItem other = (CommentItem) obj;
+		if (category != other.category)
+			return false;
+		if (commentItemID == null) {
+			if (other.commentItemID != null)
+				return false;
+		} else if (!commentItemID.equals(other.commentItemID))
+			return false;
+		if (description == null) {
+			if (other.description != null)
+				return false;
+		} else if (!description.equals(other.description))
+			return false;
+		if (timePlaced == null) {
+			if (other.timePlaced != null)
+				return false;
+		} else if (!timePlaced.equals(other.timePlaced))
+			return false;
+		return true;
+	}
 	
 	
 	

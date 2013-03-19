@@ -247,6 +247,7 @@ public class TableManager implements XStreamXML {
 	 *
 	 * @param FileName the file name
 	 */
+	@Override
 	public void loadXML(String FileName){
 		XStream xstream = new XStream();
 		xstream.alias("Table", Table.class); 
@@ -273,6 +274,7 @@ public class TableManager implements XStreamXML {
 	 *
 	 * @return the xml
 	 */
+	@Override
 	public String getXML(){		
 		XStream xstream = new XStream(); 
 		xstream.alias("Table", Table.class);
@@ -288,6 +290,7 @@ public class TableManager implements XStreamXML {
 	 *
 	 * @param FileName the file name
 	 */
+	@Override
 	public void saveXML(String FileName){
 		File file = new File(FileName);
 		try {

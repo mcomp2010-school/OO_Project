@@ -105,4 +105,39 @@ public class Comment {
 		
 		return outputBuilder.toString().trim();
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result
+				+ ((commentID == null) ? 0 : commentID.hashCode());
+		result = prime * result
+				+ ((commentItems == null) ? 0 : commentItems.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Comment other = (Comment) obj;
+		if (commentID == null) {
+			if (other.commentID != null)
+				return false;
+		} else if (!commentID.equals(other.commentID))
+			return false;
+		if (commentItems == null) {
+			if (other.commentItems != null)
+				return false;
+		} else if (!commentItems.equals(other.commentItems))
+			return false;
+		return true;
+	}
+	
+	
 }
