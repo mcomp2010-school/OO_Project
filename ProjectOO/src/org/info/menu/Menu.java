@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import org.apache.commons.io.FileUtils;
+import org.shared.XStreamXML;
 import org.shared.performance.Timing;
 
 import com.thoughtworks.xstream.XStream;
@@ -15,7 +16,7 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 /**
  * The Class Menu.
  */
-public class Menu {
+public class Menu implements XStreamXML {
 	
 	/** The Stop watch performance. */
 	private static boolean StopWatchPerformance=false;

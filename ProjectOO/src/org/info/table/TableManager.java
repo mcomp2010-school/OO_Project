@@ -8,6 +8,7 @@ import java.util.List;
 
 import org.apache.commons.io.FileUtils;
 import org.info.menu.MenuItem;
+import org.shared.XStreamXML;
 import org.shared.performance.Timing;
 
 import com.thoughtworks.xstream.XStream;
@@ -18,7 +19,7 @@ import com.thoughtworks.xstream.annotations.XStreamImplicit;
 /**
  * The Class TableManager.
  */
-public class TableManager {
+public class TableManager implements XStreamXML {
 	
 	/** The Stop watch performance. */
 	private static boolean StopWatchPerformance=false;

@@ -1,5 +1,7 @@
 package org.info.table;
 
+import org.shared.XStreamXML;
+
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamAsAttribute;
 
@@ -8,7 +10,7 @@ import com.thoughtworks.xstream.annotations.XStreamAsAttribute;
  * The Class Table.
  */
 @XStreamAlias("Table")
-public class Table {
+public class Table{
 	
 	/** The table id. */
 	@XStreamAsAttribute

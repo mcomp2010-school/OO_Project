@@ -20,7 +20,6 @@ public class CommentDemo {
 		int comment2=Comments.addComment("Bad Server, Very Slow", CommentCategory.COMPLAINT);
 		int comment3=Comments.addComment("Bug in food", CommentCategory.COMPLAINT);
 		
-		
 		commentPrint(Comments);
 		//Action-Remove Comment
 		Comments.removeCommentByID(comment3);
