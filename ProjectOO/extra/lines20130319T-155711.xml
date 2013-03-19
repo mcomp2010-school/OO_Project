@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<results>
+<header>http://cloc.sourceforge.net v 1.08  T=6.0 s (6.2 files/s, 457.5 lines/s)</header>
+<languages>
+<language name="Java" files_count="33" blank="469" comment="859" code="1261" />
+<language name="XML" files_count="3" blank="0" comment="0" code="150" />
+<language name="Python" files_count="1" blank="1" comment="0" code="5" />
+<total sum_files="37" blank="470" comment="859" code="1416" />
+</languages>
+</results>
