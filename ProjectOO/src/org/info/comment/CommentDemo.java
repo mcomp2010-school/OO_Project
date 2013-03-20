@@ -30,6 +30,11 @@ public class CommentDemo {
 		commentPrint(Comments);
 	}
 
+	/**
+	 * Comment print.
+	 *
+	 * @param Comments the comments
+	 */
 	private static void commentPrint(Comment Comments) {
 		System.out.println("======================");
 		System.out.println("Comments:");

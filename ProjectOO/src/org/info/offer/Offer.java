@@ -8,17 +8,24 @@ import org.shared.XStreamXML;
 
 import com.thoughtworks.xstream.XStream;
 
+// TODO: Auto-generated Javadoc
 /**
  * The Class Offer.
  */
 public class Offer implements XStreamXML{
 
+	/* (non-Javadoc)
+	 * @see org.shared.XStreamXML#loadXML(java.lang.String)
+	 */
 	@Override
 	public void loadXML(String FileName) {
 		// TODO need to implement- Can copy paste code from Menu
 		
 	}
 
+	/* (non-Javadoc)
+	 * @see org.shared.XStreamXML#getXML()
+	 */
 	@Override
 	public String getXML() {
 		XStream xstream = new XStream(); 
@@ -33,6 +40,9 @@ public class Offer implements XStreamXML{
 		return xml;
 	}
 
+	/* (non-Javadoc)
+	 * @see org.shared.XStreamXML#saveXML(java.lang.String)
+	 */
 	@Override
 	public void saveXML(String FileName) {
 		File file = new File(FileName);

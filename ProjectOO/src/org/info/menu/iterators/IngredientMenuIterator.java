@@ -16,6 +16,7 @@ public class IngredientMenuIterator implements MenuIterator  {
 	/** The position. */
 	private int position=0;
 
+	/** The ingredient. */
 	private String ingredient="Chicken";
 	/**
 	 * Instantiates a new heart healthy menu iterator.
@@ -28,6 +29,12 @@ public class IngredientMenuIterator implements MenuIterator  {
 		findItem();
 	}
 
+	/**
+	 * Instantiates a new ingredient menu iterator.
+	 *
+	 * @param menuObj the menu obj
+	 * @param ingredient the ingredient
+	 */
 	public IngredientMenuIterator(Menu menuObj,String ingredient ) {
 		// TODO Auto-generated constructor stub
 		this.base=menuObj;

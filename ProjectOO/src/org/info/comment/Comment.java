@@ -53,6 +53,9 @@ public class Comment {
 		commentItems.remove(inputID);
 	}
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
 	@Override
 	public String toString() {
 		StringBuilder outputBuilder = new StringBuilder();
@@ -69,6 +72,12 @@ public class Comment {
 		return outputBuilder.toString().trim();
 	}
 
+	/**
+	 * Gets the comments by category.
+	 *
+	 * @param Category the category
+	 * @return the comments by category
+	 */
 	public ArrayList<CommentItem> getCommentsByCategory(CommentCategory Category){
 		ArrayList<CommentItem> temp=new ArrayList<CommentItem>();
 		
@@ -88,6 +97,12 @@ public class Comment {
 	}
 	
 	
+	/**
+	 * Gets the comments by category str.
+	 *
+	 * @param Category the category
+	 * @return the comments by category str
+	 */
 	public String getCommentsByCategoryStr(CommentCategory Category){
 		StringBuilder outputBuilder = new StringBuilder();
 		
@@ -106,6 +121,9 @@ public class Comment {
 		return outputBuilder.toString().trim();
 	}
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
+	 */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -117,6 +135,9 @@ public class Comment {
 		return result;
 	}
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
