@@ -39,47 +39,18 @@ public class TableDemo {
 			Tables.add(15, 4);
 			
 			Tables.saveXML("data\\Table.xml");
-			
 		}
 	
-	
-		
-		
-		
-		System.out.println("================");
-		System.out.println("Tables");
-		System.out.println(Tables);
-		System.out.println("-------");
-		System.out.println("Percent Avaiable:"+Tables.getTotalSeatsAvailablePercent());
-		System.out.println("Total Seats:"+Tables.getTotalSeats());
-		System.out.println("Total Seats Available:"+Tables.getTotalSeatsAvailable());
-		System.out.println("Total Seats Taken:"+Tables.getTotalSeatsTaken());
-		System.out.println("List of Avaiable Tables:"+Tables.getIDsofAvailableTables());
+		printOut(Tables);
 		
 		//Make Table Not Available
 		Tables.makeTableNotAvailable(5);
-		System.out.println("================");
-		System.out.println("Tables");
-		System.out.println(Tables);
-		System.out.println("-------");
-		System.out.println("Percent Avaiable:"+Tables.getTotalSeatsAvailablePercent());
-		System.out.println("Total Seats:"+Tables.getTotalSeats());
-		System.out.println("Total Seats Available:"+Tables.getTotalSeatsAvailable());
-		System.out.println("Total Seats Taken:"+Tables.getTotalSeatsTaken());
-		System.out.println("List of Avaiable Tables:"+Tables.getIDsofAvailableTables());
+		printOut(Tables);
 		
 		//Make Table Not Available
 		Tables.makeTableNotAvailable(1);
 		Tables.makeTableNotAvailable(2);
-		System.out.println("================");
-		System.out.println("Tables");
-		System.out.println(Tables);
-		System.out.println("-------");
-		System.out.println("Percent Avaiable:"+Tables.getTotalSeatsAvailablePercent());
-		System.out.println("Total Seats:"+Tables.getTotalSeats());
-		System.out.println("Total Seats Available:"+Tables.getTotalSeatsAvailable());
-		System.out.println("Total Seats Taken:"+Tables.getTotalSeatsTaken());
-		System.out.println("List of Avaiable Tables:"+Tables.getIDsofAvailableTables());
+		printOut(Tables);
 		
 		
 		//Delete Table 4,Modify Size of Table, Make Table Available
@@ -87,6 +58,11 @@ public class TableDemo {
 		Tables.modifyTableSize(2, 5);
 		Tables.makeTableAvailable(5);
 		Tables.makeTableAvailable(1);
+		printOut(Tables);
+		
+	}
+
+	private static void printOut(TableManager Tables) {
 		System.out.println("================");
 		System.out.println("Tables");
 		System.out.println(Tables);
@@ -96,7 +72,6 @@ public class TableDemo {
 		System.out.println("Total Seats Available:"+Tables.getTotalSeatsAvailable());
 		System.out.println("Total Seats Taken:"+Tables.getTotalSeatsTaken());
 		System.out.println("List of Avaiable Tables:"+Tables.getIDsofAvailableTables());
-		
 	}
 
 }
