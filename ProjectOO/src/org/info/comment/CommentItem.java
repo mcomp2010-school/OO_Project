@@ -2,6 +2,8 @@ package org.info.comment;
 
 import java.sql.Timestamp;
 
+import org.joda.time.DateTime;
+
 // TODO: Auto-generated Javadoc
 /**
  * The Class CommentItem.
@@ -12,7 +14,7 @@ public class CommentItem {
 	private Integer commentItemID;
 	
 	/** The time placed. */
-	private String timePlaced;
+	private DateTime timePlaced;
 	
 	/** The description. */
 	private String description;
@@ -33,10 +35,9 @@ public class CommentItem {
 		super();
 		this.commentItemID = commentItemID;
 		
-		java.util.Date date= new java.util.Date();
-		Timestamp time=new Timestamp(date.getTime());
-		timePlaced=time.toString();
-		 
+		timePlaced = new DateTime();
+		
+		
 		this.description = description;
 		this.category = category;
 	}
@@ -57,7 +58,7 @@ public class CommentItem {
 	 *
 	 * @return the time placed
 	 */
-	public String getTimePlaced() {
+	public DateTime getTimePlaced() {
 		return timePlaced;
 	}
 
@@ -97,7 +98,7 @@ public class CommentItem {
 	 *
 	 * @param timePlaced the new time placed
 	 */
-	public void setTimePlaced(String timePlaced) {
+	public void setTimePlaced(DateTime timePlaced) {
 		this.timePlaced = timePlaced;
 	}
 
@@ -128,7 +129,7 @@ public class CommentItem {
 	@Override
 	public String toString() {
 		return "CommentItem [commentItemID=" + commentItemID + ", timePlaced="
-				+ timePlaced + ", description=" + description + ", category="
+				+ new Timestamp(timePlaced.getMillis()) + ", description=" + description + ", category="
 				+ category + "]";
 	}
 

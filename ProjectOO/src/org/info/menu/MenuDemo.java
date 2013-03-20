@@ -36,11 +36,11 @@ public class MenuDemo {
 			MenuObj.addItem("Chipotle Lime Chicken", 6.99, "Chicken",true);
 			MenuObj.addItem("Chocolate Chip Cookie Sundae", 3.20, "Ice Cream",false);
 			MenuObj.addItem("Maple Butter Blondie", 3.99, "Ice Cream",false);
+			
 			MenuObj.saveXML("data\\Menu.xml");
 		}
 	
-		
-		
+
 		//System.out.println(MenuObj);
 		CompleteMenu(MenuObj);
 		System.out.println("=====================");
@@ -51,8 +51,6 @@ public class MenuDemo {
 		IngredientMenu(MenuObj);
 		
 		//System.out.println(MenuObj.getXML());
-	
-		
 	}
 	
 	/**
