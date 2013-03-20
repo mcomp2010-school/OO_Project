@@ -16,6 +16,7 @@ public class PriceMenuIterator implements MenuIterator {
 	/** The position. */
 	private int position=0;
 
+	/** The price. */
 	private double price=4.99;
 	
 	/**
@@ -29,6 +30,12 @@ public class PriceMenuIterator implements MenuIterator {
 		findItem();
 	}
 
+	/**
+	 * Instantiates a new price menu iterator.
+	 *
+	 * @param menuObj the menu obj
+	 * @param price the price
+	 */
 	public PriceMenuIterator(Menu menuObj,double price) {
 		// TODO Auto-generated constructor stub
 		this.base=menuObj;

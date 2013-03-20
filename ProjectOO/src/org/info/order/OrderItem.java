@@ -15,6 +15,7 @@ public class OrderItem {
 	/** The Menu items. */
 	private ArrayList<MenuItem> MenuItems;
 	
+	/** The Time ordered. */
 	private String TimeOrdered;
 	
 	
