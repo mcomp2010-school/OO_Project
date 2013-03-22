@@ -1,5 +1,6 @@
 package org.info.order;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
 
 import org.info.menu.MenuItem;
@@ -71,7 +72,7 @@ public class OrderItem {
 	@Override
 	public String toString() {
 		return "OrderItem [orderID=" + orderID + ", MenuItems=" + MenuItems
-				+ ", timeOrdered=" + timeOrdered + "]";
+				+ ", timeOrdered=" + new Timestamp(timeOrdered.getMillis()) + "]";
 	}
 	
 	
