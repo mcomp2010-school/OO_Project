@@ -67,6 +67,14 @@ public class OrderItem {
 	public void setMenuItems(ArrayList<MenuItem> menuItems) {
 		MenuItems = menuItems;
 	}
+
+	@Override
+	public String toString() {
+		return "OrderItem [orderID=" + orderID + ", MenuItems=" + MenuItems
+				+ ", timeOrdered=" + timeOrdered + "]";
+	}
+	
+	
 	
 	
 	

@@ -1,8 +1,10 @@
 package org.info.order;
 
 import java.util.ArrayList;
+import java.util.Map;
 import java.util.TreeMap;
 
+import org.info.comment.CommentItem;
 import org.info.menu.MenuItem;
 
 // TODO: Auto-generated Javadoc
@@ -52,7 +54,19 @@ public class Order {
 	 */
 	@Override
 	public String toString() {
-		return "Order [orders=" + orders + "]";
+		
+		StringBuilder outputBuilder = new StringBuilder();
+
+		for (Map.Entry<Integer, OrderItem> entry : this.orders
+				.entrySet()) {
+			Integer key = entry.getKey();
+			OrderItem value = entry.getValue();
+
+			// System.out.println(key + " => " + value);
+			outputBuilder.append(value + "\n");
+		}
+
+		return outputBuilder.toString().trim();
 	}
 
 	/* (non-Javadoc)
