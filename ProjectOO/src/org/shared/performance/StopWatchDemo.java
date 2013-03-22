@@ -8,6 +8,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;  
 import java.util.logging.Logger;  
   
+// TODO: Auto-generated Javadoc
 /** 
  * Demonstrates Guava's (Release 10) Stopwatch class. 
  * http://marxsoftware.blogspot.com/2011/10/guava-stopwatch.html
@@ -15,8 +16,15 @@ import java.util.logging.Logger;
  */  
 public class StopWatchDemo  
 {  
+   
+   /** The Constant LOGGER. */
    private final static Logger LOGGER = Logger.getLogger(StopWatchDemo.class.getCanonicalName());  
   
+   /**
+    * Do something just to be doing it.
+    *
+    * @param numberOfTimesToDoNothing the number of times to do nothing
+    */
    public static void doSomethingJustToBeDoingIt(final int numberOfTimesToDoNothing)  
    {  
       for (int count=0; count < numberOfTimesToDoNothing; count++)  
@@ -56,6 +64,11 @@ public class StopWatchDemo
       }  
    }  
   
+   /**
+    * The main method.
+    *
+    * @param arguments the arguments
+    */
    public static void main(final String[] arguments)  
    {  
       final Stopwatch stopwatch = new Stopwatch();  

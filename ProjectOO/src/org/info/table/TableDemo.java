@@ -62,6 +62,11 @@ public class TableDemo {
 		
 	}
 
+	/**
+	 * Prints the out.
+	 *
+	 * @param Tables the tables
+	 */
 	private static void printOut(TableManager Tables) {
 		System.out.println("================");
 		System.out.println("Tables");

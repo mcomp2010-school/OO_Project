@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import org.apache.commons.io.FileUtils;
+import org.shared.Utils;
 import org.shared.XStreamXML;
 import org.shared.performance.Timing;
 
@@ -79,9 +80,52 @@ public class Menu implements XStreamXML {
 	}
 
 
+	public ArrayList<MenuItem> getItemByIDs(String inputString){
+		ArrayList<MenuItem> tempList= new ArrayList<MenuItem>();
+		
+		Integer[] splits = Utils.convertStringArrayToIntegerArray(inputString.split(","));
+		
+		
+		for (int i = 0; i < MenuList.size(); i++) {
+			MenuItem current= MenuList.get(i);
+			
+			for (int j = 0; j < splits.length; j++) {
+				Integer currentID=splits[j];
+				
+				if(current.getItemID().equals(currentID)){
+					tempList.add(current);
+					break;
+				}	
+			}
+		}
+		
+		return tempList;
+	}
+	
+	
 	/**
-	 * Gets the.
+	 * Gets the itemby id.
 	 *
+	 * @param inputID the input id
+	 * @return the itemby id
+	 */
+	public MenuItem getItemByID(Integer inputID){
+		MenuItem item=null;
+		
+			
+		for (int i = 0; i < MenuList.size(); i++) {
+			MenuItem current= MenuList.get(i);
+			if(current.getItemID().equals(inputID)){
+				item=current;
+				break;
+			}	
+		}
+		
+		return item;
+	}
+	/**
+	 * Gets the MenuItem with the ArrayList Index
+	 * Used for the Iterators
 	 * @param index the index
 	 * @return the menu item
 	 */

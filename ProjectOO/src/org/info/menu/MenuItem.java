@@ -91,9 +91,6 @@ public class MenuItem {
 		MainIngredient = mainIngredient;
 		this.isHeartHealthy = isHeartHealthy;
 	}
-
-
-	
 	
 	/**
 	 * Gets the item id.
@@ -266,7 +263,7 @@ public class MenuItem {
 	@Override
 	public String toString() {
 		DecimalFormat df= new DecimalFormat("#.00");
-		return "" + itemName + ", " + df.format(Price)+ ", " + MainIngredient + "";
+		return this.ItemID+">" + itemName + ", " + df.format(Price)+ ", " + MainIngredient + "";
 	}
 
 }

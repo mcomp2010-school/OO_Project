@@ -5,6 +5,7 @@ import org.info.menu.iterators.HeartHealthyMenuIterator;
 import org.info.menu.iterators.IngredientMenuIterator;
 import org.info.menu.iterators.MenuIterator;
 import org.info.menu.iterators.PriceMenuIterator;
+import org.shared.Utils;
 
 
 // TODO: Auto-generated Javadoc
@@ -51,7 +52,15 @@ public class MenuDemo {
 		IngredientMenu(MenuObj);
 		
 		//System.out.println(MenuObj.getXML());
+		System.out.println("=====================");
+		System.out.println(MenuObj.getItemByID(5));
+		System.out.println(MenuObj.getItemByIDs("1,5,6,7"));
+		
+		
+		
 	}
+	
+	
 	
 	/**
 	 * Complete menu.
