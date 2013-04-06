@@ -55,7 +55,7 @@ public class Offer implements XStreamXML{
 	 * Adds a offer item to the offer collection*/
 	public void addOfferItem(String menuItemType, double discountPercentage, int timesApplied)
 	{
-		//TODO: Implement logic to iterate and apply each offer
+		//TODO: Implement logic to iterate and apply each offer.
 	}
 	
 	
