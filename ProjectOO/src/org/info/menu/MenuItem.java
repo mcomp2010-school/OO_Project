@@ -30,8 +30,9 @@ public class MenuItem {
 	
 	/** This is how long it takes to cook*. */
 	private int timeSec;
-
 	
+	/**Entree, dessert, etc. used for special offers**/
+	private String category;
 
 	/**
 	 * Instantiates a new menu item.
@@ -44,14 +45,15 @@ public class MenuItem {
 	 * @param timeSec the time sec
 	 */
 	public MenuItem(Integer itemID, String itemName, Double price,
-			String mainIngredient, boolean isHeartHealthy, int timeSec) {
+			String mainIngredient, boolean isHeartHealthy, int timeSec, String category) {
 		super();
 		ItemID = itemID;
 		this.itemName = itemName;
 		Price = price;
 		MainIngredient = mainIngredient;
+		this.setCategory(category);
 		this.isHeartHealthy = isHeartHealthy;
-		this.timeSec = timeSec;
+		this.timeSec = timeSec;		
 	}
 
 
@@ -63,13 +65,14 @@ public class MenuItem {
 	 * @param price the price
 	 * @param mainIngredient the main ingredient
 	 */
-	public MenuItem(Integer itemID,String itemName, Double price, String mainIngredient) {
+	public MenuItem(Integer itemID,String itemName, Double price, String mainIngredient, String category) {
 		super();
 		ItemID = itemID;
 		this.itemName = itemName;
 		Price = price;
 		MainIngredient = mainIngredient;
 		this.isHeartHealthy=false;
+		this.setCategory(category);
 	}
 
 	
@@ -83,13 +86,14 @@ public class MenuItem {
 	 * @param isHeartHealthy the is heart healthy
 	 */
 	public MenuItem(Integer itemID,String itemName, Double price, String mainIngredient,
-			boolean isHeartHealthy) {
+			boolean isHeartHealthy, String category) {
 		super();
 		ItemID = itemID;
 		this.itemName = itemName;
 		Price = price;
 		MainIngredient = mainIngredient;
 		this.isHeartHealthy = isHeartHealthy;
+		this.setCategory(category);
 	}
 	
 	/**
@@ -196,7 +200,20 @@ public class MenuItem {
 		MainIngredient = mainIngredient;
 	}
 	
+	/**
+	 * @return the category
+	 */
+	public String getCategory() {
+		return category;
+	}
 
+
+	/**
+	 * @param category the category to set
+	 */
+	public void setCategory(String category) {
+		this.category = category;
+	}
 
 	/* (non-Javadoc)
 	 * @see java.lang.Object#hashCode()
@@ -264,6 +281,6 @@ public class MenuItem {
 	public String toString() {
 		DecimalFormat df= new DecimalFormat("#.00");
 		return this.ItemID+">" + itemName + ", " + df.format(Price)+ ", " + MainIngredient + "";
-	}
+	}	
 
 }

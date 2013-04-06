@@ -27,16 +27,16 @@ public class MenuDemo {
 		if(useFile){
 			MenuObj.loadXML("data\\Menu.xml");
 		}else{
-			MenuObj.addItem("Spagatti with Meat Sauce", 4.99, "Beef",true);
-			MenuObj.addItem("Spagatti with Red Sauce", 4.50, "Pasta",true);
-			MenuObj.addItem("Chicken and Rice", 3.59, "Chicken",false);
-			MenuObj.addItem("Chicken Tenders with Fries", 3.49, "Chicken",true);
-			MenuObj.addItem("Grilled Chicken Sandwitch with Fries", 3.99, "Chicken",false);
-			MenuObj.addItem("1/2 Pound Humburger with Fries", 5.99, "Beef",true);
-			MenuObj.addItem("Chicken Tenders with Chips", 3.39, "Chicken",true);
-			MenuObj.addItem("Chipotle Lime Chicken", 6.99, "Chicken",true);
-			MenuObj.addItem("Chocolate Chip Cookie Sundae", 3.20, "Ice Cream",false);
-			MenuObj.addItem("Maple Butter Blondie", 3.99, "Ice Cream",false);
+			MenuObj.addItem("Spaghetti with Meat Sauce", 4.99, "Beef",true, "Entree");
+			MenuObj.addItem("Spaghetti with Red Sauce", 4.50, "Pasta",true, "Entree");
+			MenuObj.addItem("Chicken and Rice", 3.59, "Chicken",false, "Entree");
+			MenuObj.addItem("Chicken Tenders with Fries", 3.49, "Chicken",true,"Entree");
+			MenuObj.addItem("Grilled Chicken Sandwitch with Fries", 3.99, "Chicken",false,"Entree");
+			MenuObj.addItem("1/2 Pound Humburger with Fries", 5.99, "Beef",true,"Entree");
+			MenuObj.addItem("Chicken Tenders with Chips", 3.39, "Chicken",true,"Entree");
+			MenuObj.addItem("Chipotle Lime Chicken", 6.99, "Chicken",true,"Entree");
+			MenuObj.addItem("Chocolate Chip Cookie Sundae", 3.20, "Ice Cream",false, "Dessert");
+			MenuObj.addItem("Maple Butter Blondie", 3.99, "Ice Cream",false, "Dessert");
 			
 			MenuObj.saveXML("data\\Menu.xml");
 		}

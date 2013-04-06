@@ -39,8 +39,8 @@ public class Menu implements XStreamXML {
 	 * @param price the price
 	 * @param mainIngredient the main ingredient
 	 */
-	public void addItem(String itemName, Double price, String mainIngredient){
-		MenuList.add(new MenuItem(ItemID,itemName, price, mainIngredient));
+	public void addItem(String itemName, Double price, String mainIngredient, String category){
+		MenuList.add(new MenuItem(ItemID,itemName, price, mainIngredient,category));
 		ItemID++;
 	}
 	
@@ -52,8 +52,9 @@ public class Menu implements XStreamXML {
 	 * @param mainIngredient the main ingredient
 	 * @param isHeartHealthy the is heart healthy
 	 */
-	public void addItem(String itemName, Double price, String mainIngredient,boolean isHeartHealthy){
-		MenuList.add(new MenuItem(ItemID,itemName, price, mainIngredient,isHeartHealthy));
+	public void addItem(String itemName, Double price, String mainIngredient,boolean isHeartHealthy,
+			String category){
+		MenuList.add(new MenuItem(ItemID,itemName, price, mainIngredient,isHeartHealthy,category));
 		ItemID++;
 	}
 	
