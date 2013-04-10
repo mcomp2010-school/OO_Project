@@ -72,7 +72,7 @@ public class InformationProvider {
 		
 		while (CompleteMenuIterator.hasNext()) {  
 			CompleteMenuIterator.hasNext(); // extra call should have no effect  
-		     System.out.println(CompleteMenuIterator.next() + " ");  
+			tempMenu.addItem((MenuItem)CompleteMenuIterator.next());  
 		 } 
 		return tempMenu;
 	}

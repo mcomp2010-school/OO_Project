@@ -1,19 +1,14 @@
 package org;
 
-// TODO: Auto-generated Javadoc
-/**
- * The Class SystemInterface.
- */
+import org.commands.GetCompleteMenuCommand;
+import org.info.menu.Menu;
+
 public class SystemInterface {
 
-	/**
-	 * The main method.
-	 *
-	 * @param args the arguments
-	 */
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+	public String getGetCompleteMenu(){		
+		
+		Menu Comp=(Menu) new GetCompleteMenuCommand().execute();
+		
+		return Comp.toString().trim();
 	}
-
 }
