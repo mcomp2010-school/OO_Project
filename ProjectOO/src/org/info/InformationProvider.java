@@ -62,6 +62,11 @@ public class InformationProvider {
 	}
 	
 	
+	/**
+	 * Tables.
+	 *
+	 * @return the table manager
+	 */
 	public TableManager Tables(){
 		return this.Tables();
 	}

@@ -43,6 +43,7 @@ public class MenuItem {
 	 * @param mainIngredient the main ingredient
 	 * @param isHeartHealthy the is heart healthy
 	 * @param timeSec the time sec
+	 * @param category the category
 	 */
 	public MenuItem(Integer itemID, String itemName, Double price,
 			String mainIngredient, boolean isHeartHealthy, int timeSec, String category) {
@@ -64,6 +65,7 @@ public class MenuItem {
 	 * @param itemName the item name
 	 * @param price the price
 	 * @param mainIngredient the main ingredient
+	 * @param category the category
 	 */
 	public MenuItem(Integer itemID,String itemName, Double price, String mainIngredient, String category) {
 		super();
@@ -84,6 +86,7 @@ public class MenuItem {
 	 * @param price the price
 	 * @param mainIngredient the main ingredient
 	 * @param isHeartHealthy the is heart healthy
+	 * @param category the category
 	 */
 	public MenuItem(Integer itemID,String itemName, Double price, String mainIngredient,
 			boolean isHeartHealthy, String category) {
@@ -201,6 +204,8 @@ public class MenuItem {
 	}
 	
 	/**
+	 * Gets the category.
+	 *
 	 * @return the category
 	 */
 	public String getCategory() {
@@ -209,6 +214,8 @@ public class MenuItem {
 
 
 	/**
+	 * Sets the category.
+	 *
 	 * @param category the category to set
 	 */
 	public void setCategory(String category) {

@@ -38,6 +38,7 @@ public class Menu implements XStreamXML {
 	 * @param itemName the item name
 	 * @param price the price
 	 * @param mainIngredient the main ingredient
+	 * @param category the category
 	 */
 	public void addItem(String itemName, Double price, String mainIngredient, String category){
 		MenuList.add(new MenuItem(ItemID,itemName, price, mainIngredient,category));
@@ -51,6 +52,7 @@ public class Menu implements XStreamXML {
 	 * @param price the price
 	 * @param mainIngredient the main ingredient
 	 * @param isHeartHealthy the is heart healthy
+	 * @param category the category
 	 */
 	public void addItem(String itemName, Double price, String mainIngredient,boolean isHeartHealthy,
 			String category){
@@ -81,6 +83,12 @@ public class Menu implements XStreamXML {
 	}
 
 
+	/**
+	 * Gets the item by i ds.
+	 *
+	 * @param inputString the input string
+	 * @return the item by i ds
+	 */
 	public ArrayList<MenuItem> getItemByIDs(String inputString){
 		ArrayList<MenuItem> tempList= new ArrayList<MenuItem>();
 		
@@ -124,9 +132,11 @@ public class Menu implements XStreamXML {
 		
 		return item;
 	}
+	
 	/**
 	 * Gets the MenuItem with the ArrayList Index
-	 * Used for the Iterators
+	 * Used for the Iterators.
+	 *
 	 * @param index the index
 	 * @return the menu item
 	 */
