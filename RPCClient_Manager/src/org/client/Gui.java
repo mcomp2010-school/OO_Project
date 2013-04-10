@@ -73,19 +73,21 @@ public class Gui {
 		
 		JPanel menu_panel = new JPanel();
 		tabbedPane.addTab("Menu", null, menu_panel, null);
+		tabbedPane.setEnabledAt(0, true);
 		
 		menu_panel.setLayout(null);
 		
 		JButton btnGetcompletemenu = new JButton("Get Complete Menu");
-		btnGetcompletemenu.setBounds(59, 388, 174, 23);
+		btnGetcompletemenu.setBounds(272, 448, 174, 23);
 		menu_panel.add(btnGetcompletemenu);
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
-		scrollPane.setBounds(10, 11, 603, 366);
+		scrollPane.setBounds(10, 11, 603, 408);
 		menu_panel.add(scrollPane);
 		
 		editorMenuoutput = new JEditorPane();
+		editorMenuoutput.setEditable(false);
 		editorMenuoutput.setContentType("text/html");
 		scrollPane.setViewportView(editorMenuoutput);
 		btnGetcompletemenu.addActionListener(new ActionListener() {

@@ -30,6 +30,7 @@ public class SystemInterface {
         return result;
     }
     
+    
     public String getCompleteMenu() throws XmlRpcException{
     	 String resultMenu= (String) client.execute("SystemInterface.getGetCompleteMenu",new Object[]{});
     	 return resultMenu;

@@ -20,12 +20,12 @@ public class HtmlUtils {
 	public static String convertMenuStringToHtml(String input){
 		StringBuilder output= new StringBuilder();
 		
-		output.append("<table border=\"1\"><tr>");
+		output.append("<table border=\"1\" align=\"center\"><tr>\n");
 		header(output,"ID");
 		header(output,"Name");
 		header(output,"Price");
 		header(output,"Main Ing");
-		output.append("</tr>");
+		output.append("</tr>\n");
 		
 		
 		ArrayList<ArrayList<String>> alData=Utils.stringtoNdArrayList(input,false,",|>");
@@ -40,15 +40,15 @@ public class HtmlUtils {
 	}
 
 	private static void header(StringBuilder output,String header) {
-		output.append("<th>"+header+"</th>");
+		output.append("<th>"+header+"</th>\n");
 	}
 	
 	private static void row(StringBuilder output,ArrayList<String> input){
-		output.append("<tr>");
+		output.append("<tr>\n");
 		for(int i = 0 ; i<input.size();i++){
-			output.append("<td>"+input.get(i)+"</td>");
+			output.append("<td>"+input.get(i)+"</td>\n");
 		}
-		output.append("</tr>");
+		output.append("</tr>\n");
 	}
 
 }
