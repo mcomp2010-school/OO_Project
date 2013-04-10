@@ -36,6 +36,10 @@ public class SystemInterface {
     	 return resultMenu;
     }
     
+    public String getTables() throws XmlRpcException{
+   	 String result= (String) client.execute("SystemInterface.getTables",new Object[]{});
+   	 return result;
+   }
     
    
     

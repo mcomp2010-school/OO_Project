@@ -7,7 +7,7 @@ import org.info.InformationProvider;
 /**
  * The Class GetCompleteMenuCommand.
  */
-public class GetCompleteMenuCommand implements Command{
+public class GetCMDCompleteMenuCommand implements Command{
 	
 	/** The info obj. */
 	InformationProvider infoObj=InformationProvider.getSingletonObject();

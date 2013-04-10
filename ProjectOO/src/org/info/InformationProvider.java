@@ -61,6 +61,10 @@ public class InformationProvider {
 		return singletonObject;
 	}
 	
+	
+	public TableManager Tables(){
+		return this.Tables();
+	}
 	/**
 	 * Complete menu.
 	 *

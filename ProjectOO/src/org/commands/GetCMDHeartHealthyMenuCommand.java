@@ -7,7 +7,7 @@ import org.info.InformationProvider;
 /**
  * The Class GetHeartHealthyMenuCommand.
  */
-public class GetHeartHealthyMenuCommand  implements Command {
+public class GetCMDHeartHealthyMenuCommand  implements Command {
 	
 	/** The info obj. */
 	InformationProvider infoObj=InformationProvider.getSingletonObject();
@@ -18,7 +18,7 @@ public class GetHeartHealthyMenuCommand  implements Command {
 	@Override
 	public Object execute() {
 		// TODO Auto-generated method stub
-		return null;
+		return infoObj.HeartHealthyMenu();
 	}
 
 }

@@ -26,6 +26,7 @@ import javax.swing.ListSelectionModel;
 import javax.swing.border.BevelBorder;
 import javax.swing.ScrollPaneConstants;
 import java.awt.SystemColor;
+import javax.swing.DropMode;
 
 public class Gui {
 
@@ -33,6 +34,7 @@ public class Gui {
 	
 	private JFrame frmManager;
 	private JEditorPane editorMenuoutput;
+	private JEditorPane editorTables;
 
 	/**
 	 * Launch the application.
@@ -103,7 +105,32 @@ public class Gui {
 		});
 		
 		JPanel panel_1 = new JPanel();
-		tabbedPane.addTab("New tab", null, panel_1, null);
+		tabbedPane.addTab("Tables", null, panel_1, null);
 		panel_1.setLayout(null);
+		
+		JScrollPane scrollPane_1 = new JScrollPane();
+		scrollPane_1.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+		scrollPane_1.setBounds(10, 11, 614, 378);
+		panel_1.add(scrollPane_1);
+		
+		editorTables = new JEditorPane();
+		editorTables.setContentType("text/html");
+		editorTables.setEditable(false);
+		scrollPane_1.setViewportView(editorTables);
+		
+		JButton btnGettables = new JButton("getTables");
+		btnGettables.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				try {
+					editorTables.setText(HtmlUtils.convertMenuStringToHtml(SystemInterfaceObj.getTables()));
+				} catch (XmlRpcException e) {
+					// TODO Auto-generated catch block
+					editorTables.setText(e.getMessage().toString());
+				}
+				
+			}
+		});
+		btnGettables.setBounds(10, 415, 89, 23);
+		panel_1.add(btnGettables);
 	}
 }
