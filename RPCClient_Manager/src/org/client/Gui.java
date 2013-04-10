@@ -9,17 +9,30 @@ import javax.swing.JEditorPane;
 import javax.swing.JButton;
 
 import org.apache.xmlrpc.XmlRpcException;
+import org.utils.HtmlUtils;
 import org.xmlrpc.SystemInterface;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JPanel;
+import java.awt.Color;
+import javax.swing.JInternalFrame;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import java.awt.Font;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.ListSelectionModel;
+import javax.swing.border.BevelBorder;
+import javax.swing.ScrollPaneConstants;
+import java.awt.SystemColor;
 
 public class Gui {
 
 	private SystemInterface SystemInterfaceObj=new SystemInterface();
 	
 	private JFrame frmManager;
-	private JEditorPane editorPane;
+	private JEditorPane editorMenuoutput;
 
 	/**
 	 * Launch the application.
@@ -50,27 +63,45 @@ public class Gui {
 	private void initialize() {
 		frmManager = new JFrame();
 		frmManager.setTitle("Manager");
-		frmManager.setBounds(100, 100, 652, 517);
+		frmManager.setBounds(100, 100, 683, 588);
 		frmManager.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmManager.getContentPane().setLayout(null);
 		
-		editorPane = new JEditorPane();
-		editorPane.setBounds(30, 11, 509, 308);
-		frmManager.getContentPane().add(editorPane);
+		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		tabbedPane.setBounds(10, 11, 639, 528);
+		frmManager.getContentPane().add(tabbedPane);
 		
-		JButton btnGetcompletemenu = new JButton("GetCompleteMenu");
+		JPanel menu_panel = new JPanel();
+		tabbedPane.addTab("Menu", null, menu_panel, null);
+		
+		menu_panel.setLayout(null);
+		
+		JButton btnGetcompletemenu = new JButton("Get Complete Menu");
+		btnGetcompletemenu.setBounds(59, 388, 174, 23);
+		menu_panel.add(btnGetcompletemenu);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+		scrollPane.setBounds(10, 11, 603, 366);
+		menu_panel.add(scrollPane);
+		
+		editorMenuoutput = new JEditorPane();
+		editorMenuoutput.setContentType("text/html");
+		scrollPane.setViewportView(editorMenuoutput);
 		btnGetcompletemenu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
 				try {
-					editorPane.setText(SystemInterfaceObj.getCompleteMenu());
+					editorMenuoutput.setText(HtmlUtils.convertMenuStringToHtml(SystemInterfaceObj.getCompleteMenu()));
 				} catch (XmlRpcException e) {
 					// TODO Auto-generated catch block
-					editorPane.setText(e.toString());
+					editorMenuoutput.setText(e.getMessage().toString());
 				}
 			}
 		});
-		btnGetcompletemenu.setBounds(30, 360, 263, 23);
-		frmManager.getContentPane().add(btnGetcompletemenu);
+		
+		JPanel panel_1 = new JPanel();
+		tabbedPane.addTab("New tab", null, panel_1, null);
+		panel_1.setLayout(null);
 	}
 }

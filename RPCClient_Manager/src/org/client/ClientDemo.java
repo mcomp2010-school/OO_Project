@@ -8,7 +8,7 @@ import org.apache.xmlrpc.client.XmlRpcClientConfigImpl;
 import org.xmlrpc.SystemInterface;
 
 
-public class Client {
+public class ClientDemo {
     public static void main(String[] args) throws Exception {
 
     	SystemInterface SystemInterfaceObj=new SystemInterface();
