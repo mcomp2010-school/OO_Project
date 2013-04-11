@@ -4,6 +4,10 @@ import org.command.Command;
 import org.info.InformationProvider;
 import org.info.table.TableManager;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class GetCMDTables.
+ */
 public class GetCMDTables implements Command{
 
 	/** The info obj. */

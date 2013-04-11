@@ -69,6 +69,9 @@ public class OrderItem {
 		MenuItems = menuItems;
 	}
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
 	@Override
 	public String toString() {
 		return "OrderItem [orderID=" + orderID + ", MenuItems=" + MenuItems

@@ -22,6 +22,7 @@ public class Order {
 	/**
 	 * Place order.
 	 *
+	 * @param menuItems the menu items
 	 * @return the integer
 	 */
 	public Integer placeOrder(ArrayList<MenuItem> menuItems) {
@@ -34,6 +35,7 @@ public class Order {
 	/**
 	 * Gets the order by id.
 	 *
+	 * @param inputID the input id
 	 * @return the order by id
 	 */
 	public OrderItem getOrderByID(Integer inputID) {
@@ -43,6 +45,8 @@ public class Order {
 
 	/**
 	 * Removes the orderby id.
+	 *
+	 * @param inputID the input id
 	 */
 	public void removeOrderbyID(Integer inputID) {
 		orders.remove(inputID);

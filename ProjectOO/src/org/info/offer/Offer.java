@@ -17,9 +17,17 @@ import com.thoughtworks.xstream.XStream;
  */
 public class Offer implements XStreamXML{
 
+	/** The offer name. */
 	private String offerName; //General offer name. Separate from offerItem names
+	
+	/** The offer item list. */
 	private List<OfferItem> offerItemList;
 
+	/**
+	 * Instantiates a new offer.
+	 *
+	 * @param offerName the offer name
+	 */
 	private Offer(String offerName)
 	{
 		this.offerItemList = new ArrayList<OfferItem>();
@@ -27,7 +35,13 @@ public class Offer implements XStreamXML{
 	}
 	
 	/**
-	 * Adds a offer item to the offer collection*/
+	 * Adds a offer item to the offer collection.
+	 *
+	 * @param menuItemCategory the menu item category
+	 * @param discountPercentage the discount percentage
+	 * @param timesApplied the times applied
+	 * @param offerItemName the offer item name
+	 */
 	public void addOfferItem(String menuItemCategory, double discountPercentage, int timesApplied, 
 			String offerItemName)
 	{
@@ -36,7 +50,9 @@ public class Offer implements XStreamXML{
 	}
 	
 	/**
-	 * Remove offer item from offer collection
+	 * Remove offer item from offer collection.
+	 *
+	 * @param index the index
 	 */
 	public void removeOfferItem(int index)
 	{
@@ -44,15 +60,22 @@ public class Offer implements XStreamXML{
 	}
 	
 	/**
-	 * Apply all offers in the list to the order
-	 * */
+	 * Apply all offers in the list to the order.
+	 *
+	 * @param order the order
+	 */
 	public void applyOffers(Order order)	
 	{
 		this.offerItemList = new ArrayList<OfferItem>();
 	}
 	
 	/**
-	 * Adds a offer item to the offer collection*/
+	 * Adds a offer item to the offer collection.
+	 *
+	 * @param menuItemType the menu item type
+	 * @param discountPercentage the discount percentage
+	 * @param timesApplied the times applied
+	 */
 	public void addOfferItem(String menuItemType, double discountPercentage, int timesApplied)
 	{
 		//TODO: Implement logic to iterate and apply each offer.

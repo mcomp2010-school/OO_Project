@@ -4,10 +4,16 @@ import java.util.Iterator;
 
 import org.info.menu.Menu;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class OrderDemo.
+ */
 public class OrderDemo {
 
 	/**
-	 * @param args
+	 * The main method.
+	 *
+	 * @param args the arguments
 	 */
 	public static void main(String[] args) {
 		Menu MenuObj= new Menu();
