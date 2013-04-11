@@ -8,9 +8,12 @@ import xmlrpclib
 s = xmlrpclib.ServerProxy('http://127.0.0.1:8081/xmlrpc')
 
 commands={}
-commands['get_complete_menu'] = s.SystemInterface.getGetCompleteMenu() # CompleteMenu
 
-
+try:
+    commands['get_complete_menu'] = s.SystemInterface.getGetCompleteMenu() # CompleteMenu
+except Exception as e:
+    print e
+    raise SystemExit
 
 while True:
     print 'Hello Welcome to the Python XMLRPC client'
