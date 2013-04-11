@@ -26,7 +26,7 @@ public class InformationProvider {
 	private Menu MenuObj= new Menu();
 	
 	/** The Tables. */
-	private TableManager Tables=new TableManager();
+	private TableManager tableManagerObj=new TableManager();
 	
 	/** The singleton object. */
 	private static InformationProvider singletonObject;
@@ -44,7 +44,7 @@ public class InformationProvider {
 		MenuObj.loadXML("data\\Menu.xml");
 		
 		//Adding Tables
-		Tables.loadXML("data\\Table.xml");
+		tableManagerObj.loadXML("data\\Table.xml");
 		
 		if(StopWatchPerformance)System.err.println(this.getClass().getName()+".InformationProvider():"+Clock1.stop_SecDouble());
 	}
@@ -68,7 +68,7 @@ public class InformationProvider {
 	 * @return the table manager
 	 */
 	public TableManager Tables(){
-		return this.Tables();
+		return this.tableManagerObj;
 	}
 	/**
 	 * Complete menu.
@@ -142,7 +142,7 @@ public class InformationProvider {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((MenuObj == null) ? 0 : MenuObj.hashCode());
-		result = prime * result + ((Tables == null) ? 0 : Tables.hashCode());
+		result = prime * result + ((tableManagerObj == null) ? 0 : tableManagerObj.hashCode());
 		return result;
 	}
 
@@ -163,10 +163,10 @@ public class InformationProvider {
 				return false;
 		} else if (!MenuObj.equals(other.MenuObj))
 			return false;
-		if (Tables == null) {
-			if (other.Tables != null)
+		if (tableManagerObj == null) {
+			if (other.tableManagerObj != null)
 				return false;
-		} else if (!Tables.equals(other.Tables))
+		} else if (!tableManagerObj.equals(other.tableManagerObj))
 			return false;
 		return true;
 	}
