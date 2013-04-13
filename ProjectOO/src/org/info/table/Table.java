@@ -1,6 +1,7 @@
 package org.info.table;
 
 import org.shared.XStreamXML;
+import org.simulation.SimulationI;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamAsAttribute;
@@ -10,7 +11,7 @@ import com.thoughtworks.xstream.annotations.XStreamAsAttribute;
  * The Class Table.
  */
 @XStreamAlias("Table")
-public class Table{
+public class Table implements SimulationI{
 	
 	/** The table id. */
 	@XStreamAsAttribute
@@ -18,6 +19,8 @@ public class Table{
 	
 	/** The size. */
 	private Integer size;
+	
+	private Integer ExpTime=-1;
 	
 	/** The is available. */
 	private boolean isAvailable; 
@@ -99,7 +102,7 @@ public class Table{
 	@Override
 	public String toString() {
 		return "Table [tableID=" + tableID + ", size=" + size
-				+ ", isAvailable=" + isAvailable + "]";
+				+ ", isAvailable=" + isAvailable + "]\t"+this.ExpTime;
 	}
 
 
@@ -144,7 +147,16 @@ public class Table{
 		return true;
 	}
 
-	
-	
-	
+
+	@Override
+	public Integer getExpirationTime() {
+		return this.ExpTime;
+	}
+
+
+	@Override
+	public void setExpirationTime(int inputTime) {
+		this.ExpTime=inputTime;
+	}
+
 }

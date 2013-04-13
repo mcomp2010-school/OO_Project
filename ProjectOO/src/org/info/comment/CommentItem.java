@@ -34,10 +34,7 @@ public class CommentItem {
 			CommentCategory category) {
 		super();
 		this.commentItemID = commentItemID;
-		
-		timePlaced = new DateTime();
-		
-		
+		timePlaced = new DateTime();		
 		this.description = description;
 		this.category = category;
 	}

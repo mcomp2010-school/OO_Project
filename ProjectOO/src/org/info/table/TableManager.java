@@ -4,9 +4,12 @@ import java.io.File;
 import java.io.IOException;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import org.apache.commons.io.FileUtils;
+import org.errors.table.NoMoreRoomException;
 import org.info.menu.MenuItem;
 import org.shared.XStreamXML;
 import org.shared.performance.Timing;
@@ -172,6 +175,63 @@ public class TableManager implements XStreamXML {
 		return df.format((SeatsAvailable/SeatsTotal)*100)+"%";
 	}
 	
+	
+	/**
+	 * Seat based on party size.
+	 *
+	 * @param size the size
+	 * @return true, if successful
+	 * @throws NoMoreRoomException 
+	 */
+	public Integer seatBasedOnPartySize(int size) throws NoMoreRoomException{
+		int id=this.getIDofAvailableTableBasedOnPartySize(size);
+		
+		if(id>=1){
+			this.getTable(id).setAvailable(false);
+			return id;
+		}else{
+			throw new NoMoreRoomException("No More Room");
+		}	
+	}
+		
+	/**
+	 * Gets the ID of available table based on party size.
+	 *
+	 * @param size the size
+	 * @return the i dof available table based on party size
+	 */
+	public Integer getIDofAvailableTableBasedOnPartySize(int size){
+		ArrayList<Table> SortedAL=this.cloneALSortedBySize();
+		
+		Integer intAvailableTableID=-1;
+		
+		for (int i = 0; i < SortedAL.size(); i++) {
+			Table CurrentTable=SortedAL.get(i);
+			
+			if(CurrentTable.isAvailable()==true&&CurrentTable.getSize()>=size){
+				intAvailableTableID=CurrentTable.getTableID();
+				break;
+			}
+			//System.out.println(CurrentTable);
+		}	
+		return intAvailableTableID;
+	}
+	
+	
+	/**
+	 * Gets the biggest table size.
+	 *
+	 * @return the biggest table size
+	 */
+	public Integer getBiggestTableSize(){
+		ArrayList<Table> SortedAL=this.cloneALSortedBySize();
+		
+		if(SortedAL.size()==0){
+			return -1;
+		}else{
+			return SortedAL.get(SortedAL.size()-1).getSize();
+		}
+	}
 	/**
 	 * Gets the i dsof available tables.
 	 *
@@ -260,11 +320,10 @@ public class TableManager implements XStreamXML {
 		try {
 			lines = FileUtils.readFileToString(file);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-
+		@SuppressWarnings("unchecked")
 		ArrayList<Table> tempTable=(ArrayList<Table>)xstream.fromXML(lines.toString());
 		this.Tables=tempTable;
 	}
@@ -296,7 +355,6 @@ public class TableManager implements XStreamXML {
 		try {
 			FileUtils.writeStringToFile(file, this.getXML());
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -346,6 +404,55 @@ public class TableManager implements XStreamXML {
 		} else if (!Tables.equals(other.Tables))
 			return false;
 		return true;
+	}
+
+	
+	
+	/**
+	 * Clone array list.
+	 *
+	 * @return the array list
+	 */
+	private ArrayList<Table> cloneArrayList(){
+		ArrayList<Table> cloneArrayList= new ArrayList<Table>();
+		
+		for(int i = 0;i<this.Tables.size();i++){
+			cloneArrayList.add(this.Tables.get(i));
+		}
+		
+		return cloneArrayList;	
+	}
+	
+	
+	/* (non-Javadoc)
+	 * @see java.lang.Object#clone()
+	 */
+	public Object clone() {
+		TableManager workingTableManager=new TableManager();
+		workingTableManager.Tables=this.cloneArrayList();
+		return workingTableManager;
+	}
+	
+
+	/**
+	 * Clone ArrayList sorted by size.
+	 *
+	 * @return the array list
+	 */
+	private ArrayList<Table> cloneALSortedBySize(){
+		ArrayList<Table> cloneArrayList=(ArrayList<Table>) this.cloneArrayList();
+				
+		Collections.sort(cloneArrayList, new Comparator<Table>() {
+			  public int compare(Table o1, Table o2) {
+			      return o1.getSize().compareTo(o2.getSize());
+			  }
+			});
+				
+		return cloneArrayList;
+	}
+
+	public int getTables(){
+		return this.Tables.size();
 	}
 	
 }

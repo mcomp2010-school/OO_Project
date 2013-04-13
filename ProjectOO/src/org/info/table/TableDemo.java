@@ -1,5 +1,7 @@
 package org.info.table;
 
+import org.errors.table.NoMoreRoomException;
+
 // TODO: Auto-generated Javadoc
 /**
  * The Class TableDemo.
@@ -10,8 +12,9 @@ public class TableDemo {
 	 * The main method.
 	 *
 	 * @param args the arguments
+	 * @throws NoMoreRoomException 
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) throws NoMoreRoomException {
 		// TODO Auto-generated method stub
 
 		TableManager Tables=new TableManager();
@@ -58,8 +61,15 @@ public class TableDemo {
 		Tables.modifyTableSize(2, 5);
 		Tables.makeTableAvailable(5);
 		Tables.makeTableAvailable(1);
+		Tables.makeTableAvailable(2);
 		printOut(Tables);
 		
+		System.out.println("================");
+		System.out.println(Tables.seatBasedOnPartySize(5));
+		System.out.println(Tables.seatBasedOnPartySize(3));
+		System.out.println(Tables.seatBasedOnPartySize(4));
+		printOut(Tables);
+		System.out.println(Tables.getBiggestTableSize());
 	}
 
 	/**
