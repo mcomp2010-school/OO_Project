@@ -86,6 +86,10 @@ public class InformationProvider {
 		return tempMenu;
 	}
 	
+	public String[] getUniqueIngredients(){
+		return this.MenuObj.getUniqueIngredients();
+	}
+	
 	/**
 	 * Heart healthy menu.
 	 *
@@ -117,6 +121,22 @@ public class InformationProvider {
 		
 		return tempMenu;
 	}
+	
+	/**
+	 * Price menu.
+	 *
+	 * @return the menu
+	 */
+	public Menu PriceMenu(Double input){
+		Menu tempMenu= new Menu();
+		MenuIterator PriceMenuIterator=new PriceMenuIterator(MenuObj,input);
+		
+		while (PriceMenuIterator.hasNext()) {  
+		     tempMenu.addItem((MenuItem)PriceMenuIterator.next());
+		}
+		
+		return tempMenu;
+	}
 
 	/**
 	 * Ingredient menu.
@@ -134,6 +154,17 @@ public class InformationProvider {
 		return tempMenu;
 	}
 
+	
+	public Menu IngredientMenu(String input){
+		Menu tempMenu= new Menu();
+		MenuIterator IngredientMenuIterator=new IngredientMenuIterator(MenuObj,input);
+		
+		while (IngredientMenuIterator.hasNext()) {  
+			tempMenu.addItem((MenuItem)IngredientMenuIterator.next()); 
+		}
+		
+		return tempMenu;
+	}
 	/* (non-Javadoc)
 	 * @see java.lang.Object#hashCode()
 	 */

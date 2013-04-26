@@ -28,7 +28,7 @@ public class IngredientMenuIterator implements MenuIterator  {
 		this.base=menuObj;
 		findItem();
 	}
-
+	
 	/**
 	 * Instantiates a new ingredient menu iterator.
 	 *

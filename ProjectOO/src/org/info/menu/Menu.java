@@ -3,6 +3,7 @@ package org.info.menu;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.TreeSet;
 
 import org.apache.commons.io.FileUtils;
 import org.shared.Utils;
@@ -131,6 +132,17 @@ public class Menu implements XStreamXML {
 		}
 		
 		return item;
+	}
+	
+	public String[] getUniqueIngredients(){
+		TreeSet<String> temp= new TreeSet<String>();
+		
+		for (int i = 0; i < MenuList.size(); i++) {
+			MenuItem current= MenuList.get(i);
+			temp.add(current.getMainIngredient());
+		}
+		
+		return temp.toArray(new String[temp.size()]);
 	}
 	
 	/**
