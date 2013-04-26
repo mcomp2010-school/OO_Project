@@ -19,7 +19,6 @@ public class OrderDemo {
 		Menu MenuObj= new Menu();
 		MenuObj.loadXML("data\\Menu.xml");
 		
-		
 		Order Orders=new Order();
 		
 		Orders.placeOrder(MenuObj.getItemByIDs("0,4,5,9"));

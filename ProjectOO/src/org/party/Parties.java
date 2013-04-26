@@ -8,7 +8,6 @@ import java.util.TreeMap;
 
 public class Parties {
 
-
 	private Integer partyID = 0;
 
 	private TreeMap<Integer,PartyItem> parties=new TreeMap<Integer,PartyItem>();

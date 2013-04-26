@@ -33,6 +33,16 @@ import javax.swing.DropMode;
 import javax.swing.JLabel;
 import javax.swing.JComboBox;
 import javax.swing.JList;
+import javax.swing.JSlider;
+import javax.swing.event.ChangeListener;
+import javax.swing.event.ChangeEvent;
+import javax.swing.JFormattedTextField;
+import javax.swing.JSeparator;
+import javax.swing.border.LineBorder;
+import javax.swing.border.SoftBevelBorder;
+import javax.swing.border.TitledBorder;
+import javax.swing.JProgressBar;
+import javax.swing.SwingConstants;
 
 public class Main {
 
@@ -45,6 +55,8 @@ public class Main {
 	private JEditorPane editorTables;
 	private JEditorPane editorPane_recipts_recipt;
 	private JList<String> list_recipts;
+	private JSlider slider;
+	private JLabel lblCurrentSpeed;
 
 	/**
 	 * Launch the application.
@@ -75,7 +87,7 @@ public class Main {
 	private void initialize() {
 		frmManager = new JFrame();
 		frmManager.setTitle("Manager");
-		frmManager.setBounds(100, 100, 683, 606);
+		frmManager.setBounds(100, 100, 683, 604);
 		frmManager.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmManager.getContentPane().setLayout(null);
 		
@@ -104,6 +116,7 @@ public class Main {
 		scrollPane.setViewportView(editorMenuoutput);
 		
 		JButton btnGetHeartHealthy = new JButton("Get Heart Healthy Menu");
+		//Action Listeners
 		btnGetHeartHealthy.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				editorMenuoutput.setText(HtmlUtils.convertMenuStringToHtml(infoObj.HeartHealthyMenu().toString()));
@@ -114,6 +127,7 @@ public class Main {
 		panel_menu.add(btnGetHeartHealthy);
 		
 		JButton btnGetPriceMenu = new JButton("Get Price Menu");
+		//Action Listeners
 		btnGetPriceMenu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//TODO need to change to System Interface
@@ -151,6 +165,7 @@ public class Main {
 		panel_menu.add(btnGetPriceMenu);
 		
 		JButton btnGetIngredientMenu = new JButton("Get Ingredient Menu");
+		//Action Listeners
 		btnGetIngredientMenu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//TODO need to change to System Interface
@@ -180,6 +195,8 @@ public class Main {
 		});
 		btnGetIngredientMenu.setBounds(205, 484, 174, 23);
 		panel_menu.add(btnGetIngredientMenu);
+		
+		//Action Listeners
 		btnGetCompleteMenu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 					editorMenuoutput.setText(HtmlUtils.convertMenuStringToHtml(SystemInterfaceObj.getGetCompleteMenu()));
@@ -201,21 +218,23 @@ public class Main {
 		scrollPane_1.setViewportView(editorTables);
 		
 		JButton btn_tables_getTables = new JButton("Get All Tables");
+		btn_tables_getTables.setBounds(10, 484, 151, 23);
+		panel_tables.add(btn_tables_getTables);
+		//Action Listeners
 		btn_tables_getTables.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				editorTables.setText(HtmlUtils.convertMenuStringToHtml(SystemInterfaceObj.getTables()));
 			}
 		});
-		btn_tables_getTables.setBounds(10, 484, 151, 23);
-		panel_tables.add(btn_tables_getTables);
 		
 		JButton btn_tables_getAvailableTables = new JButton("Get Available Tables");
+		btn_tables_getAvailableTables.setBounds(171, 484, 151, 23);
+		panel_tables.add(btn_tables_getAvailableTables);
+		//Action Listeners
 		btn_tables_getAvailableTables.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btn_tables_getAvailableTables.setBounds(171, 484, 151, 23);
-		panel_tables.add(btn_tables_getAvailableTables);
 		
 		JPanel panel_recipt = new JPanel();
 		tabbedPane.addTab("Recipts", null, panel_recipt, null);
@@ -248,8 +267,128 @@ public class Main {
 		btn_recipt_getReciptList.setBounds(10, 484, 168, 23);
 		panel_recipt.add(btn_recipt_getReciptList);
 		
+		JPanel panel_comments = new JPanel();
+		panel_comments.setLayout(null);
+		tabbedPane.addTab("Comments", null, panel_comments, null);
+		
+		JLabel label = new JLabel("Recipt List");
+		label.setBounds(10, 11, 111, 14);
+		panel_comments.add(label);
+		
+		JScrollPane scrollPane_2 = new JScrollPane();
+		scrollPane_2.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+		scrollPane_2.setBounds(188, 36, 444, 471);
+		panel_comments.add(scrollPane_2);
+		
+		JScrollPane scrollPane_3 = new JScrollPane();
+		scrollPane_3.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+		scrollPane_3.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+		scrollPane_3.setBounds(10, 36, 168, 437);
+		panel_comments.add(scrollPane_3);
+		
+		JButton button = new JButton("Get Recipt List");
+		button.setBounds(10, 484, 168, 23);
+		panel_comments.add(button);
+		
+		JPanel panel_orders = new JPanel();
+		panel_orders.setLayout(null);
+		tabbedPane.addTab("Orders", null, panel_orders, null);
+		
+		JLabel lbl_order_orderList = new JLabel("Recipt List");
+		lbl_order_orderList.setBounds(10, 11, 111, 14);
+		panel_orders.add(lbl_order_orderList);
+		
+		JScrollPane scrollPane_4 = new JScrollPane();
+		scrollPane_4.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+		scrollPane_4.setBounds(188, 36, 444, 471);
+		panel_orders.add(scrollPane_4);
+		
+		JScrollPane scrollPane_5 = new JScrollPane();
+		scrollPane_5.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+		scrollPane_5.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+		scrollPane_5.setBounds(10, 36, 168, 437);
+		panel_orders.add(scrollPane_5);
+		
+		JButton button_1 = new JButton("Get Recipt List");
+		button_1.setBounds(10, 484, 168, 23);
+		panel_orders.add(button_1);
+		
 		JPanel panel_simulation = new JPanel();
 		panel_simulation.setLayout(null);
 		tabbedPane.addTab("Simulation", null, panel_simulation, null);
+		
+		JPanel panel = new JPanel();
+		panel.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0)), "Controls", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		panel.setBounds(12, 13, 618, 124);
+		panel_simulation.add(panel);
+		panel.setLayout(null);
+		
+		lblCurrentSpeed = new JLabel("Current Speed: ");
+		lblCurrentSpeed.setBounds(12, 91, 142, 14);
+		panel.add(lblCurrentSpeed);
+		
+		slider = new JSlider();
+		slider.setBounds(12, 38, 200, 52);
+		panel.add(slider);
+		slider.setValue(5);
+		slider.setSnapToTicks(true);
+		slider.setMinimum(1);
+		slider.setMaximum(10);
+		slider.setPaintLabels(true);
+		slider.setPaintTicks(true);
+		slider.setMajorTickSpacing(1);
+		
+		JLabel lblSpeed = new JLabel("Speed");
+		lblSpeed.setBounds(12, 23, 46, 14);
+		panel.add(lblSpeed);
+		
+		JButton btnStartSimulation = new JButton("Start Simulation");
+		btnStartSimulation.setBounds(239, 19, 152, 23);
+		panel.add(btnStartSimulation);
+		
+		JButton btnPauseSimulation = new JButton("Pause Simulation");
+		btnPauseSimulation.setBounds(239, 52, 152, 23);
+		panel.add(btnPauseSimulation);
+		
+		JButton btn_simulation_controls_reset = new JButton("Reset Simulation");
+		btn_simulation_controls_reset.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		btn_simulation_controls_reset.setBounds(239, 88, 152, 23);
+		panel.add(btn_simulation_controls_reset);
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setLayout(null);
+		panel_1.setBorder(new TitledBorder(new LineBorder(new Color(0, 0, 0)), "Status", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		panel_1.setBounds(12, 142, 618, 244);
+		panel_simulation.add(panel_1);
+		
+		JProgressBar progressBar = new JProgressBar();
+		progressBar.setValue(50);
+		progressBar.setOrientation(SwingConstants.VERTICAL);
+		progressBar.setBounds(22, 68, 34, 133);
+		panel_1.add(progressBar);
+		
+		JLabel lblTable = new JLabel("Table\r\n Capacity");
+		lblTable.setEnabled(true);
+		lblTable.setBounds(12, 43, 78, 23);
+		panel_1.add(lblTable);
+		
+		JLabel lblCustomersWaiting = new JLabel("Customers Waiting");
+		lblCustomersWaiting.setBounds(12, 27, 157, 14);
+		panel_1.add(lblCustomersWaiting);
+		//Action Listeners
+		btnPauseSimulation.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		//Action Listeners
+		slider.addChangeListener(new ChangeListener() {
+			public void stateChanged(ChangeEvent arg0) {
+				lblCurrentSpeed.setText("Current Speed: "+slider.getValue());	
+			}
+		});
 	}
 }
