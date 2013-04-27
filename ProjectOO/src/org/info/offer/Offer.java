@@ -7,7 +7,7 @@ import java.util.List;
 
 import org.apache.commons.io.FileUtils;
 import org.info.order.Order;
-import org.shared.XStreamXML;
+import org.interfaces.XStreamXMLI;
 
 import com.thoughtworks.xstream.XStream;
 
@@ -15,7 +15,7 @@ import com.thoughtworks.xstream.XStream;
 /**
  * The Class Offer.
  */
-public class Offer implements XStreamXML{
+public class Offer implements XStreamXMLI{
 
 	/** The offer name. */
 	private String offerName; //General offer name. Separate from offerItem names

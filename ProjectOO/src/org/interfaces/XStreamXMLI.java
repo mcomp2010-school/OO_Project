@@ -1,10 +1,10 @@
-package org.shared;
+package org.interfaces;
 
 // TODO: Auto-generated Javadoc
 /**
  * The Interface XStreamXML.
  */
-public interface XStreamXML {
+public interface XStreamXMLI {
 	
 	/**
 	 * Load xml.

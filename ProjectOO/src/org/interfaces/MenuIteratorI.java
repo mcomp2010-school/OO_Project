@@ -1,10 +1,10 @@
-package org.info.menu.iterators;
+package org.interfaces;
 
 // TODO: Auto-generated Javadoc
 /**
  * The Interface MenuIterator.
  */
-public interface MenuIterator {
+public interface MenuIteratorI {
 	
 	
 	/**

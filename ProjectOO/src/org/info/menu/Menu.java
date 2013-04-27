@@ -6,8 +6,8 @@ import java.util.ArrayList;
 import java.util.TreeSet;
 
 import org.apache.commons.io.FileUtils;
+import org.interfaces.XStreamXMLI;
 import org.shared.Utils;
-import org.shared.XStreamXML;
 import org.shared.performance.Timing;
 
 import com.thoughtworks.xstream.XStream;
@@ -18,7 +18,7 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 /**
  * The Class Menu.
  */
-public class Menu implements XStreamXML {
+public class Menu implements XStreamXMLI {
 	
 	/** The Stop watch performance. */
 	private static boolean StopWatchPerformance=false;

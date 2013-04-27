@@ -3,8 +3,8 @@ package org.info.menu;
 import org.info.menu.iterators.CompleteMenuIterator;
 import org.info.menu.iterators.HeartHealthyMenuIterator;
 import org.info.menu.iterators.IngredientMenuIterator;
-import org.info.menu.iterators.MenuIterator;
 import org.info.menu.iterators.PriceMenuIterator;
+import org.interfaces.MenuIteratorI;
 import org.shared.Utils;
 
 
@@ -70,7 +70,7 @@ public class MenuDemo {
 	public static void CompleteMenu(Menu input){
 		System.out.println("Complete Menu");
 		System.out.println("----------------");
-		MenuIterator CompleteMenuIterator=new CompleteMenuIterator(input);
+		MenuIteratorI CompleteMenuIterator=new CompleteMenuIterator(input);
 		
 		while (CompleteMenuIterator.hasNext()) {  
 			CompleteMenuIterator.hasNext(); // extra call should have no effect  
@@ -86,7 +86,7 @@ public class MenuDemo {
 	public static void HeartHealthyMenu(Menu Input){
 		System.out.println("Heart Healthy Menu");
 		System.out.println("----------------");
-		MenuIterator HeartHealthyMenuIterator=new HeartHealthyMenuIterator(Input);
+		MenuIteratorI HeartHealthyMenuIterator=new HeartHealthyMenuIterator(Input);
 		
 		while (HeartHealthyMenuIterator.hasNext()) {  
 			HeartHealthyMenuIterator.hasNext(); // extra call should have no effect  
@@ -102,7 +102,7 @@ public class MenuDemo {
 	public static void PriceMenu(Menu Input){
 		System.out.println("Price Menu");
 		System.out.println("----------------");
-		MenuIterator PriceMenuIterator=new PriceMenuIterator(Input);
+		MenuIteratorI PriceMenuIterator=new PriceMenuIterator(Input);
 		
 		while (PriceMenuIterator.hasNext()) {  
 			 PriceMenuIterator.hasNext(); // extra call should have no effect  
@@ -118,7 +118,7 @@ public class MenuDemo {
 	public static void IngredientMenu(Menu Input){
 		System.out.println("Ingredient Menu");
 		System.out.println("----------------");
-		MenuIterator IngredientMenuIterator=new IngredientMenuIterator(Input);
+		MenuIteratorI IngredientMenuIterator=new IngredientMenuIterator(Input);
 		
 		while (IngredientMenuIterator.hasNext()) {  
 			IngredientMenuIterator.hasNext(); // extra call should have no effect  

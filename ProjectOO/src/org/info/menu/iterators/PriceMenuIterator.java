@@ -2,13 +2,14 @@ package org.info.menu.iterators;
 
 import org.info.menu.Menu;
 import org.info.menu.MenuItem;
+import org.interfaces.MenuIteratorI;
 
 
 // TODO: Auto-generated Javadoc
 /**
  * The Class PriceMenuIterator.
  */
-public class PriceMenuIterator implements MenuIterator {
+public class PriceMenuIterator implements MenuIteratorI {
 
 	/** The base. */
 	private Menu base;

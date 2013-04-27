@@ -1,7 +1,7 @@
 package org.info.table;
 
-import org.shared.XStreamXML;
-import org.simulation.SimulationI;
+import org.interfaces.SimulationI;
+import org.interfaces.XStreamXMLI;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamAsAttribute;

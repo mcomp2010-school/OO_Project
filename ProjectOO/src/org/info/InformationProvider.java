@@ -5,9 +5,9 @@ import org.info.menu.MenuItem;
 import org.info.menu.iterators.CompleteMenuIterator;
 import org.info.menu.iterators.HeartHealthyMenuIterator;
 import org.info.menu.iterators.IngredientMenuIterator;
-import org.info.menu.iterators.MenuIterator;
 import org.info.menu.iterators.PriceMenuIterator;
 import org.info.table.TableManager;
+import org.interfaces.MenuIteratorI;
 import org.shared.performance.Timing;
 
 // TODO: Auto-generated Javadoc
@@ -75,7 +75,7 @@ public class InformationProvider {
 	 */
 	public Menu CompleteMenu(){
 		Menu tempMenu= new Menu();
-		MenuIterator CompleteMenuIterator=new CompleteMenuIterator(MenuObj);
+		MenuIteratorI CompleteMenuIterator=new CompleteMenuIterator(MenuObj);
 		
 		while (CompleteMenuIterator.hasNext()) {  
 			CompleteMenuIterator.hasNext(); // extra call should have no effect  
@@ -100,7 +100,7 @@ public class InformationProvider {
 	 */
 	public Menu HeartHealthyMenu(){
 		Menu tempMenu= new Menu();
-		MenuIterator HeartHealthyMenuIterator=new HeartHealthyMenuIterator(MenuObj);
+		MenuIteratorI HeartHealthyMenuIterator=new HeartHealthyMenuIterator(MenuObj);
 		
 		while (HeartHealthyMenuIterator.hasNext()) {  
 		     tempMenu.addItem((MenuItem)HeartHealthyMenuIterator.next()); 
@@ -116,7 +116,7 @@ public class InformationProvider {
 	 */
 	public Menu PriceMenu(){
 		Menu tempMenu= new Menu();
-		MenuIterator PriceMenuIterator=new PriceMenuIterator(MenuObj);
+		MenuIteratorI PriceMenuIterator=new PriceMenuIterator(MenuObj);
 		
 		while (PriceMenuIterator.hasNext()) {  
 		     tempMenu.addItem((MenuItem)PriceMenuIterator.next());
@@ -133,7 +133,7 @@ public class InformationProvider {
 	 */
 	public Menu PriceMenu(Double input){
 		Menu tempMenu= new Menu();
-		MenuIterator PriceMenuIterator=new PriceMenuIterator(MenuObj,input);
+		MenuIteratorI PriceMenuIterator=new PriceMenuIterator(MenuObj,input);
 		
 		while (PriceMenuIterator.hasNext()) {  
 		     tempMenu.addItem((MenuItem)PriceMenuIterator.next());
@@ -149,7 +149,7 @@ public class InformationProvider {
 	 */
 	public Menu IngredientMenu(){
 		Menu tempMenu= new Menu();
-		MenuIterator IngredientMenuIterator=new IngredientMenuIterator(MenuObj);
+		MenuIteratorI IngredientMenuIterator=new IngredientMenuIterator(MenuObj);
 		
 		while (IngredientMenuIterator.hasNext()) {  
 			tempMenu.addItem((MenuItem)IngredientMenuIterator.next()); 
@@ -167,7 +167,7 @@ public class InformationProvider {
 	 */
 	public Menu IngredientMenu(String input){
 		Menu tempMenu= new Menu();
-		MenuIterator IngredientMenuIterator=new IngredientMenuIterator(MenuObj,input);
+		MenuIteratorI IngredientMenuIterator=new IngredientMenuIterator(MenuObj,input);
 		
 		while (IngredientMenuIterator.hasNext()) {  
 			tempMenu.addItem((MenuItem)IngredientMenuIterator.next()); 

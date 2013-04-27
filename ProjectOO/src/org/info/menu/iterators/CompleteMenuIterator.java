@@ -4,13 +4,14 @@ import java.util.ArrayList;
 
 import org.info.menu.Menu;
 import org.info.menu.MenuItem;
+import org.interfaces.MenuIteratorI;
 
 
 // TODO: Auto-generated Javadoc
 /**
  * The Class CompleteMenuIterator.
  */
-public class CompleteMenuIterator implements MenuIterator {
+public class CompleteMenuIterator implements MenuIteratorI {
 
 	/** The base. */
 	private Menu base;
