@@ -1,0 +1,42 @@
+<list>
+  <Table tableID="1">
+    <size>2</size>
+    <isAvailable>true</isAvailable>
+  </Table>
+  <Table tableID="2">
+    <size>2</size>
+    <isAvailable>true</isAvailable>
+  </Table>
+  <Table tableID="3">
+    <size>2</size>
+    <isAvailable>true</isAvailable>
+  </Table>
+  <Table tableID="4">
+    <size>3</size>
+    <isAvailable>true</isAvailable>
+  </Table>
+  <Table tableID="5">
+    <size>5</size>
+    <isAvailable>true</isAvailable>
+  </Table>
+  <Table tableID="6">
+    <size>8</size>
+    <isAvailable>true</isAvailable>
+  </Table>
+  <Table tableID="7">
+    <size>12</size>
+    <isAvailable>true</isAvailable>
+  </Table>
+  <Table tableID="8">
+    <size>12</size>
+    <isAvailable>true</isAvailable>
+  </Table>
+  <Table tableID="9">
+    <size>5</size>
+    <isAvailable>true</isAvailable>
+  </Table>
+  <Table tableID="10">
+    <size>4</size>
+    <isAvailable>true</isAvailable>
+  </Table>
+</list>
