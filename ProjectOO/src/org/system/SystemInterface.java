@@ -1,4 +1,4 @@
-package org;
+package org.system;
 
 import org.commands.GetCMDCompleteMenuCommand;
 import org.commands.GetCMDTables;

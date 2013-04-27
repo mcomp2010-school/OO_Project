@@ -1,5 +1,7 @@
 package org;
 
+import org.system.SystemInterface;
+
 // TODO: Auto-generated Javadoc
 /**
  * The Class SystemInterfaceDemo.

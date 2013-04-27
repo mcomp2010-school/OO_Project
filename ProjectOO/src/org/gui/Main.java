@@ -11,7 +11,7 @@ import javax.swing.JButton;
 
 import org.info.InformationProvider;
 import org.shared.HtmlUtils;
-import org.SystemInterface;
+import org.system.SystemInterface;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -271,14 +271,19 @@ public class Main {
 		panel_comments.setLayout(null);
 		tabbedPane.addTab("Comments", null, panel_comments, null);
 		
-		JLabel label = new JLabel("Recipt List");
-		label.setBounds(10, 11, 111, 14);
-		panel_comments.add(label);
+		JLabel lblCommentList = new JLabel("Comment List");
+		lblCommentList.setBounds(10, 11, 111, 14);
+		panel_comments.add(lblCommentList);
 		
 		JScrollPane scrollPane_2 = new JScrollPane();
 		scrollPane_2.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 		scrollPane_2.setBounds(188, 36, 444, 471);
 		panel_comments.add(scrollPane_2);
+		
+		JEditorPane editorPane = new JEditorPane();
+		editorPane.setEditable(false);
+		editorPane.setContentType("text/html");
+		scrollPane_2.setViewportView(editorPane);
 		
 		JScrollPane scrollPane_3 = new JScrollPane();
 		scrollPane_3.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
@@ -286,15 +291,18 @@ public class Main {
 		scrollPane_3.setBounds(10, 36, 168, 437);
 		panel_comments.add(scrollPane_3);
 		
-		JButton button = new JButton("Get Recipt List");
-		button.setBounds(10, 484, 168, 23);
-		panel_comments.add(button);
+		JList list = new JList();
+		scrollPane_3.setViewportView(list);
+		
+		JButton btnGetComment = new JButton("Get Comment List");
+		btnGetComment.setBounds(10, 484, 168, 23);
+		panel_comments.add(btnGetComment);
 		
 		JPanel panel_orders = new JPanel();
 		panel_orders.setLayout(null);
 		tabbedPane.addTab("Orders", null, panel_orders, null);
 		
-		JLabel lbl_order_orderList = new JLabel("Recipt List");
+		JLabel lbl_order_orderList = new JLabel("Order List");
 		lbl_order_orderList.setBounds(10, 11, 111, 14);
 		panel_orders.add(lbl_order_orderList);
 		
@@ -303,15 +311,23 @@ public class Main {
 		scrollPane_4.setBounds(188, 36, 444, 471);
 		panel_orders.add(scrollPane_4);
 		
+		JEditorPane editorPane_1 = new JEditorPane();
+		editorPane_1.setEditable(false);
+		editorPane_1.setContentType("text/html");
+		scrollPane_4.setViewportView(editorPane_1);
+		
 		JScrollPane scrollPane_5 = new JScrollPane();
 		scrollPane_5.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 		scrollPane_5.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 		scrollPane_5.setBounds(10, 36, 168, 437);
 		panel_orders.add(scrollPane_5);
 		
-		JButton button_1 = new JButton("Get Recipt List");
-		button_1.setBounds(10, 484, 168, 23);
-		panel_orders.add(button_1);
+		JList list_1 = new JList();
+		scrollPane_5.setViewportView(list_1);
+		
+		JButton btnGetOrderList = new JButton("Get Order List");
+		btnGetOrderList.setBounds(10, 484, 168, 23);
+		panel_orders.add(btnGetOrderList);
 		
 		JPanel panel_simulation = new JPanel();
 		panel_simulation.setLayout(null);
@@ -323,7 +339,7 @@ public class Main {
 		panel_simulation.add(panel);
 		panel.setLayout(null);
 		
-		lblCurrentSpeed = new JLabel("Current Speed: ");
+		lblCurrentSpeed = new JLabel("Current Speed: 5");
 		lblCurrentSpeed.setBounds(12, 91, 142, 14);
 		panel.add(lblCurrentSpeed);
 		
