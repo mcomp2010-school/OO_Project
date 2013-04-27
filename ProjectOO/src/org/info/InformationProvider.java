@@ -44,7 +44,7 @@ public class InformationProvider {
 		MenuObj.loadXML("data\\Menu.xml");
 		
 		//Adding Tables
-		tableManagerObj.loadXML("data\\Table.xml");
+		tableManagerObj.loadXML("data\\tables\\table_conf_1.xml");
 		
 		if(StopWatchPerformance)System.err.println(this.getClass().getName()+".InformationProvider():"+Clock1.stop_SecDouble());
 	}

@@ -22,7 +22,7 @@ public class TableDemo {
 		boolean useFile=true;
 		
 		if(useFile){
-			Tables.loadXML("data\\Table.xml");
+			Tables.loadXML("data\\tables\\Table_conf_1.xml");
 		}else{
 			Tables.add(1, 4);
 			Tables.add(2, 4);

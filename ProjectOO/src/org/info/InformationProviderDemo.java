@@ -19,6 +19,9 @@ public class InformationProviderDemo {
 		//Get CompleteMenu
 		Menu CompleteMenu= infoObj.CompleteMenu();
 		System.out.println(CompleteMenu);
+		
+		//Get Tables
+		System.out.println(infoObj.Tables());
 	}
 
 }
