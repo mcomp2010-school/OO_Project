@@ -92,6 +92,7 @@ public class Main {
 	private JTabbedPane tabbedPane;
 
 	private String strPreviousTable = "";
+	private JProgressBar progressBar;
 	
 	/**
 	 * Launch the application.
@@ -453,20 +454,29 @@ public class Main {
 		panel_1.setBounds(12, 142, 618, 244);
 		panel_simulation.add(panel_1);
 		
-		JProgressBar progressBar = new JProgressBar();
-		progressBar.setValue(50);
+		progressBar = new JProgressBar();
+		progressBar.setValue(100);
 		progressBar.setOrientation(SwingConstants.VERTICAL);
 		progressBar.setBounds(22, 68, 34, 133);
 		panel_1.add(progressBar);
 		
 		JLabel lblTable = new JLabel("Table\r\n Capacity");
 		lblTable.setEnabled(true);
-		lblTable.setBounds(12, 43, 78, 23);
+		lblTable.setBounds(12, 43, 98, 23);
 		panel_1.add(lblTable);
 		
 		JLabel lblCustomersWaiting = new JLabel("Customers Waiting");
 		lblCustomersWaiting.setBounds(12, 27, 157, 14);
 		panel_1.add(lblCustomersWaiting);
+		
+		JButton btnFreeSpace = new JButton("Free Space");
+		btnFreeSpace.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				infoObj.Tables().loadXML("data\\tables\\Table_conf_1.xml");
+			}
+		});
+		btnFreeSpace.setBounds(68, 77, 89, 23);
+		panel_1.add(btnFreeSpace);
 		//Action Listeners
 		btnPauseSimulation.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -489,6 +499,14 @@ public class Main {
                 System.out.println("Simulation Tab Update");
                 //timer.cancel(); //Not necessary because
                                   //we call System.exit
+                String strper=infoObj.Tables().getTotalSeatsAvailablePercent();
+                strper=strper.substring(0,strper.indexOf("."));
+                Integer per=Integer.parseInt(strper);
+                
+                System.out.println(strper+"-"+per);
+                
+                progressBar.setValue(per);
+                              
             	
         }
     }
