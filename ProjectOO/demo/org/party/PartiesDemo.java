@@ -22,6 +22,7 @@ public class PartiesDemo {
 		PartiesObj.newParty(4);
 		
 		System.out.println(PartiesObj);
+		System.out.println(PartiesObj);
 	}
 
 }

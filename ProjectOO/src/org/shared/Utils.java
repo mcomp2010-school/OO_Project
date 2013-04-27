@@ -33,6 +33,17 @@ public class Utils {
 		
 		return results;
 	}
+
+	/**
+	 * Random number between.
+	 *
+	 * @param Min the min
+	 * @param Max the max
+	 * @return the integer
+	 */
+	public static Integer randomNumberBetween(int Min,int Max){
+		return Min + (int)(Math.random() * ((Max - Min) + 1));
+	}
 	
 	
 	

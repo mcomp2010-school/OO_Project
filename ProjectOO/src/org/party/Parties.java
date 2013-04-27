@@ -51,6 +51,11 @@ public class Parties {
 		
 	}
 
+	public int size() {
+		return parties.size();
+	}
+
+
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */

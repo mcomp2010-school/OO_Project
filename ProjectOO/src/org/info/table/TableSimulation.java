@@ -3,6 +3,7 @@ package org.info.table;
 import java.util.ArrayList;
 
 import org.errors.table.NoMoreRoomException;
+import org.shared.Utils;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -41,8 +42,8 @@ public class TableSimulation {
 			
 			
 			
-			int randomParty=randomNumberBetween(1,Tables.getBiggestTableSize());
-			int randomExpTime=randomNumberBetween(16,20);
+			int randomParty=Utils.randomNumberBetween(1,Tables.getBiggestTableSize());
+			int randomExpTime=Utils.randomNumberBetween(16,20);
 			
 			
 			
@@ -89,8 +90,8 @@ ArrayList<Integer> ALQueue= new ArrayList<Integer>();
 			System.out.println("================================================");
 			System.out.println("================================================");
 			
-			int randomParty=randomNumberBetween(1,Tables.getBiggestTableSize());
-			int randomExpTime=randomNumberBetween(16,20);
+			int randomParty=Utils.randomNumberBetween(1,Tables.getBiggestTableSize());
+			int randomExpTime=Utils.randomNumberBetween(16,20);
 			int seatedID=Tables.getIDofAvailableTableBasedOnPartySize(randomParty);
 			
 			
@@ -138,19 +139,6 @@ ArrayList<Integer> ALQueue= new ArrayList<Integer>();
 		}
 	}
 	
-	
-	/**
-	 * Random number between.
-	 *
-	 * @param Min the min
-	 * @param Max the max
-	 * @return the integer
-	 */
-	public static Integer randomNumberBetween(int Min,int Max){
-		return Min + (int)(Math.random() * ((Max - Min) + 1));
-	}
-	
-
 	
 	/**
 	 * Prints the out.

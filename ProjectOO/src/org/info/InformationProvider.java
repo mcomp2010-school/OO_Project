@@ -30,7 +30,7 @@ public class InformationProvider {
 	
 	/** The singleton object. */
 	private static InformationProvider singletonObject;
-	
+
 	/**
 	 * Instantiates a new information provider.
 	 */

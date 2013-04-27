@@ -9,8 +9,11 @@ import javax.swing.JLayeredPane;
 import javax.swing.JEditorPane;
 import javax.swing.JButton;
 
+import org.errors.table.NoMoreRoomException;
 import org.info.InformationProvider;
+import org.queue.MainQueue;
 import org.shared.HtmlUtils;
+import org.shared.Utils;
 import org.system.SystemInterface;
 
 import java.awt.event.ActionListener;
@@ -27,6 +30,8 @@ import javax.swing.ListSelectionModel;
 import javax.swing.border.BevelBorder;
 import javax.swing.ScrollPaneConstants;
 import java.awt.SystemColor;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.TreeSet;
 
 import javax.swing.DropMode;
@@ -43,6 +48,8 @@ import javax.swing.border.SoftBevelBorder;
 import javax.swing.border.TitledBorder;
 import javax.swing.JProgressBar;
 import javax.swing.SwingConstants;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -52,6 +59,8 @@ public class Main {
 
 	/** The info obj. */
 	private InformationProvider infoObj=InformationProvider.getSingletonObject(); //NEED TO REMOVE AND USE SystemInterfaceObj
+	
+	private MainQueue Sim=new MainQueue();
 	
 	/** The System interface obj. */
 	private SystemInterface SystemInterfaceObj=new SystemInterface();
@@ -74,9 +83,16 @@ public class Main {
 	/** The slider. */
 	private JSlider slider;
 	
+	private Timer timer_gui_tabbedPaneUpdating;
+	
 	/** The lbl current speed. */
 	private JLabel lblCurrentSpeed;
+	private JButton btnStartSimulation;
+	private JButton btnPauseSimulation;
+	private JTabbedPane tabbedPane;
 
+	private String strPreviousTable = "";
+	
 	/**
 	 * Launch the application.
 	 *
@@ -112,7 +128,32 @@ public class Main {
 		frmManager.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmManager.getContentPane().setLayout(null);
 		
-		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		
+		
+		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		tabbedPane.addChangeListener(new ChangeListener() {
+			public void stateChanged(ChangeEvent e) {
+				
+				if(strPreviousTable.equals("Simulation")){
+					timer_gui_tabbedPaneUpdating.cancel();	
+				}
+				
+				
+				
+		        int index = tabbedPane.getSelectedIndex();
+		        String titleAt = tabbedPane.getTitleAt(index);
+				System.out.println("Tab changed to: " + titleAt + " from " + strPreviousTable);
+		        strPreviousTable=titleAt;
+		        
+		        if(titleAt.equals("Simulation")){
+		        	  timer_gui_tabbedPaneUpdating = new Timer();
+				        timer_gui_tabbedPaneUpdating.schedule(new UpdateSimulationTask()
+					        ,0,//initial delay
+					        1000);  //subsequent rate
+		        }
+		      
+			}
+		});
 		tabbedPane.setBounds(10, 11, 647, 546);
 		frmManager.getContentPane().add(tabbedPane);
 		
@@ -379,11 +420,21 @@ public class Main {
 		lblSpeed.setBounds(12, 23, 46, 14);
 		panel.add(lblSpeed);
 		
-		JButton btnStartSimulation = new JButton("Start Simulation");
+		btnStartSimulation = new JButton("Start Simulation");
+		btnStartSimulation.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Sim.start(Integer.parseInt(slider.getValue()+"00"));
+				
+				btnStartSimulation.setEnabled(false);
+				btnPauseSimulation.setEnabled(true);
+				slider.setEnabled(false);
+			}
+		});
 		btnStartSimulation.setBounds(239, 19, 152, 23);
 		panel.add(btnStartSimulation);
 		
-		JButton btnPauseSimulation = new JButton("Pause Simulation");
+		btnPauseSimulation = new JButton("Pause Simulation");
+		btnPauseSimulation.setEnabled(false);
 		btnPauseSimulation.setBounds(239, 52, 152, 23);
 		panel.add(btnPauseSimulation);
 		
@@ -419,13 +470,26 @@ public class Main {
 		//Action Listeners
 		btnPauseSimulation.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				Sim.stop();
+				btnStartSimulation.setEnabled(true);
+				btnPauseSimulation.setEnabled(false);
+				slider.setEnabled(true);
 			}
 		});
 		//Action Listeners
 		slider.addChangeListener(new ChangeListener() {
 			public void stateChanged(ChangeEvent arg0) {
-				lblCurrentSpeed.setText("Current Speed: "+slider.getValue());	
+				lblCurrentSpeed.setText("Current Speed: "+slider.getValue());				
 			}
 		});
 	}
+	
+	class UpdateSimulationTask extends TimerTask {
+        public void run() {
+                System.out.println("Simulation Tab Update");
+                //timer.cancel(); //Not necessary because
+                                  //we call System.exit
+            	
+        }
+    }
 }
