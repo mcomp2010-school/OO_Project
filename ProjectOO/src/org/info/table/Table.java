@@ -20,6 +20,7 @@ public class Table implements SimulationI{
 	/** The size. */
 	private Integer size;
 	
+	/** The Exp time. */
 	private Integer ExpTime=-1;
 	
 	/** The is available. */
@@ -148,12 +149,18 @@ public class Table implements SimulationI{
 	}
 
 
+	/* (non-Javadoc)
+	 * @see org.simulation.SimulationI#getExpirationTime()
+	 */
 	@Override
 	public Integer getExpirationTime() {
 		return this.ExpTime;
 	}
 
 
+	/* (non-Javadoc)
+	 * @see org.simulation.SimulationI#setExpirationTime(int)
+	 */
 	@Override
 	public void setExpirationTime(int inputTime) {
 		this.ExpTime=inputTime;

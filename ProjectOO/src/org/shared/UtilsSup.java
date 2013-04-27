@@ -7,10 +7,16 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class UtilsSup.
+ */
 public class UtilsSup {
 
 	/**
-	 * @param args
+	 * The main method.
+	 *
+	 * @param args the arguments
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -27,6 +33,7 @@ public class UtilsSup {
      * It Ignores Spaces.  It puts the words into an ArrayList<String>.
      *
      * @param strInput The Input String
+     * @param strDel the str del
      * @return ArrayList of String of the Words
      */
     public static ArrayList<String> splitStringToWords(String strInput,String strDel) {
@@ -86,6 +93,7 @@ public class UtilsSup {
      *
      * @param strInput the str input
      * @param blnIncludeBlankLines Boolean to include blank lines.
+     * @param strDel the str del
      * @return the fast table
      */
 

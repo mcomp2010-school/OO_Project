@@ -4,11 +4,17 @@ import java.util.ArrayList;
 
 import org.errors.table.NoMoreRoomException;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class TableSimulation.
+ */
 public class TableSimulation {
 
 	/**
-	 * @param args
-	 * @throws InterruptedException 
+	 * The main method.
+	 *
+	 * @param args the arguments
+	 * @throws InterruptedException the interrupted exception
 	 */
 	public static void main(String[] args) throws InterruptedException {
 		// TODO Auto-generated method stub
@@ -64,6 +70,12 @@ public class TableSimulation {
 
 	
 	
+	/**
+	 * Sim1.
+	 *
+	 * @throws InterruptedException the interrupted exception
+	 * @throws NoMoreRoomException the no more room exception
+	 */
 	public static void Sim1() throws InterruptedException, NoMoreRoomException{
 ArrayList<Integer> ALQueue= new ArrayList<Integer>();
 		
@@ -127,6 +139,13 @@ ArrayList<Integer> ALQueue= new ArrayList<Integer>();
 	}
 	
 	
+	/**
+	 * Random number between.
+	 *
+	 * @param Min the min
+	 * @param Max the max
+	 * @return the integer
+	 */
 	public static Integer randomNumberBetween(int Min,int Max){
 		return Min + (int)(Math.random() * ((Max - Min) + 1));
 	}

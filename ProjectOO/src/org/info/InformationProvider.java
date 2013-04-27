@@ -35,11 +35,9 @@ public class InformationProvider {
 	 * Instantiates a new information provider.
 	 */
 	private InformationProvider() {
-		
 		Clock1.start();
 		
 		//Loading Persistent Data
-		
 		//Adding MenuItems
 		MenuObj.loadXML("data\\Menu.xml");
 		
@@ -86,6 +84,11 @@ public class InformationProvider {
 		return tempMenu;
 	}
 	
+	/**
+	 * Gets the unique ingredients.
+	 *
+	 * @return the unique ingredients
+	 */
 	public String[] getUniqueIngredients(){
 		return this.MenuObj.getUniqueIngredients();
 	}
@@ -125,6 +128,7 @@ public class InformationProvider {
 	/**
 	 * Price menu.
 	 *
+	 * @param input the input
 	 * @return the menu
 	 */
 	public Menu PriceMenu(Double input){
@@ -155,6 +159,12 @@ public class InformationProvider {
 	}
 
 	
+	/**
+	 * Ingredient menu.
+	 *
+	 * @param input the input
+	 * @return the menu
+	 */
 	public Menu IngredientMenu(String input){
 		Menu tempMenu= new Menu();
 		MenuIterator IngredientMenuIterator=new IngredientMenuIterator(MenuObj,input);

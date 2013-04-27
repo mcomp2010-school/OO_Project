@@ -44,22 +44,43 @@ import javax.swing.border.TitledBorder;
 import javax.swing.JProgressBar;
 import javax.swing.SwingConstants;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class Main.
+ */
 public class Main {
 
+	/** The info obj. */
 	private InformationProvider infoObj=InformationProvider.getSingletonObject(); //NEED TO REMOVE AND USE SystemInterfaceObj
 	
+	/** The System interface obj. */
 	private SystemInterface SystemInterfaceObj=new SystemInterface();
 	
+	/** The frm manager. */
 	private JFrame frmManager;
+	
+	/** The editor menuoutput. */
 	private JEditorPane editorMenuoutput;
+	
+	/** The editor tables. */
 	private JEditorPane editorTables;
+	
+	/** The editor pane_recipts_recipt. */
 	private JEditorPane editorPane_recipts_recipt;
+	
+	/** The list_recipts. */
 	private JList<String> list_recipts;
+	
+	/** The slider. */
 	private JSlider slider;
+	
+	/** The lbl current speed. */
 	private JLabel lblCurrentSpeed;
 
 	/**
 	 * Launch the application.
+	 *
+	 * @param args the arguments
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {

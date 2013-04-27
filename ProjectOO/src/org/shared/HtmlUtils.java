@@ -9,16 +9,28 @@ import java.util.StringTokenizer;
 
 import org.shared.UtilsSup;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class HtmlUtils.
+ */
 public class HtmlUtils {
 
 	/**
-	 * @param args
+	 * The main method.
+	 *
+	 * @param args the arguments
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
 	}
 
+	/**
+	 * Convert menu string to html.
+	 *
+	 * @param input the input
+	 * @return the string
+	 */
 	public static String convertMenuStringToHtml(String input){
 		StringBuilder output= new StringBuilder();
 		
@@ -41,10 +53,22 @@ public class HtmlUtils {
 		return output.toString();
 	}
 
+	/**
+	 * Header.
+	 *
+	 * @param output the output
+	 * @param header the header
+	 */
 	private static void header(StringBuilder output,String header) {
 		output.append("<th>"+header+"</th>\n");
 	}
 	
+	/**
+	 * Row.
+	 *
+	 * @param output the output
+	 * @param input the input
+	 */
 	private static void row(StringBuilder output,ArrayList<String> input){
 		output.append("<tr>\n");
 		for(int i = 0 ; i<input.size();i++){

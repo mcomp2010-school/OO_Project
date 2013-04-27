@@ -181,7 +181,7 @@ public class TableManager implements XStreamXML {
 	 *
 	 * @param size the size
 	 * @return true, if successful
-	 * @throws NoMoreRoomException 
+	 * @throws NoMoreRoomException the no more room exception
 	 */
 	public Integer seatBasedOnPartySize(int size) throws NoMoreRoomException{
 		int id=this.getIDofAvailableTableBasedOnPartySize(size);
@@ -451,6 +451,11 @@ public class TableManager implements XStreamXML {
 		return cloneArrayList;
 	}
 
+	/**
+	 * Gets the tables.
+	 *
+	 * @return the tables
+	 */
 	public int getTables(){
 		return this.Tables.size();
 	}

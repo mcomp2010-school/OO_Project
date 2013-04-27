@@ -12,7 +12,7 @@ public class TableDemo {
 	 * The main method.
 	 *
 	 * @param args the arguments
-	 * @throws NoMoreRoomException 
+	 * @throws NoMoreRoomException the no more room exception
 	 */
 	public static void main(String[] args) throws NoMoreRoomException {
 		// TODO Auto-generated method stub

@@ -134,6 +134,11 @@ public class Menu implements XStreamXML {
 		return item;
 	}
 	
+	/**
+	 * Gets the unique ingredients.
+	 *
+	 * @return the unique ingredients
+	 */
 	public String[] getUniqueIngredients(){
 		TreeSet<String> temp= new TreeSet<String>();
 		
