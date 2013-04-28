@@ -1,0 +1,20 @@
+<list>
+  <OfferItem>
+    <menuItemCategory>Entree</menuItemCategory>
+    <discountPercentage>0.2</discountPercentage>
+    <offerItemName>20% Off 1 Entree</offerItemName>
+    <numberOfTimesApplied>1</numberOfTimesApplied>
+  </OfferItem>
+  <OfferItem>
+    <menuItemCategory>Dessert</menuItemCategory>
+    <discountPercentage>1.0</discountPercentage>
+    <offerItemName>1 free dessert</offerItemName>
+    <numberOfTimesApplied>1</numberOfTimesApplied>
+  </OfferItem>
+  <OfferItem>
+    <menuItemCategory>Drink</menuItemCategory>
+    <discountPercentage>0.5</discountPercentage>
+    <offerItemName>50% Off 2 Drinks</offerItemName>
+    <numberOfTimesApplied>2</numberOfTimesApplied>
+  </OfferItem>
+</list>

@@ -287,7 +287,7 @@ public class MenuItem {
 	@Override
 	public String toString() {
 		DecimalFormat df= new DecimalFormat("#.00");
-		return this.ItemID+">" + itemName + ", " + df.format(Price)+ ", " + MainIngredient + "";
+		return this.ItemID+">" + itemName + ", " + df.format(Price)+ ", " + MainIngredient + ", " + category + "";
 	}	
 
 }

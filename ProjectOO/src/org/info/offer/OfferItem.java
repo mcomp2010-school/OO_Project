@@ -33,5 +33,48 @@ public class OfferItem {
 		this.discountPercentage = discountPercentage;
 		this.offerItemName = offerItemName;
 		this.numberOfTimesApplied = numberOfTimesApplied;
-	}		
+	}
+	
+	//Getters
+	public String getOfferItemCategory()
+	{
+		return this.menuItemCategory;
+	}
+	
+	public double getDiscountPercent()
+	{
+		return this.discountPercentage;
+	}
+	
+	public String getOfferItemName()
+	{
+		return this.offerItemName;
+	}
+	
+	public int getNumOfTimesApplied()
+	{
+		return this.numberOfTimesApplied;
+	}
+	
+	//Setters
+    public void setOfferItemCategory(String category)
+    {
+    	this.menuItemCategory = category;
+    }
+    
+    public void setDiscountPercent(double percent)
+    {
+    	this.discountPercentage = percent;
+    }
+    
+    public void setOfferItemName(String name)
+    {
+    	this.offerItemName = name;
+    }
+    
+    public void setNumTimesApplied(int number)
+    {
+    	this.numberOfTimesApplied = number;
+    }
+    
 }

@@ -23,7 +23,7 @@ public class OrderDemo {
 		
 		Orders.placeOrder(MenuObj.getItemByIDs("0,4,5,9"));
 		Orders.placeOrder(MenuObj.getItemByIDs("0,1"));
-		Orders.placeOrder(MenuObj.getItemByIDs("5,9"));
+		Orders.placeOrder(MenuObj.getItemByIDs("5,9,10,11"));
 
 		System.out.println(Orders);
 		

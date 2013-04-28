@@ -22,7 +22,7 @@ public class MenuDemo {
 	public static void main(String[] args) {
 		Menu MenuObj= new Menu();
 		
-		boolean useFile=true;
+		boolean useFile=false;
 		
 		if(useFile){
 			MenuObj.loadXML("data\\Menu.xml");
@@ -37,6 +37,8 @@ public class MenuDemo {
 			MenuObj.addItem("Chipotle Lime Chicken", 6.99, "Chicken",true,"Entree");
 			MenuObj.addItem("Chocolate Chip Cookie Sundae", 3.20, "Ice Cream",false, "Dessert");
 			MenuObj.addItem("Maple Butter Blondie", 3.99, "Ice Cream",false, "Dessert");
+			MenuObj.addItem("Long Island Ice Tea", 6.99, "Alcohol", false, "Drink");
+			MenuObj.addItem("Manhattan", 7.99, "Alcohol", false, "Drink");
 			
 			MenuObj.saveXML("data\\Menu.xml");
 		}

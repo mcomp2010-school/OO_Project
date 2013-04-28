@@ -6,10 +6,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.io.FileUtils;
+import org.info.menu.MenuItem;
 import org.info.order.Order;
+import org.info.order.OrderItem;
 import org.interfaces.XStreamXMLI;
 
 import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -21,17 +24,33 @@ public class Offer implements XStreamXMLI{
 	private String offerName; //General offer name. Separate from offerItem names
 	
 	/** The offer item list. */
-	private List<OfferItem> offerItemList;
+	@XStreamAlias("OfferItem")
+	private ArrayList<OfferItem> offerItemList;
 
 	/**
 	 * Instantiates a new offer.
 	 *
 	 * @param offerName the offer name
 	 */
-	private Offer(String offerName)
+	public Offer(String offerName)
 	{
 		this.offerItemList = new ArrayList<OfferItem>();
 		this.offerName = offerName;
+	}
+	
+	public ArrayList<OfferItem> GetOfferItems()
+	{
+		return this.offerItemList;
+	}
+	
+	public String getOfferName()
+	{
+		return this.offerName;
+	}
+	
+	public void setOfferName(String name)
+	{
+		this.offerName = name;
 	}
 	
 	/**
@@ -64,31 +83,52 @@ public class Offer implements XStreamXMLI{
 	 *
 	 * @param order the order
 	 */
-	public void applyOffers(Order order)	
+	public void applyOffers(OrderItem order)	
 	{
-		this.offerItemList = new ArrayList<OfferItem>();
+		for(OfferItem o : offerItemList)
+		{
+			for(MenuItem m : order.getMenuItems())
+			{
+				if(o.getNumOfTimesApplied() > 0)
+				{
+					if(m.getCategory().equalsIgnoreCase(o.getOfferItemCategory()))
+					{
+						m.setPrice(m.getPrice()-(m.getPrice() * o.getDiscountPercent()));
+						o.setNumTimesApplied(o.getNumOfTimesApplied()-1);
+					}
+				}
+				else
+					break;
+			}
+		}
 	}
-	
-	/**
-	 * Adds a offer item to the offer collection.
-	 *
-	 * @param menuItemType the menu item type
-	 * @param discountPercentage the discount percentage
-	 * @param timesApplied the times applied
-	 */
-	public void addOfferItem(String menuItemType, double discountPercentage, int timesApplied)
-	{
-		//TODO: Implement logic to iterate and apply each offer.
-	}
-	
+		
 	
 	/* (non-Javadoc)
 	 * @see org.shared.XStreamXML#loadXML(java.lang.String)
 	 */
 	@Override
 	public void loadXML(String FileName) {
-		// TODO need to implement- Can copy paste code from Menu
+		XStream xstream = new XStream();
+		xstream.alias("OfferItem", OfferItem.class);
+		xstream.autodetectAnnotations(true);		
 		
+		this.offerItemList.clear();
+		
+		File file = new File(FileName);
+		String lines = null;
+		try
+		{
+			lines = FileUtils.readFileToString(file);
+		}
+		catch(IOException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		ArrayList<OfferItem> tempTable = (ArrayList<OfferItem>)xstream.fromXML(lines.toString());
+		this.offerItemList = tempTable;
 	}
 
 	/* (non-Javadoc)
@@ -97,14 +137,11 @@ public class Offer implements XStreamXMLI{
 	@Override
 	public String getXML() {
 		XStream xstream = new XStream(); 
-		// TODO need to change line below for new class
-		//xstream.alias("MenuItem", MenuItem.class);
+		xstream.alias("OfferItem", OfferItem.class);
 		
 		xstream.autodetectAnnotations(true);
 		
-		// TODO need to change line below for new class
-		String xml = "NEED TO CHANGE"; //xstream.toXML(this.MenuList);
-		
+		String xml = xstream.toXML(this.offerItemList);		
 		return xml;
 	}
 

@@ -1,17 +1,19 @@
 <list>
   <MenuItem ItemID="0">
-    <itemName>Spagatti with Meat Sauce</itemName>
+    <itemName>Spaghetti with Meat Sauce</itemName>
     <Price>4.99</Price>
     <MainIngredient>Beef</MainIngredient>
     <isHeartHealthy>true</isHeartHealthy>
     <timeSec>0</timeSec>
+    <category>Entree</category>
   </MenuItem>
   <MenuItem ItemID="1">
-    <itemName>Spagatti with Red Sauce</itemName>
+    <itemName>Spaghetti with Red Sauce</itemName>
     <Price>4.5</Price>
     <MainIngredient>Pasta</MainIngredient>
     <isHeartHealthy>true</isHeartHealthy>
     <timeSec>0</timeSec>
+    <category>Entree</category>
   </MenuItem>
   <MenuItem ItemID="2">
     <itemName>Chicken and Rice</itemName>
@@ -19,6 +21,7 @@
     <MainIngredient>Chicken</MainIngredient>
     <isHeartHealthy>false</isHeartHealthy>
     <timeSec>0</timeSec>
+    <category>Entree</category>
   </MenuItem>
   <MenuItem ItemID="3">
     <itemName>Chicken Tenders with Fries</itemName>
@@ -26,6 +29,7 @@
     <MainIngredient>Chicken</MainIngredient>
     <isHeartHealthy>true</isHeartHealthy>
     <timeSec>0</timeSec>
+    <category>Entree</category>
   </MenuItem>
   <MenuItem ItemID="4">
     <itemName>Grilled Chicken Sandwitch with Fries</itemName>
@@ -33,6 +37,7 @@
     <MainIngredient>Chicken</MainIngredient>
     <isHeartHealthy>false</isHeartHealthy>
     <timeSec>0</timeSec>
+    <category>Entree</category>
   </MenuItem>
   <MenuItem ItemID="5">
     <itemName>1/2 Pound Humburger with Fries</itemName>
@@ -40,6 +45,7 @@
     <MainIngredient>Beef</MainIngredient>
     <isHeartHealthy>true</isHeartHealthy>
     <timeSec>0</timeSec>
+    <category>Entree</category>
   </MenuItem>
   <MenuItem ItemID="6">
     <itemName>Chicken Tenders with Chips</itemName>
@@ -47,6 +53,7 @@
     <MainIngredient>Chicken</MainIngredient>
     <isHeartHealthy>true</isHeartHealthy>
     <timeSec>0</timeSec>
+    <category>Entree</category>
   </MenuItem>
   <MenuItem ItemID="7">
     <itemName>Chipotle Lime Chicken</itemName>
@@ -54,6 +61,7 @@
     <MainIngredient>Chicken</MainIngredient>
     <isHeartHealthy>true</isHeartHealthy>
     <timeSec>0</timeSec>
+    <category>Entree</category>
   </MenuItem>
   <MenuItem ItemID="8">
     <itemName>Chocolate Chip Cookie Sundae</itemName>
@@ -61,6 +69,7 @@
     <MainIngredient>Ice Cream</MainIngredient>
     <isHeartHealthy>false</isHeartHealthy>
     <timeSec>0</timeSec>
+    <category>Dessert</category>
   </MenuItem>
   <MenuItem ItemID="9">
     <itemName>Maple Butter Blondie</itemName>
@@ -68,5 +77,22 @@
     <MainIngredient>Ice Cream</MainIngredient>
     <isHeartHealthy>false</isHeartHealthy>
     <timeSec>0</timeSec>
+    <category>Dessert</category>
+  </MenuItem>
+  <MenuItem ItemID="10">
+    <itemName>Long Island Ice Tea</itemName>
+    <Price>6.99</Price>
+    <MainIngredient>Alcohol</MainIngredient>
+    <isHeartHealthy>false</isHeartHealthy>
+    <timeSec>0</timeSec>
+    <category>Drink</category>
+  </MenuItem>
+  <MenuItem ItemID="11">
+    <itemName>Manhattan</itemName>
+    <Price>7.99</Price>
+    <MainIngredient>Alcohol</MainIngredient>
+    <isHeartHealthy>false</isHeartHealthy>
+    <timeSec>0</timeSec>
+    <category>Drink</category>
   </MenuItem>
 </list>
