@@ -21,7 +21,7 @@ public class OfferDemo {
 		else
 		{
 			offerObj.addOfferItem("Entree", .20, 1, "20% Off 1 Entree");
-			offerObj.addOfferItem("Dessert", 1, 1, "1 free dessert");
+			offerObj.addOfferItem("Dessert", 1, 1, "1 Free Dessert");
 			offerObj.addOfferItem("Drink", .5, 2 , "50% Off 2 Drinks");
 			offerObj.saveXML("data\\Offer.xml");
 		}
