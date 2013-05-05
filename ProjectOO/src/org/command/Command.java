@@ -11,5 +11,5 @@ public interface Command {
 	 *
 	 * @return the object
 	 */
-	Object execute();
+	public Object execute();	
 }

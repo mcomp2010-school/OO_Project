@@ -19,7 +19,5 @@ public class GetCMDCompleteMenuCommand implements Command{
 	public Object execute() {
 		// TODO Auto-generated method stub
 		return infoObj.CompleteMenu();
-	}
-
-	
+	}	
 }

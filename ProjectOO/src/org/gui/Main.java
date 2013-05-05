@@ -9,6 +9,7 @@ import javax.swing.JLayeredPane;
 import javax.swing.JEditorPane;
 import javax.swing.JButton;
 
+import org.command.Invoker;
 import org.errors.table.NoMoreRoomException;
 import org.info.InformationProvider;
 import org.queue.MainQueue;
@@ -59,7 +60,7 @@ public class Main {
 
 	/** The info obj. */
 	private InformationProvider infoObj=InformationProvider.getSingletonObject(); //NEED TO REMOVE AND USE SystemInterfaceObj
-	
+			
 	private MainQueue Sim=new MainQueue();
 	
 	/** The System interface obj. */
@@ -182,7 +183,7 @@ public class Main {
 		//Action Listeners
 		btnGetHeartHealthy.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				editorMenuoutput.setText(HtmlUtils.convertMenuStringToHtml(infoObj.HeartHealthyMenu().toString()));
+				editorMenuoutput.setText(HtmlUtils.convertMenuStringToHtml(SystemInterfaceObj.getHeartHealthyMenu().toString()));				
 			}
 		});
 		
@@ -192,9 +193,7 @@ public class Main {
 		JButton btnGetPriceMenu = new JButton("Get Price Menu");
 		//Action Listeners
 		btnGetPriceMenu.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				//TODO need to change to System Interface
-				
+			public void actionPerformed(ActionEvent e) {							
 				Double s=null;
 				try{
 					s = Double.parseDouble((String)JOptionPane.showInputDialog(
@@ -214,7 +213,7 @@ public class Main {
 				
 				//If a string was returned, say so.
 				if ((s != null)&&(s>=0.0)) {
-				    editorMenuoutput.setText(HtmlUtils.convertMenuStringToHtml(infoObj.PriceMenu(s).toString()));
+				    editorMenuoutput.setText(HtmlUtils.convertMenuStringToHtml(SystemInterfaceObj.getPriceMenu(s).toString()));
 				    return;
 				}else{
 					editorMenuoutput.setText("Canceled");
@@ -230,8 +229,7 @@ public class Main {
 		JButton btnGetIngredientMenu = new JButton("Get Ingredient Menu");
 		//Action Listeners
 		btnGetIngredientMenu.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				//TODO need to change to System Interface
+			public void actionPerformed(ActionEvent e) {	
 				
 				String[] possibilities = infoObj.getUniqueIngredients();
 				
@@ -246,7 +244,7 @@ public class Main {
 
 				//If a string was returned, say so.
 				if ((s != null) && (s.length() > 0)) {
-				    editorMenuoutput.setText(HtmlUtils.convertMenuStringToHtml(infoObj.IngredientMenu(s).toString()));
+				    editorMenuoutput.setText(HtmlUtils.convertMenuStringToHtml(SystemInterfaceObj.getIngredientMenu(s).toString()));
 				    return;
 				}else{
 					editorMenuoutput.setText("Canceled");
@@ -260,9 +258,10 @@ public class Main {
 		panel_menu.add(btnGetIngredientMenu);
 		
 		//Action Listeners
+		//Get Complete menu
 		btnGetCompleteMenu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-					editorMenuoutput.setText(HtmlUtils.convertMenuStringToHtml(SystemInterfaceObj.getGetCompleteMenu()));
+				editorMenuoutput.setText(HtmlUtils.convertMenuStringToHtml(SystemInterfaceObj.getGetCompleteMenu())); 
 			}
 		});
 		

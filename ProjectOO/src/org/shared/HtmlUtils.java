@@ -39,6 +39,7 @@ public class HtmlUtils {
 		header(output,"Name");
 		header(output,"Price");
 		header(output,"Main Ing");
+		header(output,"Category");
 		output.append("</tr>\n");
 		
 		
