@@ -1,24 +1,46 @@
 package org.info.order;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.TreeMap;
 
+import org.apache.commons.io.FileUtils;
 import org.info.comment.CommentItem;
 import org.info.menu.MenuItem;
+import org.interfaces.XStreamXMLI;
+
+import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 // TODO: Auto-generated Javadoc
 /**
  * The Class Order.
  */
-public class Order {
+public class Order implements XStreamXMLI {
 	
 	/** The order id. */
 	private Integer orderID = 0;
 	
+	/**The table number*/
+	private Integer tableNumber;
+		
 	/** The orders. */
+	@XStreamAlias("OrderList")
 	private TreeMap<Integer,OrderItem> orders=new TreeMap<Integer,OrderItem>();
 
+	public Order(Integer tableNum)
+	{
+		this.tableNumber = tableNum;
+	}
+	
+	/**Get the table number*/	
+	public Integer GetTableNumber()
+	{
+		return this.tableNumber;
+	}
+	
 	/**
 	 * Place order.
 	 *
@@ -53,6 +75,11 @@ public class Order {
 		
 	}
 
+	public TreeMap<Integer, OrderItem> getAllOrders()
+	{
+		return orders;		
+	}
+	
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
@@ -103,5 +130,46 @@ public class Order {
 			return false;
 		return true;
 	}
-	
+
+
+	@Override
+	public void loadXML(String FileName) {
+		XStream xstream = new XStream();
+		xstream.alias("OrderItem", OrderItem.class);
+		xstream.autodetectAnnotations(true);
+		
+		this.orders.clear();
+		
+		File file = new File(FileName);
+		String lines = null;
+		try{
+			lines = FileUtils.readFileToString(file);
+		}catch(IOException e){
+			e.printStackTrace();
+		}
+		
+		TreeMap<Integer, OrderItem> temptable = (TreeMap<Integer,OrderItem>)xstream.fromXML(lines.toString());
+		this.orders = temptable;
+	}
+		
+
+	@Override
+	public String getXML() {
+		XStream xstream = new XStream();
+		xstream.alias("OrderItem",OrderItem.class);
+		xstream.autodetectAnnotations(true);
+		String xml = xstream.toXML(this.orders);
+		return xml;		
+	}
+
+
+	@Override
+	public void saveXML(String FileName) {
+		File file = new File(FileName);
+		try{
+			FileUtils.writeStringToFile(file, this.getXML());
+		}catch(IOException e){
+			e.printStackTrace();
+		}
+	}		
 }
