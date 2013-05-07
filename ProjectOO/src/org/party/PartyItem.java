@@ -21,6 +21,7 @@ public class PartyItem {
 	private int size;
 	
 	private Enum partyStatusState;
+	private int intTableID=-1;
 
 	/**
 	 * Instantiates a new party item.
@@ -95,15 +96,20 @@ public class PartyItem {
 		return partyStatusState;
 	}
 
-	public void setPartyStatusState(Enum partyStatusState) {
+	public void setPartyStatusState(Enum partyStatusState,int intTableID) {
 		this.partyStatusState = partyStatusState;
+		this.intTableID=intTableID;
+	}
+
+	public int getIntTableID() {
+		return intTableID;
 	}
 
 	@Override
 	public String toString() {
 		return "PartyItem [partyItemID=" + partyItemID + ", timePlaced="
 				+ timePlaced + ", size=" + size + ", partyStatusState="
-				+ partyStatusState + "]";
+				+ partyStatusState + ", intTableID=" + intTableID + "]";
 	}
 
 }

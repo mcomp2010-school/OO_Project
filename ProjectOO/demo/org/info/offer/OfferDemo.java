@@ -1,7 +1,7 @@
 package org.info.offer;
 
 import org.info.menu.Menu;
-import org.info.order.Order;
+import org.info.order.OrderManager;
 
 public class OfferDemo {
 
@@ -9,7 +9,7 @@ public class OfferDemo {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		Offer offerObj = new Offer("VIP Discounts");
+		OfferManager offerObj = new OfferManager("VIP Discounts");
 		
 		boolean useFile = false;
 		
@@ -30,7 +30,7 @@ public class OfferDemo {
 		Menu MenuObj= new Menu();
 		MenuObj.loadXML("data\\Menu.xml");
 		
-		Order Orders=new Order(1);
+		OrderManager Orders=new OrderManager(1);
 		
 		Orders.placeOrder(MenuObj.getItemByIDs("0,4,5,9"));
 		Orders.placeOrder(MenuObj.getItemByIDs("0,1"));

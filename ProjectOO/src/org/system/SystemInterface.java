@@ -10,7 +10,7 @@ import org.commands.GetCMDIngredientMenuCommand;
 import org.commands.GetCMDPriceMenuCommand;
 import org.commands.GetCMDTables;
 import org.info.menu.Menu;
-import org.info.order.Order;
+import org.info.order.OrderManager;
 import org.info.table.TableManager;
 
 // TODO: Auto-generated Javadoc
@@ -73,7 +73,7 @@ public class SystemInterface {
 	/**
 	 * Gets Sample Orders in the system*/
 	public String getSampleOrders(){
-		ArrayList<Order> orders = (ArrayList<Order>)invoker.executeCommand(new GetCMDAllSampleOrdersCommand());
+		ArrayList<OrderManager> orders = (ArrayList<OrderManager>)invoker.executeCommand(new GetCMDAllSampleOrdersCommand());
 		return orders.toString();
 	}
 		

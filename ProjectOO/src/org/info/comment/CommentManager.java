@@ -8,7 +8,7 @@ import java.util.TreeMap;
 /**
  * The Class Comment.
  */
-public class Comment {
+public class CommentManager {
 
 	/** The comment id. */
 	private Integer commentID = 0;
@@ -25,7 +25,7 @@ public class Comment {
 	 *            the category
 	 * @return the integer
 	 */
-	public Integer addComment(String description, CommentCategory category) {
+	public Integer addComment(String description, CommentCategoryE category) {
 		commentItems.put(commentID, new CommentItem(commentID, description,
 				category));
 		commentID++;
@@ -78,7 +78,7 @@ public class Comment {
 	 * @param Category the category
 	 * @return the comments by category
 	 */
-	public ArrayList<CommentItem> getCommentsByCategory(CommentCategory Category){
+	public ArrayList<CommentItem> getCommentsByCategory(CommentCategoryE Category){
 		ArrayList<CommentItem> temp=new ArrayList<CommentItem>();
 		
 		for (Map.Entry<Integer, CommentItem> entry : this.commentItems
@@ -87,7 +87,7 @@ public class Comment {
 			CommentItem value = entry.getValue();
 
 			// System.out.println(key + " => " + value);
-			if(value.getCategory().equals(Category)){
+			if(value.getCategory().equals(Category)|| Category.equals(CommentCategoryE.ALL) ){
 				temp.add(value);
 			}
 			
@@ -103,7 +103,7 @@ public class Comment {
 	 * @param Category the category
 	 * @return the comments by category str
 	 */
-	public String getCommentsByCategoryStr(CommentCategory Category){
+	public String getCommentsByCategoryStr(CommentCategoryE Category){
 		StringBuilder outputBuilder = new StringBuilder();
 		
 		for (Map.Entry<Integer, CommentItem> entry : this.commentItems
@@ -112,7 +112,7 @@ public class Comment {
 			CommentItem value = entry.getValue();
 
 			// System.out.println(key + " => " + value);
-			if(value.getCategory().equals(Category)){
+			if(value.getCategory().equals(Category)|| Category.equals(CommentCategoryE.ALL) ){
 				outputBuilder.append(value+"\n");
 			}
 			
@@ -146,7 +146,7 @@ public class Comment {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Comment other = (Comment) obj;
+		CommentManager other = (CommentManager) obj;
 		if (commentID == null) {
 			if (other.commentID != null)
 				return false;

@@ -11,6 +11,7 @@ import java.util.TimerTask;
 
 import org.errors.table.NoMoreRoomException;
 import org.info.InformationProvider;
+import org.info.comment.CommentCategoryE;
 import org.party.PartyItem;
 import org.shared.Utils;
 
@@ -30,6 +31,12 @@ public class MainQueue {
        
 	}
 
+	public static void main(String[] args) {
+		MainQueue test=new MainQueue();
+		test.start(1000);
+	}
+	
+	
 	public void start(Integer time_input){
 		timer_AddingTask = new Timer();
 		timer_AddingTask.schedule(new AddingPartyTask()
@@ -64,51 +71,82 @@ public class MainQueue {
                 
                 int intParty=Utils.randomNumberBetween(1,infoObj.Tables().getBiggestTableSize());
                 infoObj.getPartyMgr().newParty(intParty);
-                System.out.println("Queue Size:" + infoObj.getPartyMgr().size());
+                System.out.println("Queue Size All:" + infoObj.getPartyMgr().size());
+                System.out.println("Queue Size Waiting:" + infoObj.getPartyMgr().getWaitingParties().size());
                 
         }
     }
 	
 	
 	class SeatingTask extends TimerTask {
-        public void run() {
-        	System.out.println("=====================================================================");
-        	
-                System.out.println("Beep!-SeatingTask");
-                //timer.cancel(); //Not necessary because
-                                  //we call System.exit
-                ArrayList<PartyItem> alWaitingParties= infoObj.getPartyMgr().getWaitingParties();
-        		
-                System.out.println(alWaitingParties);
-                System.out.println("----------------------------------------------------------------------");
-                for (int i = 0; i < alWaitingParties.size(); i++) {
-        			try {
-        				infoObj.Tables().seatBasedOnPartyItem(alWaitingParties.get(i));
-        				System.out.println("DEBUG:Seated party");
-        			} catch (NoMoreRoomException e) {
-        				// TODO Auto-generated catch block
-        				//e.printStackTrace();
-        			}
-                }
-        }
-    }
-	
+		public void run() {
+			try{//Make sure Thread Does not stop
+				System.out.println("=====================================================================");
+
+				System.out.println("Beep!-SeatingTask");
+				//timer.cancel(); //Not necessary because
+				//we call System.exit
+				ArrayList<PartyItem> alWaitingParties = null;
+
+				alWaitingParties= infoObj.getPartyMgr().getWaitingParties();
+
+
+				System.out.println(alWaitingParties);
+				System.out.println("----------------------------------------------------------------------");
+				for (int i = 0; i < alWaitingParties.size(); i++) {
+					try {
+						infoObj.Tables().seatBasedOnPartyItem(alWaitingParties.get(i));
+						//TODO: Generate orders
+						
+						System.out.println("DEBUG:Seated party");
+					} catch (NoMoreRoomException e) {
+						// TODO Auto-generated catch block
+						//e.printStackTrace();
+					}
+				}
+			}catch(Exception E){
+				//nothing
+			}
+		}
+	}
+
 	class CustomerFinishTask extends TimerTask {
         public void run() {
+        	try{//Make sure Thread Does not stop
                 System.out.println("Beep!-CustomerFinishTask");
                 //timer.cancel(); //Not necessary because
-                  
+                 
                ArrayList<PartyItem> alSeatedParties= infoObj.getPartyMgr().getSeatedParties();
-        		
+        		System.out.println("alSeatedParties:"+alSeatedParties);
                 for (int i = 0; i < alSeatedParties.size(); i++) {
-                	 if(Utils.randomNumberBetween(1,10)>=5){
+                	PartyItem currentItem=alSeatedParties.get(i);
+                	 if(Utils.randomNumberBetween(1,100)<=40){
+           				int intTableId=currentItem.getIntTableID();
+                		 System.out.println("Made table " +  intTableId+ " available");
                 		 
-           				System.out.println("Made table " + "available");
+                		 infoObj.Tables().makeTableAvaiableBasedOnPartyItem(currentItem);
+                				 
+           				//TODO: Generate Recipt of order
+           				
+                		//TODO: Generate Comment of order
+                		 if(Utils.randomNumberBetween(1,100)<=50){//50 percent of Tables makes a comment
+                				infoObj.getCommentMgr().addComment("Food was great", CommentCategoryE.SERVICE);
+                				infoObj.getCommentMgr().addComment("Bad Server, Very Slow", CommentCategoryE.COMPLAINT);
+                				infoObj.getCommentMgr().addComment("Bug in food", CommentCategoryE.COMPLAINT);
+                				infoObj.getCommentMgr().addComment("Prices are too high", CommentCategoryE.PRICES);
+                				infoObj.getCommentMgr().addComment("The chicken was very good", CommentCategoryE.FOOD_ITEM);
+                				infoObj.getCommentMgr().addComment("Long Waiting Time", CommentCategoryE.COMPLAINT);
+                				
+                		 }
+                		 
            				//qWaitingCustomers.remove(intTableID);
                  	}
                 }
                
-            	
+        	}catch(Exception E){
+				//nothing
+        		System.err.println(E);
+			}
                   
          }
     }

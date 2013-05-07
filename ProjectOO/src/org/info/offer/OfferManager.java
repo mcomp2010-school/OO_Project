@@ -7,7 +7,7 @@ import java.util.List;
 
 import org.apache.commons.io.FileUtils;
 import org.info.menu.MenuItem;
-import org.info.order.Order;
+import org.info.order.OrderManager;
 import org.info.order.OrderItem;
 import org.interfaces.XStreamXMLI;
 
@@ -18,7 +18,7 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 /**
  * The Class Offer.
  */
-public class Offer implements XStreamXMLI{
+public class OfferManager implements XStreamXMLI{
 
 	/** The offer name. */
 	private String offerName; //General offer name. Separate from offerItem names
@@ -32,7 +32,7 @@ public class Offer implements XStreamXMLI{
 	 *
 	 * @param offerName the offer name
 	 */
-	public Offer(String offerName)
+	public OfferManager(String offerName)
 	{
 		this.offerItemList = new ArrayList<OfferItem>();
 		this.offerName = offerName;

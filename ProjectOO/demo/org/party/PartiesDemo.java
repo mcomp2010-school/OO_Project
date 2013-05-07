@@ -33,6 +33,7 @@ public class PartiesDemo {
 		
 		
 		Tables.add(1, 4);
+		Tables.add(2, 5);
 		
 		
 		ArrayList<PartyItem> alWaitingParties= PartiesObj.getWaitingParties();
@@ -49,7 +50,7 @@ public class PartiesDemo {
 		System.out.println(PartiesObj.toString());
 		System.out.println(Tables.toString());
 		
-		System.out.println("-------------");
+		System.out.println("-------------Seated Customers");
 		
 		
 		ArrayList<PartyItem> alSeatedParties= PartiesObj.getSeatedParties();
@@ -59,9 +60,38 @@ public class PartiesDemo {
 			System.out.println(">>>>>>"+alSeatedParties.get(i));
 		}
 		
-		System.out.println("-------------");
+		System.out.println("-------------Finish Customers");
 		
+		ArrayList<PartyItem> alSeatedPartiesToFinish= PartiesObj.getSeatedParties();
 		
+		for (int i = 0; i < alSeatedPartiesToFinish.size(); i++) {
+				//Tables.seatBasedOnPartyItem(alSeatedParties.get(i));
+			//System.out.println(">>>>>>"+alSeatedPartiesToFinish.get(i));
+			Tables.makeTableAvaiableBasedOnPartyItem(alSeatedPartiesToFinish.get(i));
+		}
+		
+		System.out.println("-------------Verify Customers");
+		
+		alSeatedParties= PartiesObj.getSeatedParties();
+		
+		for (int i = 0; i < alSeatedParties.size(); i++) {
+				//Tables.seatBasedOnPartyItem(alSeatedParties.get(i));
+			System.out.println(">>>>>>"+alSeatedParties.get(i));
+		}
+		
+		System.out.println("-------------Finish Customers");
+		
+		ArrayList<PartyItem> alSeatedPartiesFinished= PartiesObj.getFinishParties();
+		
+		for (int i = 0; i < alSeatedPartiesFinished.size(); i++) {
+				//Tables.seatBasedOnPartyItem(alSeatedParties.get(i));
+			System.out.println(">>>>>>"+alSeatedPartiesFinished.get(i));
+		
+		}
+			
+		System.out.println("-------------Table and Party Object");
+		System.out.println(PartiesObj.toString());
+		System.out.println(Tables.toString());
 			
 	}
 

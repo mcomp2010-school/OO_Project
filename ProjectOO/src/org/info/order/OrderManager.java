@@ -18,7 +18,7 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 /**
  * The Class Order.
  */
-public class Order implements XStreamXMLI {
+public class OrderManager implements XStreamXMLI {
 	
 	/** The order id. */
 	private Integer orderID = 0;
@@ -30,11 +30,15 @@ public class Order implements XStreamXMLI {
 	@XStreamAlias("OrderList")
 	private TreeMap<Integer,OrderItem> orders=new TreeMap<Integer,OrderItem>();
 
-	public Order(Integer tableNum)
+	public OrderManager(Integer tableNum)
 	{
 		this.tableNumber = tableNum;
 	}
 	
+	public OrderManager() {
+		// TODO Auto-generated constructor stub
+	}
+
 	/**Get the table number*/	
 	public Integer GetTableNumber()
 	{
@@ -122,7 +126,7 @@ public class Order implements XStreamXMLI {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Order other = (Order) obj;
+		OrderManager other = (OrderManager) obj;
 		if (orders == null) {
 			if (other.orders != null)
 				return false;

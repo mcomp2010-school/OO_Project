@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import org.command.Command;
 import org.info.InformationProvider;
-import org.info.order.Order;
+import org.info.order.OrderManager;
 
 public class GetCMDAllSampleOrdersCommand implements Command{
 	/**The info obj*/
@@ -12,6 +12,6 @@ public class GetCMDAllSampleOrdersCommand implements Command{
 	
 	@Override
 	public Object execute(){
-		return (ArrayList<Order>)infoObj.GetAllSampleOrders();
+		return (ArrayList<OrderManager>)infoObj.GetAllSampleOrders();
 	}
 }

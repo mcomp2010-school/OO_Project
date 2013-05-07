@@ -20,7 +20,7 @@ public class CommentItem {
 	private String description;
 	
 	/** The category. */
-	private CommentCategory category;
+	private CommentCategoryE category;
 	
 	
 	/**
@@ -31,7 +31,7 @@ public class CommentItem {
 	 * @param category the category
 	 */
 	public CommentItem(Integer commentItemID, String description,
-			CommentCategory category) {
+			CommentCategoryE category) {
 		super();
 		this.commentItemID = commentItemID;
 		timePlaced = new DateTime();		
@@ -75,7 +75,7 @@ public class CommentItem {
 	 *
 	 * @return the category
 	 */
-	public CommentCategory getCategory() {
+	public CommentCategoryE getCategory() {
 		return category;
 	}
 
@@ -115,7 +115,7 @@ public class CommentItem {
 	 *
 	 * @param category the new category
 	 */
-	public void setCategory(CommentCategory category) {
+	public void setCategory(CommentCategoryE category) {
 		this.category = category;
 	}
 

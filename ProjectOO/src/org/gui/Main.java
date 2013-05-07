@@ -52,6 +52,9 @@ import javax.swing.SwingConstants;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 
+import javax.swing.DefaultComboBoxModel;
+import org.info.comment.CommentCategoryE;
+
 // TODO: Auto-generated Javadoc
 /**
  * The Class Main.
@@ -94,6 +97,8 @@ public class Main {
 
 	private String strPreviousTable = "";
 	private JProgressBar progressBar;
+	private JComboBox comboBox_Comments;
+	private JEditorPane editorPane_Comments;
 	
 	/**
 	 * Launch the application.
@@ -338,27 +343,42 @@ public class Main {
 		panel_comments.add(lblCommentList);
 		
 		JScrollPane scrollPane_2 = new JScrollPane();
-		scrollPane_2.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
-		scrollPane_2.setBounds(188, 36, 444, 471);
+		scrollPane_2.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+		scrollPane_2.setBounds(20, 36, 612, 437);
 		panel_comments.add(scrollPane_2);
 		
-		JEditorPane editorPane = new JEditorPane();
-		editorPane.setEditable(false);
-		editorPane.setContentType("text/html");
-		scrollPane_2.setViewportView(editorPane);
+		editorPane_Comments = new JEditorPane();
+		editorPane_Comments.setEditable(false);
+		editorPane_Comments.setContentType("text/html");
+		scrollPane_2.setViewportView(editorPane_Comments);
 		
-		JScrollPane scrollPane_3 = new JScrollPane();
-		scrollPane_3.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
-		scrollPane_3.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-		scrollPane_3.setBounds(10, 36, 168, 437);
-		panel_comments.add(scrollPane_3);
-		
-		JList list = new JList();
-		scrollPane_3.setViewportView(list);
-		
-		JButton btnGetComment = new JButton("Get Comment List");
-		btnGetComment.setBounds(10, 484, 168, 23);
+		JButton btnGetComment = new JButton("Get Comment");
+	
+		btnGetComment.setBounds(368, 484, 168, 23);
 		panel_comments.add(btnGetComment);
+		
+		comboBox_Comments = new JComboBox();
+		comboBox_Comments.setModel(new DefaultComboBoxModel(CommentCategoryE.values()));
+		comboBox_Comments.setBounds(191, 485, 168, 20);
+		panel_comments.add(comboBox_Comments);
+		
+		btnGetComment.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				CommentCategoryE CommentCat=(CommentCategoryE) comboBox_Comments.getItemAt(comboBox_Comments.getSelectedIndex());
+				System.out.println(CommentCat);
+				
+				String CurrentResult=infoObj.getCommentMgr().getCommentsByCategoryStr(CommentCat);
+				
+				if(CurrentResult.trim().length()==0){
+					editorPane_Comments.setText("No Comments for " + CommentCat);
+				}else{
+					editorPane_Comments.setText(HtmlUtils.convertMenuStringToHtml(CurrentResult.trim()));
+				}
+				
+				//TODO:Complete Add Comment
+				
+			}
+		});
 		
 		JPanel panel_orders = new JPanel();
 		panel_orders.setLayout(null);
@@ -504,6 +524,7 @@ public class Main {
 	
 	class UpdateSimulationTask extends TimerTask {
         public void run() {
+        	try{//Make sure Thread does not stop
                 System.out.println("Simulation Tab Update");
                 //timer.cancel(); //Not necessary because
                                   //we call System.exit
@@ -514,7 +535,9 @@ public class Main {
                 System.out.println(strper+"-"+per);
                 
                 progressBar.setValue(per);
-                              
+        	}catch(Exception E){
+        		//Nothing
+        	}                  
             	
         }
     }

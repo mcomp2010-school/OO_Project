@@ -1,5 +1,5 @@
 package org.info.offer;
-import org.info.order.Order;
+import org.info.order.OrderManager;
 // TODO: Auto-generated Javadoc
 /**
  * The Class OfferItem.

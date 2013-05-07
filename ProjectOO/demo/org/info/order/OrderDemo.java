@@ -20,8 +20,8 @@ public class OrderDemo {
 		Menu MenuObj= new Menu();
 		MenuObj.loadXML("data\\Menu.xml");
 						
-		Order Orders = new Order(1);
-		Order Orders2 = new Order(2);
+		OrderManager Orders = new OrderManager(1);
+		OrderManager Orders2 = new OrderManager(2);
 		
 		if(useFile){
 			Orders.loadXML("data\\SampleOrder.xml");

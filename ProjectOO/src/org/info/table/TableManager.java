@@ -205,12 +205,18 @@ public class TableManager implements XStreamXMLI {
 		
 		if(id>=1){
 			this.getTable(id).setAvailable(false);
-			input.setPartyStatusState(PartyStatusE.SEATED);
+			input.setPartyStatusState(PartyStatusE.SEATED,id);
 			return id;
 		}else{
 			throw new NoMoreRoomException("No More Room - Status Stayed the Same");
 		}	
 	}
+	
+	public void makeTableAvaiableBasedOnPartyItem(PartyItem input){
+			this.getTable(input.getIntTableID()).setAvailable(true);
+			input.setPartyStatusState(PartyStatusE.FINISH,-1);
+	}
+	
 	
 	
 	/**
