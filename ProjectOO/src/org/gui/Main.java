@@ -54,6 +54,19 @@ import java.awt.event.FocusEvent;
 
 import javax.swing.DefaultComboBoxModel;
 import org.info.comment.CommentCategoryE;
+import java.awt.FlowLayout;
+import java.awt.BorderLayout;
+import javax.swing.BoxLayout;
+
+import java.awt.Dimension;
+import java.awt.GridBagLayout;
+import java.awt.GridBagConstraints;
+import java.awt.Insets;
+import java.awt.GridLayout;
+import java.awt.Component;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.LayoutStyle.ComponentPlacement;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -131,9 +144,9 @@ public class Main {
 	private void initialize() {
 		frmManager = new JFrame();
 		frmManager.setTitle("Manager");
-		frmManager.setBounds(100, 100, 683, 604);
+		frmManager.setBounds(100, 100, 760, 600);
+		frmManager.setMinimumSize(new Dimension(760, 600));
 		frmManager.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frmManager.getContentPane().setLayout(null);
 		
 		
 		
@@ -161,41 +174,86 @@ public class Main {
 		      
 			}
 		});
-		tabbedPane.setBounds(10, 11, 647, 546);
+		frmManager.getContentPane().setLayout(new BoxLayout(frmManager.getContentPane(), BoxLayout.X_AXIS));
 		frmManager.getContentPane().add(tabbedPane);
 		
 		JPanel panel_menu = new JPanel();
 		tabbedPane.addTab("Menu", null, panel_menu, null);
 		tabbedPane.setEnabledAt(0, true);
 		
-		panel_menu.setLayout(null);
+		JPanel panel_2 = new JPanel();
+		panel_2.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
 		JButton btnGetCompleteMenu = new JButton("Get Complete Menu");
-		btnGetCompleteMenu.setBounds(21, 448, 174, 23);
-		panel_menu.add(btnGetCompleteMenu);
-		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
-		scrollPane.setBounds(10, 11, 603, 426);
-		panel_menu.add(scrollPane);
-		
-		editorMenuoutput = new JEditorPane();
-		editorMenuoutput.setEditable(false);
-		editorMenuoutput.setContentType("text/html");
-		scrollPane.setViewportView(editorMenuoutput);
+		panel_2.add(btnGetCompleteMenu);
 		
 		JButton btnGetHeartHealthy = new JButton("Get Heart Healthy Menu");
-		//Action Listeners
-		btnGetHeartHealthy.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				editorMenuoutput.setText(HtmlUtils.convertMenuStringToHtml(SystemInterfaceObj.getHeartHealthyMenu().toString()));				
-			}
-		});
-		
-		btnGetHeartHealthy.setBounds(21, 484, 174, 23);
-		panel_menu.add(btnGetHeartHealthy);
+		panel_2.add(btnGetHeartHealthy);
 		
 		JButton btnGetPriceMenu = new JButton("Get Price Menu");
+		panel_2.add(btnGetPriceMenu);
+		
+		JButton btnGetIngredientMenu = new JButton("Get Ingredient Menu");
+		panel_2.add(btnGetIngredientMenu);
+		
+		JPanel panel_3 = new JPanel();
+		panel_3.setLayout(new BoxLayout(panel_3, BoxLayout.X_AXIS));
+		
+		JScrollPane scrollPane = new JScrollPane();
+		panel_3.add(scrollPane);
+		scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+		
+		editorMenuoutput = new JEditorPane();
+		scrollPane.setViewportView(editorMenuoutput);
+		editorMenuoutput.setEditable(false);
+		editorMenuoutput.setContentType("text/html");
+		GroupLayout gl_panel_menu = new GroupLayout(panel_menu);
+		gl_panel_menu.setHorizontalGroup(
+			gl_panel_menu.createParallelGroup(Alignment.LEADING)
+				.addGroup(Alignment.TRAILING, gl_panel_menu.createSequentialGroup()
+					.addContainerGap()
+					.addGroup(gl_panel_menu.createParallelGroup(Alignment.TRAILING)
+						.addComponent(panel_3, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 719, Short.MAX_VALUE)
+						.addComponent(panel_2, GroupLayout.PREFERRED_SIZE, 719, GroupLayout.PREFERRED_SIZE))
+					.addContainerGap())
+		);
+		gl_panel_menu.setVerticalGroup(
+			gl_panel_menu.createParallelGroup(Alignment.TRAILING)
+				.addGroup(gl_panel_menu.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(panel_3, GroupLayout.DEFAULT_SIZE, 461, Short.MAX_VALUE)
+					.addGap(18)
+					.addComponent(panel_2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap())
+		);
+		panel_menu.setLayout(gl_panel_menu);
+		//Action Listeners
+		btnGetIngredientMenu.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {	
+				
+				String[] possibilities = infoObj.getUniqueIngredients();
+				
+				String s = (String)JOptionPane.showInputDialog(
+				                    frmManager,
+				                    "What Ingredient do you want to view??"
+				                    + "",
+				                    "Menu",
+				                    JOptionPane.PLAIN_MESSAGE,null,
+				                    possibilities,
+				                    null);
+
+				//If a string was returned, say so.
+				if ((s != null) && (s.length() > 0)) {
+				    editorMenuoutput.setText(HtmlUtils.convertMenuStringToHtml(SystemInterfaceObj.getIngredientMenu(s).toString()));
+				    return;
+				}else{
+					editorMenuoutput.setText("Canceled");
+					return;
+				}
+				
+				
+			}
+		});
 		//Action Listeners
 		btnGetPriceMenu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {							
@@ -227,40 +285,12 @@ public class Main {
 	
 			}
 		});
-		
-		btnGetPriceMenu.setBounds(205, 450, 174, 23);
-		panel_menu.add(btnGetPriceMenu);
-		
-		JButton btnGetIngredientMenu = new JButton("Get Ingredient Menu");
 		//Action Listeners
-		btnGetIngredientMenu.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {	
-				
-				String[] possibilities = infoObj.getUniqueIngredients();
-				
-				String s = (String)JOptionPane.showInputDialog(
-				                    frmManager,
-				                    "What Ingredient do you want to view??"
-				                    + "",
-				                    "Menu",
-				                    JOptionPane.PLAIN_MESSAGE,null,
-				                    possibilities,
-				                    null);
-
-				//If a string was returned, say so.
-				if ((s != null) && (s.length() > 0)) {
-				    editorMenuoutput.setText(HtmlUtils.convertMenuStringToHtml(SystemInterfaceObj.getIngredientMenu(s).toString()));
-				    return;
-				}else{
-					editorMenuoutput.setText("Canceled");
-					return;
-				}
-				
-				
+		btnGetHeartHealthy.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				editorMenuoutput.setText(HtmlUtils.convertMenuStringToHtml(SystemInterfaceObj.getHeartHealthyMenu().toString()));				
 			}
 		});
-		btnGetIngredientMenu.setBounds(205, 484, 174, 23);
-		panel_menu.add(btnGetIngredientMenu);
 		
 		//Action Listeners
 		//Get Complete menu
@@ -272,34 +302,60 @@ public class Main {
 		
 		JPanel panel_tables = new JPanel();
 		tabbedPane.addTab("Tables", null, panel_tables, null);
-		panel_tables.setLayout(null);
+		
+		JPanel panel_tables_group1 = new JPanel();
+		
+		JPanel panel_tables_group2 = new JPanel();
+		panel_tables_group2.setAlignmentX(Component.LEFT_ALIGNMENT);
+		panel_tables_group2.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		
+		JButton btn_tables_getTables = new JButton("Get All Tables");
+		panel_tables_group2.add(btn_tables_getTables);
+		
+		JButton btn_tables_getAvailableTables = new JButton("Get Available Tables");
+		panel_tables_group2.add(btn_tables_getAvailableTables);
+		GroupLayout gl_panel_tables = new GroupLayout(panel_tables);
+		gl_panel_tables.setHorizontalGroup(
+			gl_panel_tables.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel_tables.createSequentialGroup()
+					.addGroup(gl_panel_tables.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_panel_tables.createSequentialGroup()
+							.addContainerGap()
+							.addComponent(panel_tables_group2, GroupLayout.PREFERRED_SIZE, 375, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_panel_tables.createSequentialGroup()
+							.addGap(7)
+							.addComponent(panel_tables_group1, GroupLayout.DEFAULT_SIZE, 722, Short.MAX_VALUE)))
+					.addContainerGap())
+		);
+		gl_panel_tables.setVerticalGroup(
+			gl_panel_tables.createParallelGroup(Alignment.LEADING)
+				.addGroup(Alignment.TRAILING, gl_panel_tables.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(panel_tables_group1, GroupLayout.DEFAULT_SIZE, 470, Short.MAX_VALUE)
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addComponent(panel_tables_group2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addGap(9))
+		);
+		panel_tables_group1.setLayout(new BoxLayout(panel_tables_group1, BoxLayout.X_AXIS));
 		
 		JScrollPane scrollPane_1 = new JScrollPane();
+		panel_tables_group1.add(scrollPane_1);
 		scrollPane_1.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-		scrollPane_1.setBounds(10, 11, 614, 462);
-		panel_tables.add(scrollPane_1);
 		
 		editorTables = new JEditorPane();
 		editorTables.setContentType("text/html");
 		editorTables.setEditable(false);
 		scrollPane_1.setViewportView(editorTables);
-		
-		JButton btn_tables_getTables = new JButton("Get All Tables");
-		btn_tables_getTables.setBounds(10, 484, 151, 23);
-		panel_tables.add(btn_tables_getTables);
+		panel_tables.setLayout(gl_panel_tables);
+		//Action Listeners
+		btn_tables_getAvailableTables.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		//Action Listeners
 		btn_tables_getTables.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				editorTables.setText(HtmlUtils.convertMenuStringToHtml(SystemInterfaceObj.getTables()));
-			}
-		});
-		
-		JButton btn_tables_getAvailableTables = new JButton("Get Available Tables");
-		btn_tables_getAvailableTables.setBounds(171, 484, 151, 23);
-		panel_tables.add(btn_tables_getAvailableTables);
-		//Action Listeners
-		btn_tables_getAvailableTables.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
 			}
 		});
 		
