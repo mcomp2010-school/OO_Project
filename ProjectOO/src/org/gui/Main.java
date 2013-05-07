@@ -67,6 +67,8 @@ import java.awt.Component;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.UIManager;
+import java.awt.Toolkit;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -119,6 +121,11 @@ public class Main {
 	 * @param args the arguments
 	 */
 	public static void main(String[] args) {
+		try {
+			UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+		} catch (Throwable e) {
+			e.printStackTrace();
+		}
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -201,7 +208,7 @@ public class Main {
 		
 		JScrollPane scrollPane = new JScrollPane();
 		panel_3.add(scrollPane);
-		scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+		scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 		
 		editorMenuoutput = new JEditorPane();
 		scrollPane.setViewportView(editorMenuoutput);
@@ -339,8 +346,8 @@ public class Main {
 		panel_tables_group1.setLayout(new BoxLayout(panel_tables_group1, BoxLayout.X_AXIS));
 		
 		JScrollPane scrollPane_1 = new JScrollPane();
+		scrollPane_1.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 		panel_tables_group1.add(scrollPane_1);
-		scrollPane_1.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 		
 		editorTables = new JEditorPane();
 		editorTables.setContentType("text/html");
@@ -368,7 +375,7 @@ public class Main {
 		panel_recipt.add(lblLblreciptslist);
 		
 		JScrollPane scrollPane_recipts_recipt = new JScrollPane();
-		scrollPane_recipts_recipt.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+		scrollPane_recipts_recipt.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 		scrollPane_recipts_recipt.setBounds(188, 36, 444, 471);
 		panel_recipt.add(scrollPane_recipts_recipt);
 		
@@ -378,8 +385,7 @@ public class Main {
 		scrollPane_recipts_recipt.setViewportView(editorPane_recipts_recipt);
 		
 		JScrollPane scrollPane_recipts_reciptlist = new JScrollPane();
-		scrollPane_recipts_reciptlist.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-		scrollPane_recipts_reciptlist.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+		scrollPane_recipts_reciptlist.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 		scrollPane_recipts_reciptlist.setBounds(10, 36, 168, 437);
 		panel_recipt.add(scrollPane_recipts_reciptlist);
 		
