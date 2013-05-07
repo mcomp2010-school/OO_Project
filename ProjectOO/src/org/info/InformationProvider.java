@@ -195,7 +195,7 @@ public class InformationProvider {
 	/**
 	 * Get current orders
 	 * */
-	public ArrayList<Order> GetAllOrders()
+	public ArrayList<Order> GetAllSampleOrders()
 	{
 		return this.sampleOrders;
 	}

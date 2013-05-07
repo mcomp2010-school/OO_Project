@@ -6,12 +6,12 @@ import org.command.Command;
 import org.info.InformationProvider;
 import org.info.order.Order;
 
-public class GetCMDAllOrdersCommand implements Command{
+public class GetCMDAllSampleOrdersCommand implements Command{
 	/**The info obj*/
 	InformationProvider infoObj = InformationProvider.getSingletonObject();
 	
 	@Override
 	public Object execute(){
-		return (ArrayList<Order>)infoObj.GetAllOrders();
+		return (ArrayList<Order>)infoObj.GetAllSampleOrders();
 	}
 }
