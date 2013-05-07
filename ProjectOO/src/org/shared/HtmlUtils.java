@@ -55,6 +55,25 @@ public class HtmlUtils {
 	}
 
 	/**
+	 * Convert Orders string to html
+	 * */
+	public static String convertOrdersStringToHtml(String input){
+		StringBuilder output = new StringBuilder();
+		
+		output.append("<table border=\"1\" align=\"center\"><tr>\n");
+		//put headers here
+		output.append("</tr>\n");
+		
+		ArrayList<ArrayList<String>> alData = UtilsSup.stringtoNdArrayList(input, false,  ",|>");
+		for(int i = 0; i < alData.size(); i++){
+			row(output,alData.get(i));
+		}
+		
+		output.append("</table>");
+		return output.toString();
+	}
+	
+	/**
 	 * Header.
 	 *
 	 * @param output the output

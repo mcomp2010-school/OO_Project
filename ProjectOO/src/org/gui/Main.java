@@ -369,14 +369,13 @@ public class Main {
 		panel_orders.add(lbl_order_orderList);
 		
 		JScrollPane scrollPane_4 = new JScrollPane();
-		scrollPane_4.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 		scrollPane_4.setBounds(188, 36, 444, 471);
 		panel_orders.add(scrollPane_4);
 		
-		JEditorPane editorPane_1 = new JEditorPane();
-		editorPane_1.setEditable(false);
-		editorPane_1.setContentType("text/html");
-		scrollPane_4.setViewportView(editorPane_1);
+		final JEditorPane editorOrderOutput = new JEditorPane();
+		editorOrderOutput.setEditable(false);
+		editorOrderOutput.setContentType("text/html");
+		scrollPane_4.setViewportView(editorOrderOutput);
 		
 		JScrollPane scrollPane_5 = new JScrollPane();
 		scrollPane_5.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
@@ -386,8 +385,18 @@ public class Main {
 		
 		JList list_1 = new JList();
 		scrollPane_5.setViewportView(list_1);
-		
+
+//Get orders
 		JButton btnGetOrderList = new JButton("Get Order List");
+		
+		//Action Listeners
+		btnGetOrderList.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent arg0){
+				String test = HtmlUtils.convertOrdersStringToHtml(SystemInterfaceObj.getSampleOrders().toString());
+				editorOrderOutput.setText(HtmlUtils.convertOrdersStringToHtml(SystemInterfaceObj.getSampleOrders().toString()));
+			}
+		});
+		
 		btnGetOrderList.setBounds(10, 484, 168, 23);
 		panel_orders.add(btnGetOrderList);
 		

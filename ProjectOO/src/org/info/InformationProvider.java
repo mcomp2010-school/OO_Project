@@ -1,11 +1,14 @@
 package org.info;
 
+import java.util.ArrayList;
+
 import org.info.menu.Menu;
 import org.info.menu.MenuItem;
 import org.info.menu.iterators.CompleteMenuIterator;
 import org.info.menu.iterators.HeartHealthyMenuIterator;
 import org.info.menu.iterators.IngredientMenuIterator;
 import org.info.menu.iterators.PriceMenuIterator;
+import org.info.order.Order;
 import org.info.table.TableManager;
 import org.interfaces.MenuIteratorI;
 import org.party.PartyManager;
@@ -34,6 +37,8 @@ public class InformationProvider {
 	/** The singleton object. */
 	private static InformationProvider singletonObject;
 
+	/**Array of sample orders*/
+	private ArrayList<Order> sampleOrders;
 	/**
 	 * Instantiates a new information provider.
 	 */
@@ -46,6 +51,17 @@ public class InformationProvider {
 		
 		//Adding Tables
 		tableManagerObj.loadXML("data\\tables\\table_conf_1.xml");
+		
+		//load sample orders. During simulation, 
+		//these should be created and added to an array dynamically
+		Order Order1 = new Order(1);
+		Order Order2 = new Order(2);
+		Order1.loadXML("data\\SampleOrder.xml");
+		Order2.loadXML("data\\SampleOrder2.xml");
+		
+		sampleOrders = new ArrayList<Order>();
+		sampleOrders.add(Order1);
+		sampleOrders.add(Order2);
 		
 		if(StopWatchPerformance)System.err.println(this.getClass().getName()+".InformationProvider():"+Clock1.stop_SecDouble());
 	}
@@ -180,6 +196,15 @@ public class InformationProvider {
 		
 		return tempMenu;
 	}
+	
+	/**
+	 * Get current orders
+	 * */
+	public ArrayList<Order> GetAllSampleOrders()
+	{
+		return this.sampleOrders;
+	}
+	
 	/* (non-Javadoc)
 	 * @see java.lang.Object#hashCode()
 	 */

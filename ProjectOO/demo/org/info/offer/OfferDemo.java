@@ -30,7 +30,7 @@ public class OfferDemo {
 		Menu MenuObj= new Menu();
 		MenuObj.loadXML("data\\Menu.xml");
 		
-		Order Orders=new Order();
+		Order Orders=new Order(1);
 		
 		Orders.placeOrder(MenuObj.getItemByIDs("0,4,5,9"));
 		Orders.placeOrder(MenuObj.getItemByIDs("0,1"));

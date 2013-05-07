@@ -1,12 +1,16 @@
 package org.system;
 
+import java.util.ArrayList;
+
 import org.command.Invoker;
+import org.commands.GetCMDAllSampleOrdersCommand;
 import org.commands.GetCMDCompleteMenuCommand;
 import org.commands.GetCMDHeartHealthyMenuCommand;
 import org.commands.GetCMDIngredientMenuCommand;
 import org.commands.GetCMDPriceMenuCommand;
 import org.commands.GetCMDTables;
 import org.info.menu.Menu;
+import org.info.order.Order;
 import org.info.table.TableManager;
 
 // TODO: Auto-generated Javadoc
@@ -65,4 +69,12 @@ public class SystemInterface {
 		TableManager TableMgr=(TableManager) new GetCMDTables().execute();
 		return TableMgr.toString();
 	}
+	
+	/**
+	 * Gets Sample Orders in the system*/
+	public String getSampleOrders(){
+		ArrayList<Order> orders = (ArrayList<Order>)invoker.executeCommand(new GetCMDAllSampleOrdersCommand());
+		return orders.toString();
+	}
+		
 }
