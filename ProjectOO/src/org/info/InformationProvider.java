@@ -8,6 +8,7 @@ import org.info.menu.iterators.IngredientMenuIterator;
 import org.info.menu.iterators.PriceMenuIterator;
 import org.info.table.TableManager;
 import org.interfaces.MenuIteratorI;
+import org.party.PartyManager;
 import org.shared.performance.Timing;
 
 // TODO: Auto-generated Javadoc
@@ -27,6 +28,8 @@ public class InformationProvider {
 	
 	/** The Tables. */
 	private TableManager tableManagerObj=new TableManager();
+	
+	private PartyManager PartiesObj=new PartyManager();
 	
 	/** The singleton object. */
 	private static InformationProvider singletonObject;
@@ -59,7 +62,9 @@ public class InformationProvider {
 		return singletonObject;
 	}
 	
-	
+	public PartyManager getPartyMgr(){
+		return this.PartiesObj;
+	}
 	/**
 	 * Tables.
 	 *

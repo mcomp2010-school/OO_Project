@@ -12,6 +12,8 @@ import org.apache.commons.io.FileUtils;
 import org.errors.table.NoMoreRoomException;
 import org.info.menu.MenuItem;
 import org.interfaces.XStreamXMLI;
+import org.party.PartyItem;
+import org.party.PartyStatusE;
 import org.shared.performance.Timing;
 
 import com.thoughtworks.xstream.XStream;
@@ -171,8 +173,12 @@ public class TableManager implements XStreamXMLI {
 		double SeatsTotal= this.getTotalSeats();
 		
 		DecimalFormat df = new DecimalFormat("#.00");
+		String tem=df.format((SeatsAvailable/SeatsTotal)*100)+"%";
+		if(tem.length()==0){
+			tem="0.00%";
+		}
 		
-		return df.format((SeatsAvailable/SeatsTotal)*100)+"%";
+		return tem;
 	}
 	
 	
@@ -193,7 +199,20 @@ public class TableManager implements XStreamXMLI {
 			throw new NoMoreRoomException("No More Room");
 		}	
 	}
+	
+	public Integer seatBasedOnPartyItem(PartyItem input) throws NoMoreRoomException{
+		int id=this.getIDofAvailableTableBasedOnPartySize(input.getSize());
 		
+		if(id>=1){
+			this.getTable(id).setAvailable(false);
+			input.setPartyStatusState(PartyStatusE.SEATED);
+			return id;
+		}else{
+			throw new NoMoreRoomException("No More Room - Status Stayed the Same");
+		}	
+	}
+	
+	
 	/**
 	 * Gets the ID of available table based on party size.
 	 *

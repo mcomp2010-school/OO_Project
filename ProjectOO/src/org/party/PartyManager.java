@@ -10,7 +10,7 @@ import java.util.TreeMap;
 /**
  * The Class Parties.
  */
-public class Parties {
+public class PartyManager {
 
 	/** The party id. */
 	private Integer partyID = 0;
@@ -56,6 +56,59 @@ public class Parties {
 	}
 
 
+	public ArrayList<PartyItem>getWaitingParties(){
+		ArrayList<PartyItem> temp= new ArrayList<PartyItem>();
+				
+		for (Map.Entry<Integer, PartyItem> entry : this.parties.entrySet()) {
+			Integer key = entry.getKey();
+			PartyItem value = entry.getValue();
+
+			if(value.getPartyStatusState()==PartyStatusE.WAITING){
+				temp.add(value);
+			}
+			// System.out.println(key + " => " + value);
+	
+		}
+		
+		return temp;
+	}
+	
+	public ArrayList<PartyItem>getSeatedParties(){
+		ArrayList<PartyItem> temp= new ArrayList<PartyItem>();
+				
+		for (Map.Entry<Integer, PartyItem> entry : this.parties
+				.entrySet()) {
+			Integer key = entry.getKey();
+			PartyItem value = entry.getValue();
+
+			if(value.getPartyStatusState()==PartyStatusE.SEATED){
+				temp.add(value);
+			}
+			// System.out.println(key + " => " + value);
+	
+		}
+		
+		return temp;
+	}
+	
+	
+	public ArrayList<PartyItem>getFinishParties(){
+		ArrayList<PartyItem> temp= new ArrayList<PartyItem>();
+				
+		for (Map.Entry<Integer, PartyItem> entry : this.parties
+				.entrySet()) {
+			Integer key = entry.getKey();
+			PartyItem value = entry.getValue();
+
+			if(value.getPartyStatusState()==PartyStatusE.FINISH){
+				temp.add(value);
+			}
+			// System.out.println(key + " => " + value);
+	
+		}
+		
+		return temp;
+	}
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */

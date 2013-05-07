@@ -19,6 +19,8 @@ public class PartyItem {
 	
 	/** The size of party. */
 	private int size;
+	
+	private Enum partyStatusState;
 
 	/**
 	 * Instantiates a new party item.
@@ -31,6 +33,7 @@ public class PartyItem {
 		this.partyItemID = partyItemID;
 		this.timePlaced=new DateTime();
 		this.size = size;
+		this.partyStatusState=PartyStatusE.WAITING;
 	}
 
 	/**
@@ -87,13 +90,20 @@ public class PartyItem {
 		this.size = size;
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
+	
+	public Enum getPartyStatusState() {
+		return partyStatusState;
+	}
+
+	public void setPartyStatusState(Enum partyStatusState) {
+		this.partyStatusState = partyStatusState;
+	}
+
 	@Override
 	public String toString() {
 		return "PartyItem [partyItemID=" + partyItemID + ", timePlaced="
-				+ timePlaced + ", size=" + size + "]";
+				+ timePlaced + ", size=" + size + ", partyStatusState="
+				+ partyStatusState + "]";
 	}
-	
+
 }
