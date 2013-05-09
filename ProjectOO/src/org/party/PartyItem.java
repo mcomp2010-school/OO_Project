@@ -107,9 +107,9 @@ public class PartyItem {
 
 	@Override
 	public String toString() {
-		return "PartyItem [partyItemID=" + partyItemID + ", timePlaced="
-				+ timePlaced + ", size=" + size + ", partyStatusState="
-				+ partyStatusState + ", intTableID=" + intTableID + "]";
+		return "PartyItem [partyItemID=" + partyItemID + ";;; timePlaced="
+				+ timePlaced + ";;; size=" + size + ", partyStatusState="
+				+ partyStatusState + ";;; intTableID=" + intTableID + "]";
 	}
 
 }

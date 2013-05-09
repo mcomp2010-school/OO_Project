@@ -251,7 +251,7 @@ public class Main {
 
 				//If a string was returned, say so.
 				if ((s != null) && (s.length() > 0)) {
-				    editorMenuoutput.setText(HtmlUtils.convertMenuStringToHtml(SystemInterfaceObj.getIngredientMenu(s).toString()));
+				    editorMenuoutput.setText(HtmlUtils.convertGenericStringToHtml(SystemInterfaceObj.getIngredientMenu(s).toString()));
 				    return;
 				}else{
 					editorMenuoutput.setText("Canceled");
@@ -283,7 +283,7 @@ public class Main {
 				
 				//If a string was returned, say so.
 				if ((s != null)&&(s>=0.0)) {
-				    editorMenuoutput.setText(HtmlUtils.convertMenuStringToHtml(SystemInterfaceObj.getPriceMenu(s).toString()));
+				    editorMenuoutput.setText(HtmlUtils.convertGenericStringToHtml(SystemInterfaceObj.getPriceMenu(s).toString()));
 				    return;
 				}else{
 					editorMenuoutput.setText("Canceled");
@@ -295,7 +295,7 @@ public class Main {
 		//Action Listeners
 		btnGetHeartHealthy.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				editorMenuoutput.setText(HtmlUtils.convertMenuStringToHtml(SystemInterfaceObj.getHeartHealthyMenu().toString()));				
+				editorMenuoutput.setText(HtmlUtils.convertGenericStringToHtml(SystemInterfaceObj.getHeartHealthyMenu().toString()));				
 			}
 		});
 		
@@ -303,7 +303,7 @@ public class Main {
 		//Get Complete menu
 		btnGetCompleteMenu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				editorMenuoutput.setText(HtmlUtils.convertMenuStringToHtml(SystemInterfaceObj.getGetCompleteMenu())); 
+				editorMenuoutput.setText(HtmlUtils.convertGenericStringToHtml(SystemInterfaceObj.getGetCompleteMenu())); 
 			}
 		});
 		
@@ -362,7 +362,7 @@ public class Main {
 		//Action Listeners
 		btn_tables_getTables.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				editorTables.setText(HtmlUtils.convertMenuStringToHtml(SystemInterfaceObj.getTables()));
+				editorTables.setText(HtmlUtils.convertGenericStringToHtml(SystemInterfaceObj.getTables()));
 			}
 		});
 		
@@ -434,7 +434,7 @@ public class Main {
 				if(CurrentResult.trim().length()==0){
 					editorPane_Comments.setText("No Comments for " + CommentCat);
 				}else{
-					editorPane_Comments.setText(HtmlUtils.convertMenuStringToHtml(CurrentResult.trim()));
+					editorPane_Comments.setText(HtmlUtils.convertGenericStringToHtml(CurrentResult.trim()));
 				}
 				
 				//TODO:Complete Add Comment

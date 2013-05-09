@@ -125,8 +125,8 @@ public class CommentItem {
 	 */
 	@Override
 	public String toString() {
-		return "CommentItem [commentItemID=" + commentItemID + ", timePlaced="
-				+ new Timestamp(timePlaced.getMillis()) + ", description=" + description + ", category="
+		return "CommentItem [commentItemID=" + commentItemID + ";;; timePlaced="
+				+ new Timestamp(timePlaced.getMillis()) + ";;; description=" + description + ";;; category="
 				+ category + "]";
 	}
 

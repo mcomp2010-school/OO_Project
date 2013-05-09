@@ -102,8 +102,8 @@ public class Table implements SimulationI{
 	 */
 	@Override
 	public String toString() {
-		return "Table [tableID=" + tableID + ", size=" + size
-				+ ", isAvailable=" + isAvailable + "]\t"+this.ExpTime;
+		return "Table [tableID=" + tableID + ";;; size=" + size
+				+ ";;; isAvailable=" + isAvailable + "]\t"+this.ExpTime;
 	}
 
 

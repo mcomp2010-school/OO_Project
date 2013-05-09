@@ -281,13 +281,16 @@ public class MenuItem {
 	}
 
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
+
+	
 	@Override
 	public String toString() {
 		DecimalFormat df= new DecimalFormat("#.00");
-		return this.ItemID+">" + itemName + ", " + df.format(Price)+ ", " + MainIngredient + ", " + category + "";
-	}	
+		return "MenuItem [ItemID=" + ItemID + ";;; itemName=" + itemName
+				+ ";;; Price=" + df.format(Price) + ";;; MainIngredient=" + MainIngredient
+				+ ";;; category=" + category + "]";
+	}
+
+
 
 }
