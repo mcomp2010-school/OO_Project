@@ -156,7 +156,7 @@ public class MainQueue {
 
                 			myTab.printTab(cost, list);
                 			
-                			infoObj.getTabsMgr().addTab(myTab);
+                			infoObj.getTabsMgr().addTab(myTab.toString().replace("\n", "<br>"));
                 		 
                 		 
                 		//TODO: Generate Comment of order

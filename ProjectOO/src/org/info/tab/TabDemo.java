@@ -22,6 +22,7 @@ public class TabDemo {
 		String list = myTab.getMyList().getList();
 
 		myTab.printTab(cost, list);
+		System.out.println(myTab);
 		// myTab.print();
 	}
 

@@ -6,22 +6,23 @@ package org.info.tab;
 public abstract class Tab {
 	
 	private ListOfItems myList;
-	
-	double total;
-	String theList;
+	StringBuilder oupt=new StringBuilder();
 	
 	public ListOfItems getMyList() {
 		return myList;
 	}
 
 	public void printTab(double total, String theList) {
-		System.out.println("You have ordered: ");
-		System.out.println(theList);
-		System.out.println("Your total is: ");
-		System.out.println(total);
+		//System.out.println("You have ordered: ");
+		//System.out.println(theList);
+		//System.out.println("Your total is: ");
+		//System.out.println(total);
 		
-		this.total=total;
-		this.theList=theList;
+		oupt.append("You have ordered: \n");
+		oupt.append(theList+"\n");
+		oupt.append("Your total is: \n");
+		oupt.append(total+"\n");
+		
 	}
 	
 	public void setList(ListOfItems theList){
@@ -30,13 +31,6 @@ public abstract class Tab {
 
 	@Override
 	public String toString() {
-		StringBuilder oupt=new StringBuilder();
-		
-		oupt.append("You have ordered: \n");
-		oupt.append(theList+"\n");
-		oupt.append("Your total is: \n");
-		oupt.append(total+"\n");
-		
 		return oupt.toString();
 	}
 	

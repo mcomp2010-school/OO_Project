@@ -3,9 +3,9 @@ package org.info.tab;
 import java.util.ArrayList;
 
 public class TabManager {
-	private ArrayList<Tab> myTabs= new ArrayList<Tab>();
+	private ArrayList<String> myTabs= new ArrayList<String>();
 	
-	public void addTab(Tab newTab){
+	public void addTab(String newTab){
 		myTabs.add(newTab);
 	}
 	
@@ -13,7 +13,7 @@ public class TabManager {
 		return myTabs.size();
 	}
 	
-	public Tab getMyTabs(int index) {
+	public String getMyTabs(int index) {
 		return myTabs.get(index);
 	}
 
