@@ -11,6 +11,7 @@ import org.info.menu.iterators.IngredientMenuIterator;
 import org.info.menu.iterators.PriceMenuIterator;
 import org.info.offer.OfferManager;
 import org.info.order.OrderManager;
+import org.info.tab.TabManager;
 import org.info.table.TableManager;
 import org.interfaces.MenuIteratorI;
 import org.party.PartyManager;
@@ -36,6 +37,7 @@ public class InformationProvider {
 	
 	private PartyManager PartiesObj=new PartyManager();
 	private CommentManager CommentsObj=new CommentManager();
+	private TabManager TabsMgr=new TabManager();
 	private OrderManager OrdersObj=new OrderManager();
 	private OfferManager offerVIPObj = new OfferManager("VIP Discounts");
 	
@@ -83,6 +85,11 @@ public class InformationProvider {
 		return singletonObject;
 	}
 	
+	
+	public TabManager getTabsMgr() {
+		return TabsMgr;
+	}
+
 	public CommentManager getCommentMgr(){
 		return this.CommentsObj;
 	}

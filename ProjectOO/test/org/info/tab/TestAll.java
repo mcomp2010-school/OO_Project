@@ -15,7 +15,7 @@ import org.junit.runners.Suite;
  */
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
-	TabTest.class,
+	TabDemo.class,
 	TabItemTest.class,
 })
 public class TestAll {

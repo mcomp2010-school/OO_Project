@@ -5,8 +5,13 @@ package org.info.tab;
  */
 public abstract class Tab {
 	
-	ListOfItems myList;
+	private ListOfItems myList;
 	
+	
+	public ListOfItems getMyList() {
+		return myList;
+	}
+
 	public void printTab(double total, String theList) {
 		System.out.println("You have ordered: ");
 		System.out.println(theList);

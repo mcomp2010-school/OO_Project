@@ -47,6 +47,6 @@ public class TabTest {
 	 * @generatedBy CodePro at 5/9/13 7:46 AM
 	 */
 	public static void main(String[] args) {
-		new org.junit.runner.JUnitCore().run(TabTest.class);
+		new org.junit.runner.JUnitCore().run(TabDemo.class);
 	}
 }

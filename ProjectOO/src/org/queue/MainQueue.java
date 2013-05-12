@@ -12,6 +12,11 @@ import java.util.TimerTask;
 import org.errors.table.NoMoreRoomException;
 import org.info.InformationProvider;
 import org.info.comment.CommentCategoryE;
+import org.info.tab.BlankTab;
+import org.info.tab.CouponTab;
+import org.info.tab.ListOfItems;
+import org.info.tab.SurveyTab;
+import org.info.tab.Tab;
 import org.party.PartyItem;
 import org.shared.Utils;
 
@@ -128,6 +133,32 @@ public class MainQueue {
                 				 
            				//TODO: Generate Recipt of order
            				
+                		 
+                		 
+                		 
+                		//TODO: Generate Recept
+                		  	Tab myTab;
+
+                			ListOfItems theList = new ListOfItems();
+                			theList.getMenuItems();
+
+                			if (theList.getOrderSize() >= 3){
+                				if (theList.getCost() >= 20.00){
+                					myTab = new CouponTab();
+                				} else
+                					myTab = new SurveyTab();
+                			} else {
+                				myTab = new BlankTab();	
+                			}
+                			myTab.setList(theList);
+                			double cost = myTab.getMyList().getCost();
+                			String list = myTab.getMyList().getList();
+
+                			myTab.printTab(cost, list);
+                			
+                			infoObj.getTabsMgr().addTab(myTab);
+                		 
+                		 
                 		//TODO: Generate Comment of order
                 		 if(Utils.randomNumberBetween(1,100)<=50){//50 percent of Tables makes a comment
                 				infoObj.getCommentMgr().addComment("Food was great", CommentCategoryE.SERVICE);
