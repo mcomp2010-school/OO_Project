@@ -160,16 +160,12 @@ public class MainQueue {
                 		 
                 		 
                 		//TODO: Generate Comment of order
-                		 if(Utils.randomNumberBetween(1,100)<=50){//50 percent of Tables makes a comment
-                				infoObj.getCommentMgr().addComment("Food was great", CommentCategoryE.SERVICE);
-                				infoObj.getCommentMgr().addComment("Bad Server, Very Slow", CommentCategoryE.COMPLAINT);
-                				infoObj.getCommentMgr().addComment("Bug in food", CommentCategoryE.COMPLAINT);
-                				infoObj.getCommentMgr().addComment("Prices are too high", CommentCategoryE.PRICES);
-                				infoObj.getCommentMgr().addComment("The chicken was very good", CommentCategoryE.FOOD_ITEM);
-                				infoObj.getCommentMgr().addComment("Long Waiting Time", CommentCategoryE.COMPLAINT);
-                				
-                		 }
-                		 
+                		 if(Utils.randomNumberBetween(1,100)<=50)infoObj.getCommentMgr().addComment("Food was great", CommentCategoryE.SERVICE);
+                		 if(Utils.randomNumberBetween(1,100)<=50)infoObj.getCommentMgr().addComment("Bad Server, Very Slow", CommentCategoryE.COMPLAINT);
+                		 if(Utils.randomNumberBetween(1,100)<=50)infoObj.getCommentMgr().addComment("Bug in food", CommentCategoryE.COMPLAINT);
+                		 if(Utils.randomNumberBetween(1,100)<=50)infoObj.getCommentMgr().addComment("Prices are too high", CommentCategoryE.PRICES);
+                		 if(Utils.randomNumberBetween(1,100)<=50)infoObj.getCommentMgr().addComment("The chicken was very good", CommentCategoryE.FOOD_ITEM);
+                		 if(Utils.randomNumberBetween(1,100)<=50)infoObj.getCommentMgr().addComment("Long Waiting Time", CommentCategoryE.COMPLAINT);                		 
            				//qWaitingCustomers.remove(intTableID);
                  	}
                 }

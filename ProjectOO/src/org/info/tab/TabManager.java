@@ -13,6 +13,10 @@ public class TabManager {
 		return myTabs.size();
 	}
 	
+	public Tab getMyTabs(int index) {
+		return myTabs.get(index);
+	}
+
 	/**
 	 * @param args
 	 */

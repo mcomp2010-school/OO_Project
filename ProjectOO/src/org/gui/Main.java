@@ -2,6 +2,7 @@ package org.gui;
 
 import java.awt.EventQueue;
 
+import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
@@ -34,6 +35,7 @@ import java.awt.SystemColor;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.TreeSet;
+import java.util.Vector;
 
 import javax.swing.DropMode;
 import javax.swing.JLabel;
@@ -69,6 +71,8 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.UIManager;
 import java.awt.Toolkit;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -97,7 +101,7 @@ public class Main {
 	private JEditorPane editorPane_recipts_recipt;
 	
 	/** The list_recipts. */
-	private JList<String> list_recipts;
+	private JList list_recipts;
 	
 	/** The slider. */
 	private JSlider slider;
@@ -390,9 +394,31 @@ public class Main {
 		panel_recipt.add(scrollPane_recipts_reciptlist);
 		
 		list_recipts = new JList();
+		list_recipts.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				
+				//System.out.println(list_recipts.getSelectedValue());
+				editorPane_recipts_recipt.setText(infoObj.getTabsMgr().getMyTabs(Integer.parseInt(list_recipts.getSelectedValue()+"")).toString());
+			}
+		});
+		
+        
 		scrollPane_recipts_reciptlist.setViewportView(list_recipts);
 		
 		JButton btn_recipt_getReciptList = new JButton("Get Recipt List");
+		btn_recipt_getReciptList.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Vector newa=new Vector();
+				
+				for(int i=0;i<infoObj.getTabsMgr().size();i++){
+					newa.add(i);
+				}
+				
+				list_recipts.setListData(newa);
+				
+			}
+		});
 		btn_recipt_getReciptList.setBounds(10, 484, 168, 23);
 		panel_recipt.add(btn_recipt_getReciptList);
 		
