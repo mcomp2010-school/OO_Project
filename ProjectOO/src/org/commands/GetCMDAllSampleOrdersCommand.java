@@ -12,6 +12,6 @@ public class GetCMDAllSampleOrdersCommand implements Command{
 	
 	@Override
 	public Object execute(){
-		return (ArrayList<OrderManager>)infoObj.GetAllSampleOrders();
+		return infoObj.getMenuObj().toString();
 	}
 }

@@ -27,7 +27,7 @@ public class HtmlUtils {
 		
 		ArrayList<String> fil= getGenericDivLine(n,0);
 		
-		System.out.println(fil);
+		System.out.println(convertGenericStringToHtml(n));
 		
 		//ArrayList<String> hello=UtilsSup.stringto1dArrayList(n,false);
 		

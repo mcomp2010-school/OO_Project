@@ -118,6 +118,7 @@ public class Main {
 	private JProgressBar progressBar;
 	private JComboBox comboBox_Comments;
 	private JEditorPane editorPane_Comments;
+	private JList jList_orders_list;
 	
 	/**
 	 * Launch the application.
@@ -168,8 +169,6 @@ public class Main {
 				if(strPreviousTable.equals("Simulation")){
 					timer_gui_tabbedPaneUpdating.cancel();	
 				}
-				
-				
 				
 		        int index = tabbedPane.getSelectedIndex();
 		        String titleAt = tabbedPane.getTitleAt(index);
@@ -491,8 +490,18 @@ public class Main {
 		scrollPane_5.setBounds(10, 36, 168, 437);
 		panel_orders.add(scrollPane_5);
 		
-		JList list_1 = new JList();
-		scrollPane_5.setViewportView(list_1);
+		jList_orders_list = new JList();
+		jList_orders_list.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				String te=infoObj.getOrdersObj().getOrderByID(Integer.parseInt(jList_orders_list.getSelectedValue()+"")).getMenuItems().toString();
+				te= te.substring(1,te.length()-1).replace("],", "],\n");
+				System.err.println(te);
+				editorOrderOutput.setText(HtmlUtils.convertGenericStringToHtml(te));
+				System.err.println(jList_orders_list.getSelectedValue());
+			}
+		});
+		scrollPane_5.setViewportView(jList_orders_list);
 
 //Get orders
 		JButton btnGetOrderList = new JButton("Get Order List");
@@ -500,8 +509,14 @@ public class Main {
 		//Action Listeners
 		btnGetOrderList.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent arg0){
-				String test = HtmlUtils.convertOrdersStringToHtml(SystemInterfaceObj.getSampleOrders().toString());
-				editorOrderOutput.setText(HtmlUtils.convertOrdersStringToHtml(SystemInterfaceObj.getSampleOrders().toString()));
+				//TODO:adadfadsf
+				//TODO:
+				//TODO:
+				//TODO:
+				//TODO:
+				//TODO:
+				//TODO:
+				jList_orders_list.setListData(infoObj.getOrdersObj().getVector_ids());
 			}
 		});
 		

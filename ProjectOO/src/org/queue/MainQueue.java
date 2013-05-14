@@ -14,7 +14,7 @@ import org.info.InformationProvider;
 import org.info.comment.CommentCategoryE;
 import org.info.tab.BlankTab;
 import org.info.tab.CouponTab;
-import org.info.tab.ListOfItems;
+import org.info.tab.ListOfItemsGenerator;
 import org.info.tab.SurveyTab;
 import org.info.tab.Tab;
 import org.party.PartyItem;
@@ -94,8 +94,7 @@ public class MainQueue {
 				ArrayList<PartyItem> alWaitingParties = null;
 
 				alWaitingParties= infoObj.getPartyMgr().getWaitingParties();
-
-
+				
 				System.out.println(alWaitingParties);
 				System.out.println("----------------------------------------------------------------------");
 				for (int i = 0; i < alWaitingParties.size(); i++) {
@@ -103,6 +102,31 @@ public class MainQueue {
 						infoObj.Tables().seatBasedOnPartyItem(alWaitingParties.get(i));
 						//TODO: Generate orders
 						
+						
+						
+			    		//TODO: Generate Recept
+            		  	Tab myTab;
+
+            			ListOfItemsGenerator theList = new ListOfItemsGenerator();
+            			infoObj.getOrdersObj().placeOrder(theList.getMenuItems());
+
+            			if (theList.getOrderSize() >= 3){
+            				if (theList.getCost() >= 20.00){
+            					myTab = new CouponTab();
+            				} else
+            					myTab = new SurveyTab();
+            			} else {
+            				myTab = new BlankTab();	
+            			}
+            			myTab.setList(theList);
+            			double cost = myTab.getMyList().getCost();
+            			String list = myTab.getMyList().getList();
+
+            			myTab.printTab(cost, list);
+            			
+            			infoObj.getTabsMgr().addTab(myTab.toString().replace("\n", "<br>"));
+            	
+            			
 						System.out.println("DEBUG:Seated party");
 					} catch (NoMoreRoomException e) {
 						// TODO Auto-generated catch block
@@ -136,27 +160,7 @@ public class MainQueue {
                 		 
                 		 
                 		 
-                		//TODO: Generate Recept
-                		  	Tab myTab;
-
-                			ListOfItems theList = new ListOfItems();
-                			theList.getMenuItems();
-
-                			if (theList.getOrderSize() >= 3){
-                				if (theList.getCost() >= 20.00){
-                					myTab = new CouponTab();
-                				} else
-                					myTab = new SurveyTab();
-                			} else {
-                				myTab = new BlankTab();	
-                			}
-                			myTab.setList(theList);
-                			double cost = myTab.getMyList().getCost();
-                			String list = myTab.getMyList().getList();
-
-                			myTab.printTab(cost, list);
-                			
-                			infoObj.getTabsMgr().addTab(myTab.toString().replace("\n", "<br>"));
+            
                 		 
                 		 
                 		//TODO: Generate Comment of order

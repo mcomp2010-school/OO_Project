@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.TreeMap;
+import java.util.Vector;
 
 import org.apache.commons.io.FileUtils;
 import org.info.comment.CommentItem;
@@ -82,6 +83,25 @@ public class OrderManager implements XStreamXMLI {
 	public TreeMap<Integer, OrderItem> getAllOrders()
 	{
 		return orders;		
+	}
+	
+	
+	public Vector getVector_ids(){
+		Vector temp=new Vector();
+		
+		
+		for (Map.Entry<Integer, OrderItem> entry : this.orders
+				.entrySet()) {
+			Integer key = entry.getKey();
+			OrderItem value = entry.getValue();
+
+			// System.out.println(key + " => " + value);
+			temp.add(key);
+		}
+		
+		
+		
+		return temp;
 	}
 	
 	/* (non-Javadoc)

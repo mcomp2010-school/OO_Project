@@ -1,9 +1,13 @@
 package org.info.tab;
 
-public class ListOfItems {
+import java.util.ArrayList;
+
+import org.info.menu.MenuItem;
+
+public class ListOfItemsGenerator {
 
 	int min = 1;
-	int max = 5;
+	int max = 10;
 	int myRandom = min + (int)(Math.random() * (max - min) + 1);
 	protected int orderSize = myRandom;
 	private double totalCost;
@@ -11,14 +15,18 @@ public class ListOfItems {
 	
 	ItemsGenerator generator = new ItemsGenerator();
 	
-	public void getMenuItems() {
+	public ArrayList<MenuItem> getMenuItems() {
+		ArrayList<MenuItem> items= new ArrayList<MenuItem>();
+		
 		list = "";
 		for (int i = 0; i < orderSize; i++){
 			MenuItem myItem = generator.getMenuItem();
 			setCost(myItem.getPrice());
-			list += myItem.getName() + " " + myItem.getPrice();
+			list += myItem.getItemName() + " " + myItem.getPrice();
 			list += "\n";
+			items.add(myItem);
 		}
+		return items;
 	}
 	
 	

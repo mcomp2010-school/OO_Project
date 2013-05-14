@@ -44,8 +44,6 @@ public class InformationProvider {
 	/** The singleton object. */
 	private static InformationProvider singletonObject;
 
-	/**Array of sample orders*/
-	private ArrayList<OrderManager> sampleOrders;
 	/**
 	 * Instantiates a new information provider.
 	 */
@@ -58,17 +56,6 @@ public class InformationProvider {
 		
 		//Adding Tables
 		tableManagerObj.loadXML("data\\tables\\table_conf_1.xml");
-		
-		//load sample orders. During simulation, 
-		//these should be created and added to an array dynamically
-		OrderManager Order1 = new OrderManager(1);
-		OrderManager Order2 = new OrderManager(2);
-		Order1.loadXML("data\\SampleOrder.xml");
-		Order2.loadXML("data\\SampleOrder2.xml");
-		
-		sampleOrders = new ArrayList<OrderManager>();
-		sampleOrders.add(Order1);
-		sampleOrders.add(Order2);
 		
 		if(StopWatchPerformance)System.err.println(this.getClass().getName()+".InformationProvider():"+Clock1.stop_SecDouble());
 	}
@@ -85,7 +72,14 @@ public class InformationProvider {
 		return singletonObject;
 	}
 	
-	
+	public OrderManager getOrdersObj() {
+		return OrdersObj;
+	}
+
+	public Menu getMenuObj() {
+		return MenuObj;
+	}
+
 	public TabManager getTabsMgr() {
 		return TabsMgr;
 	}
@@ -212,14 +206,7 @@ public class InformationProvider {
 		
 		return tempMenu;
 	}
-	
-	/**
-	 * Get current orders
-	 * */
-	public ArrayList<OrderManager> GetAllSampleOrders()
-	{
-		return this.sampleOrders;
-	}
+
 	
 	/* (non-Javadoc)
 	 * @see java.lang.Object#hashCode()

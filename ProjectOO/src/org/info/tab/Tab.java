@@ -5,10 +5,10 @@ package org.info.tab;
  */
 public abstract class Tab {
 	
-	private ListOfItems myList;
+	private ListOfItemsGenerator myList;
 	StringBuilder oupt=new StringBuilder();
 	
-	public ListOfItems getMyList() {
+	public ListOfItemsGenerator getMyList() {
 		return myList;
 	}
 
@@ -25,7 +25,7 @@ public abstract class Tab {
 		
 	}
 	
-	public void setList(ListOfItems theList){
+	public void setList(ListOfItemsGenerator theList){
 		myList = theList;
 	}
 

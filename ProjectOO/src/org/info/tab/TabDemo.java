@@ -6,7 +6,7 @@ public class TabDemo {
 
 		Tab myTab;
 
-		ListOfItems theList = new ListOfItems();
+		ListOfItemsGenerator theList = new ListOfItemsGenerator();
 		theList.getMenuItems();
 
 		if (theList.getOrderSize() >= 3){
