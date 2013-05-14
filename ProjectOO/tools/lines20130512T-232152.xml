@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<results>
+<header>http://cloc.sourceforge.net v 1.08  T=0.5 s (102.0 files/s, 11312.0 lines/s)</header>
+<languages>
+<language name="Java" files_count="51" blank="1020" comment="1523" code="3113" />
+<total sum_files="51" blank="1020" comment="1523" code="3113" />
+</languages>
+</results>
